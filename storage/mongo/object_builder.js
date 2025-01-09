@@ -14,6 +14,7 @@ var { addDays } = require('date-fns');
 const AddPermission = require("../../helper/addPermission");
 const RangeDate = require("../../helper/rangeDate");
 const ObjectBuilder = require("../../models/object_builder");
+const ObjectSlimBuilder = require("../../models/object_slim_builder");
 const FormulaFunction = require("../../helper/calculateFormulaFields");
 const mongoPool = require('../../pkg/pool');
 const PrepareFunction = require('../../helper/prepareFunctions');
@@ -741,27 +742,6 @@ let objectBuilder = {
                         }
                         viewFields.push(viewFieldsResp[i]._doc)
                     }
-
-                    // for (const view_field of relation.view_fields) {
-                    //     let viewField = await Field.findOne(
-                    //         {
-                    //             id: view_field
-                    //         },
-                    //         {
-                    //             createdAt: 0,
-                    //             updatedAt: 0,
-                    //             created_at: 0,
-                    //             updated_at: 0,
-                    //             _id: 0,
-                    //             __v: 0
-                    //         })
-                    //     if (viewField) {
-                    //         if (viewField.attributes) {
-                    //             viewField.attributes = struct.decode(viewField.attributes)
-                    //         }
-                    //         viewFields.push(viewField._doc)
-                    //     }
-                    // }
                 }
                 field.view_fields = viewFields
             }
@@ -879,8 +859,8 @@ let objectBuilder = {
                     $and: [params]
                 },
                     {
-                        createdAt: 0,
-                        updatedAt: 0,
+                        // createdAt: 0,
+                        // updatedAt: 0,
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
@@ -1015,8 +995,8 @@ let objectBuilder = {
                     ...params
                 },
                     {
-                        createdAt: 0,
-                        updatedAt: 0,
+                        // createdAt: 0,
+                        // updatedAt: 0,
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
@@ -1211,7 +1191,7 @@ let objectBuilder = {
         const offset = params.offset
         delete params["offset"]
         delete params["limit"]
-        const allTables = (await ObjectBuilder(true, req.project_id))
+        const allTables = (await ObjectSlimBuilder(true, req.project_id))
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -1435,8 +1415,8 @@ let objectBuilder = {
                     $and: [params]
                 },
                     {
-                        createdAt: 0,
-                        updatedAt: 0,
+                        // createdAt: 0,
+                        // updatedAt: 0,
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
@@ -1519,8 +1499,8 @@ let objectBuilder = {
                     ...params
                 },
                     {
-                        createdAt: 0,
-                        updatedAt: 0,
+                        // createdAt: 0,
+                        // updatedAt: 0,
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
@@ -1668,7 +1648,6 @@ let objectBuilder = {
             }
         }
 
-
         const endMemoryUsage = process.memoryUsage();
 
         const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
@@ -1688,10 +1667,17 @@ let objectBuilder = {
             logger.info(`--> P-M Memory used by getListSlim2: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
         }
 
+        const formattedResult = result.map(item => ({
+            ...item,
+            createdAt: item.createdAt.toISOString(),
+            updatedAt: item.updatedAt.toISOString(),
+        }));
+
         const response = struct.encode({
             count: count,
-            response: result,
+            response: formattedResult,
         });
+
         return { table_slug: req.table_slug, data: response, is_cached: currentTable.is_cached }
 
     }),
@@ -3023,7 +3009,7 @@ let objectBuilder = {
 
                     const outputQuery = {
                         guid: {
-                            $in: flattenedGuids        
+                            $in: flattenedGuids
                         }
                     };
 
@@ -3313,8 +3299,8 @@ let objectBuilder = {
         },
             {
                 created_at: 0,
-                updated_at: 0,
-                createdAt: 0,
+                // updated_at: 0,
+                // createdAt: 0,
                 updatedAt: 0,
                 _id: 0,
                 __v: 0

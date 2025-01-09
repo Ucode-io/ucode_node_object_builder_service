@@ -11,7 +11,6 @@ const VersionHistory = mongoose.Schema(
         },
         action_source: {
             type: String,
-            // enum: VERSION_SOURCE_TYPES
         },
         action_type: {
             type: String,

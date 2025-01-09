@@ -5,6 +5,7 @@ const newMongoDBConn = require('../../config/mongoConn')
 const config = require('../../config/index')
 const client = require('../../services/grpc/client');
 const objectBuilder = require("../../models/object_builder");
+const buildSlimModels = require("../../models/object_slim_builder");
 const logger = require("../../config/logger");
 const isSystemChecker = require("../../helper/is_system")
 const initialMenu = require("../../helper/initialMenu");
@@ -138,6 +139,7 @@ let projectStore = {
                         mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
                         mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
                         await objectBuilder(false, data.project_id)
+                        await buildSlimModels(false, data.project_id)
                         await initialMenu({ project_id: data.project_id })
                         await defaultPage({ project_id: data.project_id })
                         await addFields({ project_id: data.project_id })
@@ -161,7 +163,6 @@ let projectStore = {
             throw err
         }
     }),
-
     registerProjects: catchWrapDb(`${NAMESPACE}.register`, async (data) => {
         try {
 
@@ -199,17 +200,11 @@ let projectStore = {
         let reconnect_data = await client.autoConn(config.k8s_namespace, config.nodeType);
         for (let it of reconnect_data.res) {
             if (it.resource_type !== "MONGODB") continue
-            if (it.credentials.database == "alpha_c19a15f865334d6ca9db044b1e0891a2_p_obj_build_svcs") {
-                console.log(it.credentials)
-            } 
-            // try {
-            //     await projectStore.reconnect(it)
-
-
-            //     // await addRowOrder({project_id: it?.project_id ?? it?.id})
-            // } catch (err) {
-            //     logger.info(`auto connecting to resources failed: ${err}`);
-            // }
+            try {
+                await projectStore.reconnect(it)
+            } catch (err) {
+                logger.info(`auto connecting to resources failed: ${err}`);
+            }
         }
 
         return {}

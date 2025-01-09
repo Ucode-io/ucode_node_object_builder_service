@@ -29,6 +29,7 @@ let appStore = {
                 appPermissions.push(permissionModel)
             }
             await appPermission.models.insertMany(appPermissions);
+            
             return response;
         } catch (err) {
             throw err

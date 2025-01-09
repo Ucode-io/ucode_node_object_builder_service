@@ -6,7 +6,6 @@ const TableSchema = mongoose.Schema(
         id: {
             type: String,
             default: v4,
-            // unique: true
         },
         label: {
             type: String,

@@ -22,16 +22,17 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnectinag to resources`);
         await projectStorage.reconnect({
-            project_id: "baa6651d-cc6e-4302-977f-843a976ede5f",
+            project_id: "088bf450-6381-45b5-a236-2cb0880dcaab",
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,
-                database: "binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs",
-                username: "binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs",
-                password: "QGmh717SEf"
+                database: "wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs",
+                username: "wallyy_0f111e783a934bec945a2a77e0e0a82d_p_obj_build_svcs",
+                password: "xLezOfqNj0"
             } 
         })
 
+        //9b9f3c0c-919f-43a1-97f0-7165d0b39c6f:mongodb://calculator_b1927621534e416f8d45e61f9f2d7bde_p_obj_build_svcs:5vv8mjVykg@142.93.164.37:27017/calculator_b1927621534e416f8d45e61f9f2d7bde_p_obj_build_svcs
         //baa6651d-cc6e-4302-977f-843a976ede5f:mongodb://binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs:QGmh717SEf@142.93.164.37:27017/binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs
         //205a1e44-8f96-4b41-9613-55508ee66b80:mongodb://ucode_36aeec31639f41ad890b6aba6464695d_p_obj_build_svcs:0oVJgmwqDQ@142.93.164.37:27017/ucode_36aeec31639f41ad890b6aba6464695d_p_obj_build_svcs          
         //481541ad-98c4-4d68-a225-081bdbf221e2:mongodb://integratio_f05fdd8df949499995935686ac272993_p_obj_build_svcs:m5M5Ek8zps@142.93.164.37:27017/integratio_f05fdd8df949499995935686ac272993_p_obj_build_svcs

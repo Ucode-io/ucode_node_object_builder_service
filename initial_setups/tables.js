@@ -67,8 +67,7 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
-    },
-    {
+    }, {
         "label": "Языки",
         "slug": "setting.languages",
         "description": "Языки",
@@ -84,8 +83,7 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0,
         "is_system": true
-    },
-    {
+    }, {
         "label": "Часовые пояса",
         "slug": "setting.timezones",
         "description": "Часовые пояса",
@@ -101,8 +99,7 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0,
         "is_system": true
-    },
-    {
+    }, {
         "__v": 0,
         "soft_delete": false,
         "is_system": true,
@@ -246,7 +243,7 @@ async function createTable() {
         "__v": 0,
         "soft_delete": false,
         "is_system": true,
-    },{
+    }, {
         "label": "Шаблон",
         "slug": "template",
         "description": "Шаблоны",
@@ -262,7 +259,7 @@ async function createTable() {
         "__v": 0,
         "soft_delete": false,
         "is_system": true,
-      },{
+    }, {
         "label": "Врачи",
         "slug": "doctors",
         "description": "Специалисты",
@@ -279,7 +276,7 @@ async function createTable() {
         "__v": 0,
         "soft_delete": false,
         "is_system": true,
-      },{
+    }, {
         "label": "Файл",
         "slug": "file",
         "description": "Файлы",
@@ -329,7 +326,7 @@ async function createTable() {
         "is_system": true,
         "__v": 0,
         "commit_guid": "58e790aa-06a2-4a11-ae4f-0ff7cf2f8b0b"
-    },{
+    }, {
         "label": "Разрешение для меню",
         "slug": "menu_permission",
         "description": "Разрешение для связь которые в страница сведений",
@@ -343,8 +340,7 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0,
         "is_system": true
-    },
-    {
+    }, {
         "label": "Разрешение для настройки  ",
         "slug": "global_permission",
         "description": "Разрешение для настройки",
@@ -358,8 +354,7 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0,
         "is_system": true
-    },
-    {
+    }, {
         "label": "Разрешение для вид",
         "slug": "view_permission",
         "description": "Разрешение для вид",
@@ -373,8 +368,26 @@ async function createTable() {
         "updated_at": new Date(),
         "__v": 0,
         "is_system": true
+    }, {
+        "id": "c1669d87-332c-41ee-84ac-9fb2ac9efdd5",
+        "label": "Person",
+        "slug": "person",
+        "description": "",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "person-circle-check.svg",
+        "subtitle_field_slug": "",
+        "folder_id": "",
+        "is_cached": false,
+        "soft_delete": false,
+        "order_by": false,
+        "is_system": true,
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0
     }]
-
+    
     return tables;
 }
 

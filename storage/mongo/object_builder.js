@@ -14,7 +14,6 @@ var { addDays } = require('date-fns');
 const AddPermission = require("../../helper/addPermission");
 const RangeDate = require("../../helper/rangeDate");
 const ObjectBuilder = require("../../models/object_builder");
-const ObjectSlimBuilder = require("../../models/object_slim_builder");
 const FormulaFunction = require("../../helper/calculateFormulaFields");
 const mongoPool = require('../../pkg/pool');
 const PrepareFunction = require('../../helper/prepareFunctions');
@@ -1191,7 +1190,7 @@ let objectBuilder = {
         const offset = params.offset
         delete params["offset"]
         delete params["limit"]
-        const allTables = (await ObjectSlimBuilder(true, req.project_id))
+        const allTables = (await ObjectBuilder(true, req.project_id))
         const tableInfo = allTables[req.table_slug]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -1667,15 +1666,9 @@ let objectBuilder = {
             logger.info(`--> P-M Memory used by getListSlim2: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
         }
 
-        const formattedResult = result.map(item => ({
-            ...item,
-            createdAt: item.createdAt.toISOString(),
-            updatedAt: item.updatedAt.toISOString(),
-        }));
-
         const response = struct.encode({
             count: count,
-            response: formattedResult,
+            response: result,
         });
 
         return { table_slug: req.table_slug, data: response, is_cached: currentTable.is_cached }

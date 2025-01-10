@@ -820,12 +820,14 @@ let layoutStore = {
                             role_id: data.role_id,
                             table_slug: table.slug
                         })
+                    if (relation) {
                         if (relIdxMap.has(relation?.table_from?.slug)) {
                             relIdxMap.set(relation?.table_from?.slug, relIdxMap.get(relation?.table_from?.slug) + 1);
                         } else {
                             relIdxMap.set(relation?.table_from?.slug, 1);
                         }
-                    relation.relation_index = relIdxMap.get(relation?.table_from?.slug)
+                        relation.relation_index = relIdxMap.get(relation?.table_from?.slug)
+                    }
                     tab.relation = relation ? relation : {}
                 }
             }
@@ -845,8 +847,6 @@ let layoutStore = {
             const Layout = mongoConn.models['Layout']
             const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
-            const History = mongoConn.models['object_builder_service.version_history']
-
             const layout = await Layout.findOne({ id: data.id })
             if(!layout) throw new Error('Layout not found with givern id')
 

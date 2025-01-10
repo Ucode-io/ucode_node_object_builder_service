@@ -5,7 +5,8 @@ const { struct } = require('pb-util');
 const ObjectBuilder = require("../../models/object_builder");
 const mongoPool = require('../../pkg/pool');
 const tableVersion = require('../../helper/table_version');
-const os = require('os')
+const os = require('os');
+const relationStore = require("./relation");
 
 
 let NAMESPACE = "storage.field";
@@ -132,8 +133,35 @@ let fieldStore = {
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
 
-            if(!data.id) {
+            if (!data.id) {
                 data.id = v4()
+            }
+
+            if (data.type === "PERSON") {
+                const tableResp =  await Table.findOne({ id: data.table_id })
+                const relationResp = await relationStore.create({
+                    id: v4(),
+                    table_from: tableResp.slug,
+                    table_to: "person",
+                    table_from: tableResp.slug,
+                    project_id: data.project_id,
+                    type: "Many2One",
+                    relation_table_slug: "person",
+                    view_fields: ["f54d8076-4972-4067-9a91-c178c02c4273"],
+                    creatable: true,
+                    attributes: {
+                        "fields": {
+                            "label_to_en": { "stringValue": tableResp.label, "kind": "stringValue" },
+                            "table_editable": { "boolValue": false, "kind": "boolValue" },
+                            "enable_multi_language": { "boolValue": false, "kind": "boolValue" },
+                            "label_en": { "stringValue": "Person", "kind": "stringValue" }
+                        }
+                    }
+                })
+
+                const fieldResp = await Field.findOne({ table_id: data.table_id, slug: relationResp.field_from })
+                
+                return fieldResp
             }
             
             if (con.DYNAMIC_TYPES.includes(data.type) && data.autofill_field && data.autofill_table) {
@@ -165,12 +193,10 @@ let fieldStore = {
                     data.attributes = autoFillField.attributes
                 }
             }
+
             const field = await Field.create(data);
             const table = await Table.findOneAndUpdate(
-                {
-                    id: data.table_id,
-
-                },
+                { id: data.table_id },
                 {
                     $set: {
                         is_changed: true,
@@ -210,9 +236,7 @@ let fieldStore = {
                         const count_columns = section[0].fields ? section[0].fields.length : 0
                         if(count_columns < (table.section_column_count || 3)) {
                             await Section.findOneAndUpdate(
-                                {
-                                    id: section[0].id
-                                }, 
+                                { id: section[0].id }, 
                                 {
                                     $set: {
                                         fields: [

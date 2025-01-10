@@ -717,7 +717,7 @@ let relationStore = {
                     break;
                 default:
             }
-            
+
             const relation = await Relation.create(data)
             
             let tableSlugs = [data.table_slug];
@@ -747,7 +747,7 @@ let relationStore = {
                 data["name"] = data.label;
                 data["attributes"] = data.attributes || {}
                 const view = new View(data);
-                const responseView = await view.save();
+                await view.save();
                 tableSlugs.push(data.table_to);
 
                 const layout = await Layout.findOne({table_id: tableTo.id})
@@ -785,10 +785,8 @@ let relationStore = {
             }
 
 
-            const resp = await Table.updateMany(
-                {
-                    slug: { $in: tableSlugs },
-                },
+            await Table.updateMany(
+                { slug: { $in: tableSlugs } },
                 {
                     $set: {
                         is_changed: true,

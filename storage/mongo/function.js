@@ -1,3 +1,4 @@
+const { data } = require("../../config/logger");
 const catchWrapDb = require("../../helper/catchWrapDb");
 const mongoPool = require('../../pkg/pool');
 
@@ -93,60 +94,66 @@ let functionStore = {
             throw error;
         }
     }),
-    getAllByRequestTime: catchWrapDb(
-        `${NAMESPACE}.getAllByRequestTime`,
-        async (data) => {
-            try {
-                let newDate = new Date();
-                let date = subHours(newDate, 1).toISOString();
-                let mongoConn = await mongoPool.get(data.project_id);
-     
-                const Function = mongoConn.models["function_service.function"];
-                const functions = await Function.find({
-                    request_time: {
-                        $lte: date,
-                    },
-                    type: data.type
-                });
+    getAllByRequestTime: catchWrapDb(`${NAMESPACE}.getAllByRequestTime`, async (data) => {
+        try {
+            let newDate = new Date();
+            let date = subHours(newDate, 1).toISOString();
+            let mongoConn = await mongoPool.get(data.project_id);
+    
+            const Function = mongoConn.models["function_service.function"];
+            const functions = await Function.find({
+                request_time: {
+                    $lte: date,
+                },
+                type: data.type
+            });
 
-                const count = await Function.countDocuments({
-                    request_time: {
-                        $lte: date,
-                    },
-                    type: data.type
-                });
-                return { functions, count };
-            } catch (error) {
-                throw error;
-            }
+            const count = await Function.countDocuments({
+                request_time: {
+                    $lte: date,
+                },
+                type: data.type
+            });
+            return { functions, count };
+        } catch (error) {
+            throw error;
         }
-    ),
-    updateManyByRequestTime: catchWrapDb(
-        `${NAMESPACE}.updateManyByRequestTime`,
-        async (data) => {
-            try {
-                let mongoConn = await mongoPool.get(data.project_id);
-                if (!mongoConn) {
-                    await projectStore.autoConnect();
-                    mongoConn = await mongoPool.get(data.project_id);
-                }
+    }),
+    updateManyByRequestTime: catchWrapDb(`${NAMESPACE}.updateManyByRequestTime`, async (data) => {
+        try {
+            let mongoConn = await mongoPool.get(data.project_id);
+            if (!mongoConn) {
+                await projectStore.autoConnect();
+                mongoConn = await mongoPool.get(data.project_id);
+            }
 
-                const Function = mongoConn.models["function_service.function"];
-                let functionBulk = [];
-                data.ids.forEach((id) => {
-                    functionBulk.push({
-                        updateOne: {
-                            filter: { id: id },
-                            update: { url: "" },
-                        },
-                    });
+            const Function = mongoConn.models["function_service.function"];
+            let functionBulk = [];
+            data.ids.forEach((id) => {
+                functionBulk.push({
+                    updateOne: {
+                        filter: { id: id },
+                        update: { url: "" },
+                    },
                 });
-                await Function.bulkWrite(functionBulk);
-            } catch (error) {
-                throw error;
-            }
+            });
+            await Function.bulkWrite(functionBulk);
+        } catch (error) {
+            throw error;
         }
-    )
+    }),
+    getCount: catchWrapDb(`${NAMESPACE}.getCount`, async(data) =>{
+        try {
+            const mongoConn = await mongoPool.get(data.project_id);
+            const Function = mongoConn.models["function_service.function"]
+
+            const count = await Function.countDocuments({ type: {$in: data.type} })
+
+            return { count: count }
+        }catch(error){
+            throw error
+        }
+    })
 };
 
 module.exports = functionStore;

@@ -142,7 +142,7 @@ let functionStore = {
             throw error;
         }
     }),
-    getCount: catchWrapDb(`${NAMESPACE}.getCount`, async(data) =>{
+    GetCountByType: catchWrapDb(`${NAMESPACE}.GetCountByType`, async(data) =>{
         try {
             const mongoConn = await mongoPool.get(data.project_id);
             const Function = mongoConn.models["function_service.function"]

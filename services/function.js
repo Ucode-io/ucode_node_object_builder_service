@@ -9,6 +9,7 @@ const functionService = {
     Delete: catchWrapService(`service.function.delete`, functionStore.delete),
     GetListByRequestTime: catchWrapService(`service.function.getAllByRequestTime`, functionStore.getAllByRequestTime),
     UpdateManyByRequestTime: catchWrapService(`service.function.updateManyByRequestTime`, functionStore.updateManyByRequestTime),
+    GetCountByType: catchWrapService(`service.function.GetCountByType`, functionStore.GetCountByType)
 };
 
 module.exports = functionService;

@@ -59,7 +59,7 @@ let viewStore = {
                     }
             })
 
-            const roles = await Role.find()
+            const roles = await Role.find({})
             let query = []
             for (let el of roles) {
                 query.push({

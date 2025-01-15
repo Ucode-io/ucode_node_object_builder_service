@@ -3426,7 +3426,7 @@ let objectBuilder = {
             const data = struct.decode(req.data)
             const allTableInfo = (await ObjectBuilder(true, req.project_id))
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug, deleted_at: new Date("1970-01-01T18:00:00.000+00:00") }, data.version_id, true)
-            const response = await allTableInfo[req.table_slug].models.findOne({
+            let response = await allTableInfo[req.table_slug].models.findOne({
                 guid: data.id
             })
 
@@ -3436,7 +3436,7 @@ let objectBuilder = {
 
                 if (tableAttributes && tableAttributes.auth_info && authId && authId != '') {
                     const authInfo = tableAttributes.auth_info
-                    
+
                     if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
                         throw new Error('This table is auth table. Auth information not fully given')
                     }
@@ -3447,7 +3447,7 @@ let objectBuilder = {
                     })
 
                     if (loginTable && authId !== '') {
-                        let authDeleteUserRequest = {
+                        const authDeleteUserRequest = {
                             client_type_id: response[authInfo['client_type_id']],
                             role_id: response[authInfo['role_id']],
                             project_id: data['company_service_project_id'],

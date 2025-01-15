@@ -90,11 +90,14 @@ let objectBuilder = {
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             ownGuid = payload.guid;
             payload = await payload.save();
+           
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
+
             if (tableData && tableData.is_login_table && !data.from_auth_service && !req.blocked_login_table) {
                 let tableAttributes = struct.decode(tableData.attributes)
+
                 if (tableAttributes && tableAttributes.auth_info) {
                     let authInfo = tableAttributes.auth_info
                     if (!data[authInfo['client_type_id']]
@@ -107,12 +110,14 @@ let objectBuilder = {
                         guid: data[authInfo['client_type_id']],
                         table_slug: tableData.slug
                     })
+
                     if (loginTable) {
                         let loginStrategy = ['login', 'email', 'phone']
                         if (authInfo['login_strategy'] && authInfo['login_strategy'].length) {
                             loginStrategy = authInfo['login_strategy']
                         }
-                        let authCheckRequest = {
+
+                        const authCheckRequest = {
                             client_type_id: data['client_type_id'],
                             role_id: data['role_id'],
                             login: data[authInfo['login']],
@@ -126,26 +131,40 @@ let objectBuilder = {
                             environment_id: data["company_service_environment_id"],
                             login_strategy: loginStrategy
                         }
+
+                        const personTableRequest = {
+                            guid: v4(),
+                            client_type_id: data['client_type_id'],
+                            role_id: data['role_id'],
+                            login: data[authInfo['login']],
+                            password: data[authInfo['password']],
+                            email: (data[authInfo['email']] || "").toLowerCase(),
+                            phone_number: data[authInfo['phone']],
+                            user_id_auth: ""
+                        }
+
                         await grpcClient.createUserAuth(authCheckRequest)
                         .catch((err) => {
                             console.error("error while creating user in auth service", JSON.stringify(err))
                         })
                         .then((res)=> {
-                            // data.guid = res?.user_id
-                            tableInfo.models.updateOne({
-                                guid: ownGuid
-                            }, {
-                                $set: { 
-                                    email: (authCheckRequest.email) ,
-                                    user_id_auth: res.user_id,
+                            tableInfo.models.updateOne(
+                                { guid: ownGuid }, 
+                                {
+                                    $set: { 
+                                        email: (authCheckRequest.email) ,
+                                        user_id_auth: res.user_id,
+                                    }
                                 }
-                            })
-                            .catch((err) => {
+                            ).catch((err) => {
                                 console.error("error update login table", JSON.stringify(err));
                             });
 
                             payload.user_id_auth = res.user_id
+                            personTableRequest.user_id_auth = res.user_id
                         })
+
+                        await allTableInfos["person"]?.models?.create(personTableRequest)
                     }
                 }
                 await payload.save();

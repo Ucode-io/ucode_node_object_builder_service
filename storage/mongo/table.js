@@ -116,13 +116,11 @@ let tableStore = {
             const Relation = mongoConn.models["Relation"]
 
             data.is_changed = true
-            data.is_changed_by_host = {
-                [os.hostname()]: true
-            }
+            data.is_changed_by_host = { [os.hostname()]: true }
 
             const isSystemTable = await Table.findOne( { id: data.id } )
 
-            if(isSystemTable && isSystemTable.is_system) {
+            if (isSystemTable && isSystemTable.is_system) {
                 throw new Error("This table is system table")
             }
 
@@ -290,7 +288,7 @@ let tableStore = {
                     }
                 });
 
-                let label = {
+                const label = {
                     id: v4(),
                     table_id: data.id,
                     required: false,

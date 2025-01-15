@@ -1,6 +1,7 @@
 const { v4 } = require('uuid');
 const mongoPool = require('../pkg/pool');
 const viewStore = require('../storage/mongo/view');
+const relationStore = require('../storage/mongo/relation');
 
 
 module.exports = async function PersonTableConfigs(data) {
@@ -18,9 +19,11 @@ module.exports = async function PersonTableConfigs(data) {
         const layoutCollection = mongoConn.models["Layout"];
         const tabCollection = mongoConn.models["Tab"]
         const sectionCollection = mongoConn.models["Section"]
-        if (!layoutCollection) {
-            throw new Error("Layout model not found in Mongo connection.");
-        }
+        const roleCollection = mongoConn.models["role"]
+        const recordPermissionCollection = mongoConn.models["record_permission"]
+        const fieldsCollection = mongoConn.models["Field"];
+        const fieldPermissionCollection = mongoConn.models["field_permission"];
+        const relationCollection = mongoConn.models["Relation"]
         
         const tableId = "c1669d87-332c-41ee-84ac-9fb2ac9efdd5";
         const layout = await layoutCollection.findOne({ table_id: tableId });
@@ -374,8 +377,6 @@ module.exports = async function PersonTableConfigs(data) {
             await sectionCollection.insertMany(sectionRequest)
         }
 
-        const roleCollection = mongoConn.models["role"]
-        const recordPermissionCollection = mongoConn.models["record_permission"]
         const role = await roleCollection.findOne({ name: "DEFAULT ADMIN", status: true })
         const recordPermissionResponse = await recordPermissionCollection.findOne({ role_id: role.guid, table_slug: "person" })
       
@@ -411,10 +412,34 @@ module.exports = async function PersonTableConfigs(data) {
             })
         }
 
-        const fieldsCollection = mongoConn.models["Field"];
-        const fieldPermissionCollection = mongoConn.models["field_permission"];
-
-        const fields = await fieldsCollection.find({ table_id: tableId });
+        const fields = await fieldsCollection.find( { table_id: tableId } );
+        const fieldUserIdAuth = await fieldsCollection.findOne( { slug: "user_id_auth", table_id: tableId } )
+        if (!fieldUserIdAuth) {
+            await fieldsCollection.create({
+                id: v4(),
+                table_id: tableId,
+                required: false,
+                slug: "user_id_auth",
+                label: "User ID Auth",
+                default: "",
+                type: "SINGLE_LINE",
+                index: "string",
+                attributes: {
+                    fields: {
+                        label_en: { stringValue: "User Id Auth", kind: "stringValue" },
+                        label: { stringValue: "", kind: "stringValue" },
+                        defaultValue: { stringValue: "", kind: "stringValue" }
+                    }
+                },
+                is_visible: false,
+                is_system: true,
+                autofill_field: "",
+                autofill_table: "",
+                created_at: new Date(),
+                updated_at: new Date(),
+                __v: 0
+            })
+        }
 
         const fieldPermissionsToCreate = [];
 
@@ -456,6 +481,50 @@ module.exports = async function PersonTableConfigs(data) {
             await viewStore.create(viewData)
         }
 
+        const clientTypeRelation = await relationCollection.findOne( { table_from: "person", table_to: "client_type" } )
+        if (!clientTypeRelation) {
+            await relationStore.create({
+                id: "604bed17-4de6-47f7-a4d7-990be4194a93",
+                table_from: 'person',
+                table_to: "client_type",
+                type: "Many2One",
+                view_fields: ["04d0889a-b9ba-4f5c-8473-c8447aab350d"],
+                relation_table_slug: "client_type",
+                label: "Client Type",
+                project_id: data.project_id,
+                attributes: {
+                    fields: {
+                        label_en: { stringValue: "Client Type", kind: "stringValue" },
+                        label_to_en: { stringValue: "Person", kind: "stringValue" },
+                        table_editable: { boolValue: false, kind: "boolValue" },
+                        enable_multi_language: { boolValue: false, kind: "boolValue" }
+                    }
+                }
+            })
+        }
+
+        const roleRelation = await relationCollection.findOne( { table_from: "person", table_to: "role" } )
+        if (!roleRelation) {
+            await relationStore.create({
+                id: "0ecb08c1-0558-4101-8101-df304ac06ed9",
+                table_from: "person",
+                table_to: 'role',
+                type: 'Many2One',
+                view_fields: ['c12adfef-2991-4c6a-9dff-b4ab8810f0df'],
+                relation_table_slug: 'role',
+                label: 'Role',
+                project_id: data.project_id,
+                attributes: {
+                    fields: {
+                        label_en: { stringValue: "Role", kind: "stringValue" },
+                        label_to_en: { stringValue: "Person", kind: "stringValue" },
+                        table_editable: { boolValue: false, kind: "boolValue" },
+                        enable_multi_language: { boolValue: false, kind: "boolValue" },
+                    }
+                },
+                auto_filters: [ { field_to: "client_type_id", field_from: "client_type_id" } ]
+            })
+        }
 
     } catch (error) {console.error("error", error)}
 };

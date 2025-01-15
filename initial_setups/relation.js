@@ -1,6 +1,5 @@
 async function createRelation() {
-  let relation = [
-    {
+  let relation = [{
       "id": "9be077e7-d2e1-459a-a54b-04cb2a65c552",
       "table_from": "user",
       "field_from": "setting.languages_id",
@@ -17,8 +16,7 @@ async function createRelation() {
       "updated_at": new Date(),
       "__v": 0,
       "is_system": true
-    },
-    {
+  }, {
       "id": "c168f2df-c6a2-4921-8c56-56e708a8d766",
       "table_from": "user",
       "field_from": "setting.timezones_id",
@@ -35,8 +33,7 @@ async function createRelation() {
       "updated_at": new Date(),
       "__v": 0,
       "is_system": true
-    },
-    {
+  }, {
     "id": "426a0cd6-958d-4317-bf23-3b4ea4720e53",
     "table_from": "client_type",
     "field_from": "client_platform_ids",
@@ -163,76 +160,7 @@ async function createRelation() {
     "updated_at": new Date(),
     "__v": 0,
     "is_system": true,
-  },
-  //  {
-  //   "id": "c1492b03-8e76-4a09-9961-f61d413dbe68",
-  //   "table_from": "client_platform",
-  //   "field_from": "project_id",
-  //   "table_to": "project",
-  //   "field_to": "id",
-  //   "type": "Many2One",
-  //   "view_fields": [
-  //     "37137f5f-ef9b-4710-a6df-fb920750fdfb"
-  //   ],
-  //   "relation_field_slug": "",
-  //   "dynamic_tables": [],
-  //   "editable": false,
-  //   "created_at": new Date(),
-  //   "updated_at": new Date(),
-  //   "__v": 0
-  // },
-  // {
-  //   "id": "094c33df-5556-45f3-a74c-7f589412bcc8",
-  //   "table_from": "client_type",
-  //   "field_from": "project_id",
-  //   "table_to": "project",
-  //   "field_to": "id",
-  //   "type": "Many2One",
-  //   "view_fields": [
-  //     "37137f5f-ef9b-4710-a6df-fb920750fdfb"
-  //   ],
-  //   "relation_field_slug": "",
-  //   "dynamic_tables": [],
-  //   "editable": false,
-  //   "created_at": new Date(),
-  //   "updated_at": new Date(),
-  //   "__v": 0
-  // },
-  // {
-  //   "id": "a56d0ad8-4645-42d8-9fbb-77e22526bd17",
-  //   "table_from": "role",
-  //   "field_from": "project_id",
-  //   "table_to": "project",
-  //   "field_to": "id",
-  //   "type": "Many2One",
-  //   "view_fields": [
-  //     "37137f5f-ef9b-4710-a6df-fb920750fdfb"
-  //   ],
-  //   "relation_field_slug": "",
-  //   "dynamic_tables": [],
-  //   "editable": false,
-  //   "created_at": new Date(),
-  //   "updated_at": new Date(),
-  //   "__v": 0
-  // }, 
-  // {
-  //   "id": "6d2f94cb-0de4-455e-8dfc-97800eac7579",
-  //   "table_from": "user",
-  //   "field_from": "project_id",
-  //   "table_to": "project",
-  //   "field_to": "id",
-  //   "type": "Many2One",
-  //   "view_fields": [
-  //     "37137f5f-ef9b-4710-a6df-fb920750fdfb"
-  //   ],
-  //   "relation_field_slug": "",
-  //   "dynamic_tables": [],
-  //   "editable": false,
-  //   "created_at": new Date(),
-  //   "updated_at": new Date(),
-  //   "__v": 0
-  // },
-  {
+  }, {
     "id": "63b54109-5476-43c1-bf26-24e2266a33f0",
     "table_from": "user",
     "field_from": "role_id",
@@ -394,8 +322,7 @@ async function createRelation() {
     "is_user_id_default": false,
     "object_id_from_jwt": false,
     "is_system": true,
-  },
-  {
+  }, {
     "id": "37f23a8e-2820-4759-a4b5-dfae0fb073e2",
     "table_from": "branches",
     "field_from": "template_id",
@@ -419,8 +346,7 @@ async function createRelation() {
     "updated_at": new Date(),
     "__v": 0,
     "is_system": true,
-  },
-  {
+  }, {
     "id": "ccc39e6d-f3f6-43b0-82f3-eee3044d25f8",
     "table_from": "file",
     "field_from": "patients_id",
@@ -437,8 +363,7 @@ async function createRelation() {
     "updated_at": new Date(),
     "__v": 0,
     "is_system": true,
-  },
-  {
+  }, {
     "id": "c257fe1d-488b-4d0f-a657-b0b729811a56",
     "table_from": "file",
     "field_from": "doctors_id",
@@ -455,8 +380,7 @@ async function createRelation() {
     "updated_at": new Date(),
     "__v": 0,
     "is_system": true,
-  },
-  {
+  }, {
     "id": "dae09c03-247a-4353-8f17-fc35e545a44e",
     "table_from": "file",
     "field_from": "cashbox_id",
@@ -475,8 +399,7 @@ async function createRelation() {
     "cascadings": [],
     "is_user_id_default": false,
     "is_system": true,
-  },
-  {
+  }, {
     "id": "e7604b67-027f-4314-a270-86db31e33887",
     "table_from": "file",
     "field_from": "branches_id",
@@ -498,8 +421,7 @@ async function createRelation() {
     "updated_at": new Date(),
     "__v": 0,
     "is_system": true,
-  },
-  {
+  }, {
     "id": "df8b1c3b-7f1a-43f4-8368-b37f191c888d",
     "table_from": "file",
     "field_from": "specialities_id",
@@ -521,8 +443,7 @@ async function createRelation() {
     "updated_at": new Date(),
     "__v": 0,
     "is_system": true,
-  },
-  {
+  }, {
     "id": "89afc0b2-431b-4243-a22f-53539f50deff",
     "table_from": "file",
     "field_from": "news_id",
@@ -551,9 +472,7 @@ async function createRelation() {
     "table_to": "role",
     "field_to": "id",
     "type": "Many2One",
-    "view_fields": [
-      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
-    ],
+    "view_fields": ["c12adfef-2991-4c6a-9dff-b4ab8810f0df"],
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
@@ -561,17 +480,14 @@ async function createRelation() {
     "updated_at": new Date(),
     "__v": 0,
     "is_system": true
-  },
-  {
+  }, {
     "id": "f24802bc-f72f-4195-b44c-a152c9fa9f28",
     "table_from": "global_permission",
     "field_from": "role_id",
     "table_to": "role",
     "field_to": "id",
     "type": "Many2One",
-    "view_fields": [
-      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
-    ],
+    "view_fields": ["c12adfef-2991-4c6a-9dff-b4ab8810f0df"],
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
@@ -579,17 +495,14 @@ async function createRelation() {
     "updated_at": new Date(),
     "__v": 0,
     "is_system": true
-  },
-  {
+  }, {
     "id": "e1530f57-ea8f-42be-98d3-011649f92ba1",
     "table_from": "view_permission",
     "field_from": "role_id",
     "table_to": "role",
     "field_to": "id",
     "type": "Many2One",
-    "view_fields": [
-      "c12adfef-2991-4c6a-9dff-b4ab8810f0df"
-    ],
+    "view_fields": ["c12adfef-2991-4c6a-9dff-b4ab8810f0df"],
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
@@ -597,20 +510,68 @@ async function createRelation() {
     "updated_at": new Date(),
     "__v": 0,
     "is_system": true
-  },
-  {
+  }, {
     "id": "65244ef6-538d-405e-8a08-d84cc7e9e7ec",
     "table_from": "view",
     "field_from": "id",
     "table_to": "view_permission",
     "field_to": "id",
     "type": "Many2One",
-    "view_fields": [
-      
-    ],
+    "view_fields": [],
     "relation_field_slug": "",
     "dynamic_tables": [],
     "editable": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0,
+    "is_system": true
+  }, {
+    "id": "0ecb08c1-0558-4101-8101-df304ac06ed9",
+    "table_from": "person",
+    "field_from": "role_id",
+    "table_to": "role",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": ["c12adfef-2991-4c6a-9dff-b4ab8810f0df"],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [
+      {
+        "field_to": "client_type_id",
+        "field_from": "client_type_id"
+      }
+    ],
+    "is_user_id_default": false,
+    "cascadings": [],
+    "object_id_from_jwt": false,
+    "cascading_tree_table_slug": "",
+    "cascading_tree_field_slug": "",
+    "commit_id": "",
+    "relation_buttons": false,
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "__v": 0,
+    "is_system": true
+  }, {
+    "id": "604bed17-4de6-47f7-a4d7-990be4194a93",
+    "table_from": "person",
+    "field_from": "client_type_id",
+    "table_to": "client_type",
+    "field_to": "id",
+    "type": "Many2One",
+    "view_fields": ["04d0889a-b9ba-4f5c-8473-c8447aab350d"],
+    "relation_field_slug": "",
+    "dynamic_tables": [],
+    "editable": false,
+    "auto_filters": [],
+    "is_user_id_default": false,
+    "cascadings": [],
+    "object_id_from_jwt": false,
+    "cascading_tree_table_slug": "",
+    "cascading_tree_field_slug": "",
+    "commit_id": "",
+    "relation_buttons": false,
     "created_at": new Date(),
     "updated_at": new Date(),
     "__v": 0,

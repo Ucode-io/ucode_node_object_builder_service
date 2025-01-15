@@ -5712,7 +5712,91 @@ async function createField() {
 		"created_at": new Date(),
 		"updated_at": new Date(),
 		"__v": 0,
-	}]
+	}, {
+		"id": "4f7ade49-da8a-4534-b3a4-35f2875609b1",
+		"table_id": "c1669d87-332c-41ee-84ac-9fb2ac9efdd5",
+		"required": false,
+		"slug": "login",
+		"label": "Login",
+		"default": "",
+		"type": "SINGLE_LINE",
+		"index": "string",
+		"attributes": {
+		  "fields": {
+			"label": {
+			  "stringValue": "",
+			  "kind": "stringValue"
+			},
+			"label_en": {
+			  "stringValue": "Login",
+			  "kind": "stringValue"
+			},
+			"number_of_rounds": {
+			  "nullValue": "NULL_VALUE",
+			  "kind": "nullValue"
+			}
+		  }
+		},
+		"is_visible": false,
+		"autofill_field": "",
+		"autofill_table": "",
+		"unique": false,
+		"automatic": false,
+		"commit_id": "",
+		"relation_field": "",
+		"is_system": false,
+		"show_label": true,
+		"enable_multilanguage": false,
+		"hide_multilanguage": false,
+		"minio_folder": "",
+		"is_search": true,
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0,
+		"is_system": true,
+	}, {
+		"id": "88ef053a-ae80-44a0-aad1-055f4405a3ee",
+		"table_id": "c1669d87-332c-41ee-84ac-9fb2ac9efdd5",
+		"required": false,
+		"slug": "password",
+		"label": "Password",
+		"default": "",
+		"type": "PASSWORD",
+		"index": "string",
+		"attributes": {
+		  "fields": {
+			"label": {
+			  "stringValue": "",
+			  "kind": "stringValue"
+			},
+			"label_en": {
+			  "stringValue": "Password",
+			  "kind": "stringValue"
+			},
+			"number_of_rounds": {
+			  "nullValue": "NULL_VALUE",
+			  "kind": "nullValue"
+			}
+		  }
+		},
+		"is_visible": false,
+		"autofill_field": "",
+		"autofill_table": "",
+		"unique": false,
+		"automatic": false,
+		"commit_id": "",
+		"relation_field": "",
+		"is_system": false,
+		"show_label": true,
+		"enable_multilanguage": false,
+		"hide_multilanguage": false,
+		"minio_folder": "",
+		"is_search": true,
+		"created_at": new Date(),
+		"updated_at": new Date(),
+		"__v": 0
+	}
+	]
 
 	return fields
 }

@@ -146,6 +146,7 @@ let objectBuilder = {
                         await grpcClient.createUserAuth(authCheckRequest)
                         .catch((err) => {
                             console.error("error while creating user in auth service", JSON.stringify(err))
+                            throw err
                         })
                         .then((res)=> {
                             tableInfo.models.updateOne(
@@ -5429,40 +5430,49 @@ let objectBuilder = {
             }
 
             if (response && response.length) {
+                let userAuthIds = []
                 if (tableModel.attributes && tableModel.attributes !== null && tableModel.is_login_table) {
                     let tableAttributes = struct.decode(tableModel.attributes)
                     if (tableAttributes && tableAttributes.auth_info) {
                         let readyForAuth = [];
                         for (const obj of response) {
                             if (tableModel && !data.from_auth_service) {
-
                                 let authInfo = tableAttributes.auth_info
+
                                 if (!obj[authInfo['client_type_id']] || !obj[authInfo['role_id']]) {
                                     throw new Error('This table is auth table. Auth information not fully given')
                                 }
-                                let loginTable = allTableInfo['client_type']?.models?.findOne({
+
+                                const loginTable = allTableInfo['client_type']?.models?.findOne({
                                     guid: obj[authInfo['client_type_id']],
                                     table_slug: tableModel.slug
                                 })
+
                                 if (loginTable) {
                                     readyForAuth.push({
                                         client_type_id: obj[authInfo['client_type_id']],
                                         role_id: obj[authInfo['role_id']],
                                         user_id: obj['user_id_auth']
                                     })
+                                    userAuthIds.push(obj['user_id_auth'])
 
                                 }
                             }
                         }
+
                         if (response.length !== readyForAuth.length) {
                             throw new Error('This table is auth table. Auth information not fully given for delete many users')
                         }
+
                         await grpcClient.deleteUsersAuth({
                             users: readyForAuth,
                             project_id: data['company_service_project_id'],
                             environment_id: data['company_service_environment_id'],
                         })
+
+                        await allTableInfo["person"]?.models?.deleteMany( { user_id_auth: { $in: userAuthIds } } )
                     }
+
                 }
                 
                 if (!tableModel.soft_delete) {
@@ -5473,7 +5483,7 @@ let objectBuilder = {
                     }
                 } else if (tableModel.soft_delete) {
                     if (data.ids.length){
-                        await allTableInfo[req.table_slug].models.models.updateMany({ guid: { $in: data.ids } }, { $set: { deleted_at: new Date() } })
+                        await allTableInfo[req.table_slug].models.updateMany({ guid: { $in: data.ids } }, { $set: { deleted_at: new Date() } })
                     }else if(data.query){
                         await allTableInfo[req.table_slug].models.updateMany( data.query, { $set: { deleted_at: new Date() } })
                     }

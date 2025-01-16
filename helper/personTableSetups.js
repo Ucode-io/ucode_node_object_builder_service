@@ -1,10 +1,10 @@
+
 const { v4 } = require('uuid');
 const mongoPool = require('../pkg/pool');
 const viewStore = require('../storage/mongo/view');
 const relationStore = require('../storage/mongo/relation');
 
-
-module.exports = async function PersonTableConfigs(data) {
+async function initialSetupPerson(data) {
     try {
         if (!data || !data.project_id) {
             throw new Error("Invalid data or project_id.");
@@ -526,5 +526,7 @@ module.exports = async function PersonTableConfigs(data) {
             })
         }
 
-    } catch (error) {console.error("error", error)}
-};
+    } catch (error) { console.error("error", error) }
+}
+
+module.exports = initialSetupPerson

@@ -27,6 +27,7 @@ const RelationStorage = require('./relation')
 const MenuStorage = require('./menu');
 const { OrderUpdate } = require('../../helper/board_order')
 const updateISODateFunction = require('../../helper/updateISODate');
+const personSync = require('../../helper/personSync');
 
 let NAMESPACE = "storage.object_builder";
 
@@ -94,9 +95,9 @@ let objectBuilder = {
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
-
+            
             if (tableData && tableData.is_login_table && !data.from_auth_service && !req.blocked_login_table) {
-                let tableAttributes = struct.decode(tableData.attributes)
+                const tableAttributes = struct.decode(tableData.attributes)
 
                 if (tableAttributes && tableAttributes.auth_info) {
                     let authInfo = tableAttributes.auth_info
@@ -106,6 +107,7 @@ let objectBuilder = {
                     ) {
                         throw new Error('This table is auth table. Auth information not fully given')
                     }
+
                     let loginTable = await allTableInfos['client_type']?.models?.findOne({
                         guid: data[authInfo['client_type_id']],
                         table_slug: tableData.slug
@@ -121,11 +123,11 @@ let objectBuilder = {
                             client_type_id: data['client_type_id'],
                             role_id: data['role_id'],
                             login: data[authInfo['login']],
+                            password: data[authInfo['password']],
                             email: (data[authInfo['email']] || "").toLowerCase(),
                             phone: data[authInfo['phone']],
                             project_id: data['company_service_project_id'],
                             company_id: data['company_service_company_id'],
-                            password: data[authInfo['password']],
                             resource_environment_id: req.project_id,
                             invite: data['invite'],
                             environment_id: data["company_service_environment_id"],
@@ -133,7 +135,7 @@ let objectBuilder = {
                         }
 
                         const personTableRequest = {
-                            guid: v4(),
+                            guid: ownGuid,
                             client_type_id: data['client_type_id'],
                             role_id: data['role_id'],
                             login: data[authInfo['login']],
@@ -159,6 +161,7 @@ let objectBuilder = {
                                 }
                             ).catch((err) => {
                                 console.error("error update login table", JSON.stringify(err));
+                                throw err
                             });
 
                             payload.user_id_auth = res.user_id
@@ -171,9 +174,18 @@ let objectBuilder = {
                 await payload.save();
             }
 
-            if (!data.guid) {
-                data.guid = payload.guid
+            if (req.table_slug === 'person'){
+                if (!data['client_type_id'] || !data['role_id'] || !data['login'] 
+                    || !data['phone_number'] || !data['email'] || !data['password']
+                ) {
+                    throw new Error('This table is people table. Auth information not fully given') 
+                }
+
+                await personSync.createSync(mongoConn, allTableInfos, data, req.project_id, grpcClient)
             }
+
+            if (!data.guid) { data.guid = payload.guid }
+            
             const object = struct.encode({ data });
             let customMessage = ""
             if (tableData) {
@@ -209,6 +221,7 @@ let objectBuilder = {
             return { table_slug: req.table_slug, data: object, custom_message: customMessage };
 
         } catch (err) {
+            console.log("error1234567890")
             await tableInfo.models.deleteOne({ guid: ownGuid })
             throw err
         }
@@ -231,7 +244,7 @@ let objectBuilder = {
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
             let updatedUser = {}
-            let personTableRequest = {};
+            let personTableRequest = { user_id_auth: "" };
 
             try {
                 const data = struct.decode(req.data)
@@ -263,13 +276,14 @@ let objectBuilder = {
                     
                 if (isLoginTable) {
                     personTableRequest = {
+                        guid: data.id,
                         client_type_id: data['client_type_id'],
                         role_id: data['role_id'],
                         login: data[authInfo['login']],
                         password: data[authInfo['password']],
                         email: (data[authInfo['email']] || "").toLowerCase(),
                         phone_number: data[authInfo['phone']],
-                        user_id_auth: ""
+                        user_id_auth: data.user_id_auth
                     }
 
                     if (authInfo['password'] && data[authInfo['password']] !== "") {
@@ -390,12 +404,18 @@ let objectBuilder = {
             }
             
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
-            data.user_id_auth = updatedUser.user_id
+            data.user_id_auth = updatedUser?.user_id
 
-            if (personTableRequest?.user_id_auth.length !== 0){
-                await allTableInfo["person"]?.models.updateOne( { user_id_auth: personTableRequest?.user_id_auth }, {
-                    $set: personTableRequest
-                })
+            if (req.table_slug === "person"){
+                const response = await allTableInfo[req.table_slug].models.findOne({
+                    guid: data.id
+                });
+
+                await personSync.updateSync(mongoConn, allTableInfo, data, req.env_id, req.project_id, response)
+            }
+
+            if (String(personTableRequest?.user_id_auth).length !== 0){
+                await allTableInfo["person"]?.models.findOneAndUpdate( { guid: personTableRequest?.guid }, { $set: personTableRequest } )
             }
 
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
@@ -3464,7 +3484,11 @@ let objectBuilder = {
                     }
                 }
 
-                await allTableInfo?.models?.findOneAndDelete( { user_id_auth: authId } );
+                await allTableInfo['person']?.models?.findOneAndDelete( { guid: data.id } );
+            }
+
+            if (req.table_slug === 'person'){
+                await personSync.deleteSync(mongoConn, allTableInfo, data, response)
             }
 
             if (!tableModel.soft_delete) {
@@ -5470,7 +5494,7 @@ let objectBuilder = {
                             environment_id: data['company_service_environment_id'],
                         })
 
-                        await allTableInfo["person"]?.models?.deleteMany( { user_id_auth: { $in: userAuthIds } } )
+                        await allTableInfo["person"]?.models?.deleteMany( { guid: { $in: data.ids } } )
                     }
 
                 }

@@ -80,7 +80,93 @@ const persontTableTools = {
                     throw new Error('This table is auth table. Auth information not fully given')
                 }
 
-                if (String(data['password']).length !== 60) {
+                if (authInfo['password'] && data['password'] !== ""){
+                    if (String(data['password']).length !== 60) {
+                        const updateUserRequest = {
+                            env_id:         env_id,
+                            phone:          data['phone_number'],
+                            login:          data['login'],
+                            email:          data['email'],
+                            guid:           response['user_id_auth'],
+                            project_id:     project_id,
+                            role_id:        response['role_id'],
+                            client_type_id: response['client_type_id'],
+                        };
+    
+                        const loginTableRequest = {
+                            guid:           data.guid,
+                            client_type_id: response['client_type_id'],
+                            role_id:        response['role_id'],
+                            user_id_auth:   ""
+                        }
+    
+                        loginTableRequest[authInfo['login']] = data["login"]
+                        loginTableRequest[authInfo['email']] = data["email"]
+                        loginTableRequest[authInfo['phone']] = data['phone_number']
+        
+                        
+                        if (data['phone_number'] && data['phone_number'] !== response['phone_number']) {
+                            updateUserRequest['is_changed_phone'] = true
+                        }
+    
+                        if (data['login'] && data['login'] !== response['login']) {
+                            updateUserRequest['is_changed_login'] = true
+                        }
+    
+                        if (data['email'] && data['email'] !== response['email']) {
+                            updateUserRequest['is_changed_email'] = true
+                        }
+    
+                        if (data['password'] && data['password'] !== response['password']) {
+                            updateUserRequest['password'] = data['password']
+                            loginTableRequest[authInfo['password']] = data['password']
+                        }
+    
+                        const authRes = await grpcClient.updateUserAuth(updateUserRequest);
+                        loginTableRequest.user_id_auth = authRes.user_id
+    
+                        await allTableInfos[loginTableSlug]?.models.findOneAndUpdate( { guid: loginTableRequest.guid }, { $set: loginTableRequest } )
+                    } else {
+                        const updateUserRequest = {
+                            env_id:         env_id,
+                            phone:          data['phone_number'],
+                            login:          data['login'],
+                            email:          data['email'],
+                            guid:           response['user_id_auth'],
+                            project_id:     project_id,
+                            role_id:        response['role_id'],
+                            client_type_id: response['client_type_id'],
+                        };
+    
+                        const loginTableRequest = {
+                            guid:           data.guid,
+                            client_type_id: response['client_type_id'],
+                            role_id:        response['role_id'],
+                            user_id_auth:   ""
+                        }
+    
+                        if (data['phone_number'] && data['phone_number'] !== response['phone_number']) {
+                            updateUserRequest['is_changed_phone'] = true
+                            loginTableRequest[authInfo['phone']] = data['phone_number']
+                        }
+    
+                        if (data['login'] && data['login'] !== response['login']) {
+                            updateUserRequest['is_changed_login'] = true
+                            loginTableRequest[authInfo['login']] = data["login"]
+                        }
+    
+                        if (data['email'] && data['email'] !== response['email']) {
+                            updateUserRequest['is_changed_email'] = true
+                            loginTableRequest[authInfo['email']] = data["email"]
+                        }
+                        
+    
+                        const authRes = await grpcClient.updateUserAuth(updateUserRequest);
+                        loginTableRequest.user_id_auth = authRes.user_id
+    
+                        await allTableInfos[loginTableSlug]?.models.findOneAndUpdate( { guid: loginTableRequest.guid }, { $set: loginTableRequest } )
+                    }
+                }else if (authInfo['phone'] && data['phone_number']){
                     const updateUserRequest = {
                         env_id:         env_id,
                         phone:          data['phone_number'],
@@ -99,26 +185,9 @@ const persontTableTools = {
                         user_id_auth:   ""
                     }
 
-                    loginTableRequest[authInfo['login']] = data["login"]
-                    loginTableRequest[authInfo['email']] = data["email"]
-                    loginTableRequest[authInfo['phone']] = data['phone_number']
-    
-                    
                     if (data['phone_number'] && data['phone_number'] !== response['phone_number']) {
                         updateUserRequest['is_changed_phone'] = true
-                    }
-
-                    if (data['login'] && data['login'] !== response['login']) {
-                        updateUserRequest['is_changed_login'] = true
-                    }
-
-                    if (data['email'] && data['email'] !== response['email']) {
-                        updateUserRequest['is_changed_email'] = true
-                    }
-
-                    if (data['password'] && data['password'] !== response['password']) {
-                        updateUserRequest['password'] = data['password']
-                        loginTableRequest[authInfo['password']] = data['password']
+                        loginTableRequest[authInfo['phone']] = data['phone_number']
                     }
 
                     const authRes = await grpcClient.updateUserAuth(updateUserRequest);

@@ -232,15 +232,14 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const allTableInfo = (await ObjectBuilder(true, req.project_id))
-
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             if (req.blocked_builder) {
                 const data = struct.decode(req.data)
                 await tableInfo.models.findOneAndUpdate({ guid: data.guid }, { $set: data });
-
                 return { table_slug: req.table_slug, data: struct.encode(data), custom_message: "" };
             }
+
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
             let updatedUser = {}
@@ -248,13 +247,12 @@ let objectBuilder = {
 
             try {
                 const data = struct.decode(req.data)
-                if (!data.guid) {
-                    data.guid = data.id
-                }
+                if (!data.guid) { data.guid = data.id }
+                
                 data.id = data.guid
-                if (data.auth_guid) {
-                    data.guid = data.auth_guid
-                }
+                
+                if (data.auth_guid) { data.guid = data.auth_guid }
+                
                 let response = await allTableInfo[req.table_slug].models.findOne({
                     guid: data.id
                 });
@@ -266,13 +264,13 @@ let objectBuilder = {
                     authInfo = tableAttributes.auth_info;
                 }
 
-                const isLoginTable = !data?.from_auth_service && 
+                const isLoginTable = (!data?.from_auth_service && 
                     tableModel && 
                     tableModel?.is_login_table && 
                     response && 
                     tableAttributes && 
                     tableAttributes?.auth_info && 
-                    authInfo;
+                    authInfo);
                     
                 if (isLoginTable) {
                     personTableRequest = {
@@ -287,7 +285,7 @@ let objectBuilder = {
                     }
 
                     if (authInfo['password'] && data[authInfo['password']] !== "") {
-                        if (data[authInfo['password']].length !== 60) {
+                        if (String(data[authInfo['password']]).length !== 60) {
                             if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
                                 throw new Error('This table is an auth table. Auth information not fully given');
                             }
@@ -5455,47 +5453,44 @@ let objectBuilder = {
 
             if (response && response.length) {
                 let userAuthIds = []
-                if (tableModel.attributes && tableModel.attributes !== null && tableModel.is_login_table) {
-                    let tableAttributes = struct.decode(tableModel.attributes)
-                    if (tableAttributes && tableAttributes.auth_info) {
-                        let readyForAuth = [];
-                        for (const obj of response) {
-                            if (tableModel && !data.from_auth_service) {
-                                let authInfo = tableAttributes.auth_info
+                let tableAttributes = struct.decode(tableModel.attributes)
+                if (tableModel.attributes && tableModel.attributes !== null && tableModel.is_login_table && tableAttributes && tableAttributes.auth_info) {
+                    let readyForAuth = [];
+                    for (const obj of response) {
+                        if (tableModel && !data.from_auth_service) {
+                            let authInfo = tableAttributes.auth_info
 
-                                if (!obj[authInfo['client_type_id']] || !obj[authInfo['role_id']]) {
-                                    throw new Error('This table is auth table. Auth information not fully given')
-                                }
+                            if (!obj[authInfo['client_type_id']] || !obj[authInfo['role_id']]) {
+                                throw new Error('This table is auth table. Auth information not fully given')
+                            }
 
-                                const loginTable = allTableInfo['client_type']?.models?.findOne({
-                                    guid: obj[authInfo['client_type_id']],
-                                    table_slug: tableModel.slug
+                            const loginTable = allTableInfo['client_type']?.models?.findOne({
+                                guid: obj[authInfo['client_type_id']],
+                                table_slug: tableModel.slug
+                            })
+
+                            if (loginTable) {
+                                readyForAuth.push({
+                                    client_type_id: obj[authInfo['client_type_id']],
+                                    role_id: obj[authInfo['role_id']],
+                                    user_id: obj['user_id_auth']
                                 })
-
-                                if (loginTable) {
-                                    readyForAuth.push({
-                                        client_type_id: obj[authInfo['client_type_id']],
-                                        role_id: obj[authInfo['role_id']],
-                                        user_id: obj['user_id_auth']
-                                    })
-                                    userAuthIds.push(obj['user_id_auth'])
-
-                                }
+                                userAuthIds.push(obj['user_id_auth'])
                             }
                         }
-
-                        if (response.length !== readyForAuth.length) {
-                            throw new Error('This table is auth table. Auth information not fully given for delete many users')
-                        }
-
-                        await grpcClient.deleteUsersAuth({
-                            users: readyForAuth,
-                            project_id: data['company_service_project_id'],
-                            environment_id: data['company_service_environment_id'],
-                        })
-
-                        await allTableInfo["person"]?.models?.deleteMany( { guid: { $in: data.ids } } )
                     }
+
+                    if (response.length !== readyForAuth.length) {
+                        throw new Error('This table is auth table. Auth information not fully given for delete many users')
+                    }
+
+                    await grpcClient.deleteUsersAuth({
+                        users: readyForAuth,
+                        project_id: data['company_service_project_id'],
+                        environment_id: data['company_service_environment_id'],
+                    })
+
+                    await allTableInfo["person"]?.models?.deleteMany( { guid: { $in: data.ids } } )
 
                 }
                 

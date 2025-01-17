@@ -752,14 +752,18 @@ let tableStore = {
             const View = mongoConn.models["View"]
             
             const table = await Table.findOne( { id: data.id } )
-            
+
+            if (table.is_system){
+                throw new Error("system table can not be deleted")
+            }
+
             if (!table) {
                 throw new Error("Table not found")
             }
 
             const collection = (await ObjectBuilder(true, data.project_id))[table.slug]
            
-            const resp = await Table.findOneAndDelete( { id: data.id } );
+            await Table.findOneAndDelete( { id: data.id } );
 
             const layouts = await Layout.find({table_id: data.id})
             const layout_ids = layouts.map(el => el.id)
@@ -788,13 +792,13 @@ let tableStore = {
                 params["relation_id"] = { $in: relation_ids }
             }
 
-            const fields = await Field.deleteMany( { table_id: params["table_id"] } );
+            await Field.deleteMany( { table_id: params["table_id"] } );
 
             if (relation_ids.length) {
-                const fields = await Field.deleteMany( { relation_id: params["relation_id"] } );
+                await Field.deleteMany( { relation_id: params["relation_id"] } );
             }
 
-            const relations = await Relation.deleteMany({
+            await Relation.deleteMany({
                 $or: [
                     { table_from: table.slug },
                     { table_to: table.slug }
@@ -802,7 +806,7 @@ let tableStore = {
             });
 
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
-            const response = await fieldPermissionTable?.models.deleteMany( { table_slug: table.slug } )
+            await fieldPermissionTable?.models.deleteMany( { table_slug: table.slug } )
             const tablePermission = (await ObjectBuilder(true, data.project_id))["record_permission"]
             await tablePermission?.models?.deleteMany({ table_slug: table.slug })
             await View.deleteMany( { table_slug: table.slug } )

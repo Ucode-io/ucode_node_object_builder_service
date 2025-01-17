@@ -16,18 +16,17 @@ let tableStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
+            const Field = mongoConn.models['Field']
+            const Relation = mongoConn.models["Relation"]
 
-            if(!data.id) {
+            if (!data.id) {
                 data.id = v4()
             }
 
             let permissionRecord = {}
+            data.is_changed_by_host = { [os.hostname()]: true }
 
-            data.is_changed_by_host = {
-                [os.hostname()]: true
-            }
-
-            const table = await Table.create(data);
+            let table = await Table.create(data);
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
@@ -98,6 +97,230 @@ let tableStore = {
             }
 
             await layoutStorage.createAll(default_layout)
+            let attributes = struct.decode(data.attributes)
+
+
+            if (data.is_login_table && data.is_login_table === true) {
+                const loginStrategyMap = {}
+                let loginStrategies = attributes?.auth_info?.login_strategy
+                let authInfo = {
+                    "role_id":          "role_id",
+                    "client_type_id":   "client_type_id",
+                    "login_strategy":   loginStrategies
+                }
+
+                loginStrategies.forEach(strategy => {
+                    switch (strategy) {
+                        case "phone":
+                            if (loginStrategyMap[strategy]){
+                                authInfo["phone"] = loginStrategyMap[strategy]
+                                break;
+                            }
+
+                            let phoneObj = {
+                                "attributes":   { "fields": { "label_en": {"stringValue": "Phone", "kind": "stringValue" } } },
+                                "table_id":     data.id,
+                                "default":      "",
+                                "label":        "Phone",
+                                "slug":         "phone",
+                                "type":         "INTERNATION_PHONE",
+                                "required":     false,
+                                "show_label":   true,
+                                "project_id":   data.project_id
+                            }
+
+                            try {
+                                fieldStore.createForLoginTable(phoneObj)
+                            } catch(err) {
+                                console.error(`error when create phone ${err}`)
+                            }
+                            authInfo["phone"] = "phone"
+                            break;
+                        case "login":
+                            if (loginStrategyMap[strategy]){
+                                authInfo["login"] = loginStrategyMap[strategy]
+                                authInfo["password"] = "password"
+                                break;
+                            }
+
+                            let loginObj = {
+                                "attributes":   { "fields": { "label_en": { "stringValue": "Login", "kind": "stringValue" } } },
+                                "table_id":     data.id,
+                                "default":      "",
+                                "label":        "Login",
+                                "slug":         "login",
+                                "type":         "SINGLE_LINE",
+                                "required":     false,
+                                "show_label":   true,
+                                "project_id":   data.project_id
+                            }
+
+                            let passwordObj = {
+                                "attributes":   { "fields": { "label_en": { "stringValue": "Password", "kind": "stringValue" } } },
+                                "table_id":     data.id,
+                                "default":      "",
+                                "label":        "Password",
+                                "slug":         "password",
+                                "type":         "PASSWORD",
+                                "required":     false,
+                                "show_label":   true,
+                                "project_id":   data.project_id
+                            }
+
+                            try {
+                                fieldStore.createForLoginTable(loginObj)
+                                fieldStore.createForLoginTable(passwordObj)
+                            } catch(err){
+                                console.error(`error when create login and password ${err}`)
+                            }
+
+                            authInfo["login"] = "login"
+                            authInfo["password"] = "password"
+                            break;
+                        case "email":
+                            if (loginStrategyMap[strategy]){
+                                authInfo["email"] = loginStrategyMap[strategy]
+                                break;
+                            }
+
+                            let emailObj = {
+                                "attributes":   { "fields": { "label_en": { "stringValue": "Email", "kind": "stringValue" } } },
+                                "table_id":     data.id,
+                                "default":      "",
+                                "label":        "Email",
+                                "slug":         "email",
+                                "type":         "EMAIL",
+                                "required":     false,
+                                "show_label":   true,
+                                "project_id":   data.project_id
+                            }
+
+                            try {
+                                fieldStore.createForLoginTable(emailObj)
+                            } catch(err){
+                                console.error(`error when create email field ${err}`)
+                            }
+                            authInfo["email"] = "email"
+                            break;
+                        default:
+                            console.log(`Unknown strategy: ${strategy}`);
+                    }
+                });
+
+                let label = {
+                    id:         v4(),
+                    table_id:   data.id,
+                    required:   false,
+                    slug:       "user_id_auth",
+                    label:      "User ID Auth",
+                    default:    "",
+                    type:       "SINGLE_LINE",
+                    index:      "string",
+                    attributes: {
+                        fields: {
+                            label_en: { stringValue: "User Id Auth", kind: "stringValue" },
+                            label: { stringValue: "", kind: "stringValue" },
+                            defaultValue: { stringValue: "", kind: "stringValue" }
+                        }
+                    },
+                    is_visible:     false,
+                    is_system:      true,
+                    autofill_field: "",
+                    autofill_table: "",
+                    created_at:     new Date(),
+                    updated_at:     new Date(),
+                    __v:            0
+                }
+
+                try {
+                    await Field.updateOne(
+                        { table_id: data.id, slug: "user_id_auth" },
+                        { $set: label },
+                        { upsert: true }
+                    )
+                } catch(err) {
+                    console.error(`error when create user_id_auth ${err}`)
+                }
+
+                const clientTypeObj = {
+                    table_from:             data.slug,
+                    table_to:               "client_type",
+                    type:                   "Many2One",
+                    view_fields:            ["04d0889a-b9ba-4f5c-8473-c8447aab350d"],
+                    relation_table_slug:    "client_type",
+                    label:                  "Client Type",
+                    project_id:             data.project_id,
+                    attributes: {
+                        fields: {
+                            label_en: { stringValue: "Client Type", kind: "stringValue" },
+                            label_to_en: { stringValue: data.label, kind: "stringValue" },
+                            table_editable: { boolValue: false, kind: "boolValue" },
+                            enable_multi_language: { boolValue: false, kind: "boolValue" }
+                        }
+                    }
+                };
+
+                const roleObj = {
+                    table_from:             data.slug,
+                    table_to:               'role',
+                    type:                   'Many2One',
+                    view_fields:            ['c12adfef-2991-4c6a-9dff-b4ab8810f0df'],
+                    relation_table_slug:    'role',
+                    label:                  'Role',
+                    project_id:             data.project_id,
+                    attributes: {
+                        fields: {
+                            label_en: { stringValue: "Role", kind: "stringValue" },
+                            label_to_en: { stringValue: data.label, kind: "stringValue" },
+                            table_editable: { boolValue: false, kind: "boolValue" },
+                            enable_multi_language: { boolValue: false, kind: "boolValue" },
+                        }
+                    }                    
+                }
+
+                try {
+                    const clientTypeRelation = await Relation.findOne({
+                        table_from: data.slug,
+                        field_from: 'client_type_id',
+                        table_to:   'client_type',
+                        field_to:   'id'
+                    })
+    
+                    if (!clientTypeRelation) {
+                        await relationStore.create(clientTypeObj)
+                    }
+                } catch(err){
+                    console.error(`when create client_type relation ${err}`)
+                }
+
+                try {
+                    const roleRelation = await Relation.findOne({
+                        table_from: data.slug,
+                        field_from: 'role_id',
+                        table_to:   'role',
+                        field_to:   'id'
+                    })
+    
+    
+                    if (!roleRelation) {
+                        await relationStore.create(roleObj)
+                    }
+
+                } catch(err){
+                    console.error(`error when create role relation ${err}`)
+                }
+
+                let updatedAttributes = {
+                    "auth_info": authInfo,
+                    "label": data.label,
+                    "label_en": data.label
+                }
+
+                data.attributes = struct.encode(updatedAttributes)
+
+                table = await Table.findOneAndUpdate({ id: data.id }, { $set: data }, { new: true } )
+            }
+
             
             return {
                 id: table.id,
@@ -105,6 +328,7 @@ let tableStore = {
                 slug: table.slug
             };
         } catch (err) {
+            console.error(`error 1234567890${err}`)
             throw err
         }
     }),

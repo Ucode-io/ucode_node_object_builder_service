@@ -1052,21 +1052,14 @@ let fieldStore = {
             });
 
             const table = await Table.findOneAndUpdate(
-                {
-                    id: data.table_id,
-
-                },
+                { id: data.table_id },
                 {
                     $set: {
                         is_changed: true,
-                        is_changed_by_host: {
-                            [os.hostname()]: true
-                        }
+                        is_changed_by_host: { [os.hostname()]: true }
                     }
                 },
-                {
-                    new: true
-                }
+                { new: true }
             )
          
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]
@@ -1088,16 +1081,14 @@ let fieldStore = {
             const layout = await Layout.findOne({table_id: table?.id})
    
             if (layout) { 
-                const tab = await Tab.findOne({layout_id: layout.id, type: 'section'})
+                const tab = await Tab.findOne( { layout_id: layout.id, type: 'section' } )
                 if (tab) {
-                    let section = await Section.find({tab_id: tab.id}).sort({created_at: -1})
-                    if(section[0]) {
+                    let section = await Section.find( { tab_id: tab.id } ).sort( { created_at: -1 } )
+                    if (section[0]) {
                         const count_columns = section[0].fields ? section[0].fields.length : 0
                         if(count_columns < (table.section_column_count || 3)) {
                             await Section.findOneAndUpdate(
-                                {
-                                    id: section[0].id
-                                }, 
+                                { id: section[0].id }, 
                                 {
                                     $set: {
                                         fields: [

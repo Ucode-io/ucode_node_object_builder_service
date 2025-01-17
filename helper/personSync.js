@@ -235,6 +235,60 @@ const persontTableTools = {
     
             }
         } catch(err) { throw err }
+    },
+    multipleDeleteSync: async(mongoConn, allTableInfos, data, response) => {
+        let readyForAuth = [];
+        let tableSlugs = {};
+
+        for (const obj of response){
+            let loginTableSlug = 'user'
+            if (!obj["client_type_id"] || !obj['role_id']){
+                continue
+            }
+            
+            const clientTypeResponse = await allTableInfos['client_type']?.models.findOne({
+                guid: obj['client_type_id'],
+            })
+            loginTableSlug = clientTypeResponse?.table_slug
+
+            const tableCollection = mongoConn.models["Table"]
+            const tableResponse = await tableCollection.findOne( { slug: loginTableSlug } )
+            const tableAttributes = struct.decode(tableResponse?.attributes)
+
+            if (tableResponse && tableAttributes && tableAttributes.auth_info){
+                const authInfo = tableAttributes.auth_info
+                if (!tableSlugs[loginTableSlug]){
+                    tableSlugs[loginTableSlug] = tableResponse?.soft_delete
+                }
+
+                if (authInfo){
+                    readyForAuth.push({
+                        client_type_id: obj['client_type_id'],
+                        role_id: obj['role_id'],
+                        user_id: obj['user_id_auth']
+                    })
+                }
+            }
+        }
+
+        if (response.length !== readyForAuth.length){
+            throw new Error('This table is auth table. Auth information not fully given for delete many users')
+        }
+
+        await grpcClient.deleteUsersAuth({
+            users: readyForAuth,
+            project_id: data['company_service_project_id'],
+            environment_id: data['company_service_environment_id'],
+        })
+
+        for (const tableSlug in tableSlugs){
+            if (!tableSlugs[tableSlug] && data.ids.length){
+                await allTableInfos[tableSlug].models.deleteMany({ guid: { $in: data.ids } });
+            } else if (tableSlugs[tableSlug] && data.ids.length){
+                await allTableInfos[tableSlug].models.updateMany({ guid: { $in: data.ids } }, { $set: { deleted_at: new Date() } })
+            }
+        }
+
     }
 }
 

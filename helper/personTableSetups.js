@@ -526,7 +526,7 @@ async function initialSetupPerson(data) {
             })
         }
 
-    } catch (error) { console.error("error", error) }
+    } catch (error) { }
 }
 
 module.exports = initialSetupPerson

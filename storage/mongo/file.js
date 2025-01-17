@@ -155,7 +155,6 @@ let fileStore = {
                         if (err) console.log("File deletion error:", err);
                     });
                 } catch(err) {
-                    console.error("wordTemplate.error", err)
                     throw err
                 }
 
@@ -183,7 +182,6 @@ let fileStore = {
             try {
                 doc.render();
             } catch (error) {
-                console.error('Error rendering document:', error);
                 throw error
             }
             const buf = doc.getZip().generate({ type: 'nodebuffer' });
@@ -202,7 +200,6 @@ let fileStore = {
             try {
                 doc2.render();
             } catch (error) {
-                console.error('Error rendering document:', error);
                 throw error
             }
 
@@ -222,7 +219,6 @@ let fileStore = {
             try {
                 doc3.render();
             } catch (error) {
-                console.error('Error rendering document:', error);
                 throw error
             }
 
@@ -242,7 +238,6 @@ let fileStore = {
             try {
                 doc4.render();
             } catch (error) {
-                console.error('Error rendering document:', error);
                 throw error
             }
 

@@ -404,15 +404,16 @@ let objectBuilder = {
             data.user_id_auth = updatedUser?.user_id
 
             if (req.table_slug === "person"){
-                const response = await allTableInfo[req.table_slug].models.findOne({
-                    guid: data.id
-                });
-
+                const response = await allTableInfo[req.table_slug].models.findOne( { guid: data.id } );
                 await personSync.updateSync(mongoConn, allTableInfo, data, req.env_id, req.project_id, response)
             }
 
             if (String(personTableRequest?.user_id_auth).length !== 0){
-                await allTableInfo["person"]?.models.findOneAndUpdate( { guid: personTableRequest?.guid }, { $set: personTableRequest } )
+                await allTableInfo["person"]?.models.findOneAndUpdate(
+                    { guid: personTableRequest?.guid },
+                    { $set: personTableRequest },
+                    { upsert: true }
+                )
             }
 
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)

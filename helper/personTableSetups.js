@@ -7,7 +7,10 @@ const staticFields = require('../initial_setups/field');
 
 async function initialSetupPerson(data) {
     try {
-        console.log("project id ====>", data?.project_id)
+        if (data.project_id === "10148570-29d7-4082-8482-773bd5012c1c"){
+            console.log("project id ====>", data?.project_id)            
+        }
+        
         if (!data || !data.project_id) {
             throw new Error("Invalid data or project_id.");
         }

@@ -114,6 +114,8 @@ let projectStore = {
     }),
     reconnect: catchWrapDb(`${NAMESPACE}.reconnect`, async (data) => {
         try {
+            console.log("data.credentials ==>>", data.credentials)
+
             const mongoDBConn = await newMongoDBConn({
                 mongoHost: data.credentials.host,
                 mongoPort: data.credentials.port,

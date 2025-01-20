@@ -41,6 +41,7 @@ const logger = require("./config/logger");
         //a002eba6-feaf-4085-bf7d-3361ce5e8dd2:mongodb://osnova_4b281d3b2f4d408281552f4c6676a028_p_obj_build_svcs:0uMNfbKQlD@142.93.164.37:27017/osnova_4b281d3b2f4d408281552f4c6676a028_p_obj_build_svcs
         //583184ec-1762-48dd-b4a5-a1390099c1e2:mongodb://rizo_42ab0799deff4f8cbf3f64bf9665d304_p_obj_build_svcs:oDgRRrJR7U@142.93.164.37:27017/rizo_42ab0799deff4f8cbf3f64bf9665d304_p_obj_build_svcs
         //f634987f-25c8-4004-b911-343591081acb:mongodb://starex_342fba37fc7d4b6fb02f57b21beb0218_d_obj_build_svcs:wa3ilnGY7M@142.93.164.37:27017/starex_342fba37fc7d4b6fb02f57b21beb0218_d_obj_build_svcs
+        //c46972cb-5377-4e2a-923b-edbb5c7d6670:mongodb://datalens1_1f0b63baa6534538bbea7660563c5ef6_p_obj_build_svcs:6WgABcjpbe@142.93.164.37:27017/datalens1_1f0b63baa6534538bbea7660563c5ef6_p_obj_build_svcs
 
         logger.info(`autoconnected successfully done!!!`);
 

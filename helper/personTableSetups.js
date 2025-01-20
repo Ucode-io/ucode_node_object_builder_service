@@ -3,9 +3,11 @@ const { v4 } = require('uuid');
 const mongoPool = require('../pkg/pool');
 const viewStore = require('../storage/mongo/view');
 const relationStore = require('../storage/mongo/relation');
+const staticFields = require('../initial_setups/field');
 
 async function initialSetupPerson(data) {
     try {
+        console.log("project id ====>", data?.project_id)
         if (!data || !data.project_id) {
             throw new Error("Invalid data or project_id.");
         }
@@ -377,7 +379,7 @@ async function initialSetupPerson(data) {
             await sectionCollection.insertMany(sectionRequest)
         }
 
-        const role = await roleCollection.findOne({ name: "DEFAULT ADMIN", status: true })
+        const role = await roleCollection.findOne({ name: "DEFAULT ADMIN", status: true, is_system: true })
         const recordPermissionResponse = await recordPermissionCollection.findOne({ role_id: role.guid, table_slug: "person" })
       
         if (!recordPermissionResponse){
@@ -412,40 +414,23 @@ async function initialSetupPerson(data) {
             })
         }
 
-        
+        const staticPersonFields = (await staticFields()).filter(field => field.table_id === tableId);
 
-        const fields = await fieldsCollection.find( { table_id: tableId } );
-        const fieldUserIdAuth = await fieldsCollection.findOne( { slug: "user_id_auth", table_id: tableId } )
-        if (!fieldUserIdAuth) {
-            await fieldsCollection.create({
-                id: v4(),
-                table_id: tableId,
-                required: false,
-                slug: "user_id_auth",
-                label: "User ID Auth",
-                default: "",
-                type: "SINGLE_LINE",
-                index: "string",
-                attributes: {
-                    fields: {
-                        label_en: { stringValue: "User Id Auth", kind: "stringValue" },
-                        label: { stringValue: "", kind: "stringValue" },
-                        defaultValue: { stringValue: "", kind: "stringValue" }
-                    }
-                },
-                is_visible: false,
-                is_system: true,
-                autofill_field: "",
-                autofill_table: "",
-                created_at: new Date(),
-                updated_at: new Date(),
-                __v: 0
-            })
-        }
-
+        const fieldsToCreate = [];
         const fieldPermissionsToCreate = [];
 
-        for (const field of fields) {
+        for (const field of staticPersonFields){
+            const exist = fieldsCollection.findOne( { slug: "user_id_auth", table_id: tableId } )
+            if (!exist) {
+                fieldsToCreate.push(field)
+            }
+        }
+
+        if (fieldsToCreate.length){
+            await fieldsCollection.insertMany(fieldPermissionsToCreate);
+        }
+
+        for (const field of staticPersonFields) {
             const fieldPermission = await fieldPermissionCollection.findOne({
                 role_id: role.guid,
                 field_id: field.id,
@@ -528,7 +513,7 @@ async function initialSetupPerson(data) {
             })
         }
 
-    } catch (error) { }
+    } catch (error) { console.error(`Error when setup person table error: ${error}`) }
 }
 
 module.exports = initialSetupPerson

@@ -132,7 +132,6 @@ let fileStore = {
                 try {
                     doc.render();
                 } catch (error) {
-                    console.error('Error rendering document:', error);
                     throw error
                 }
 

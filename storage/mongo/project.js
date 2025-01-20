@@ -114,10 +114,6 @@ let projectStore = {
     }),
     reconnect: catchWrapDb(`${NAMESPACE}.reconnect`, async (data) => {
         try {
-            if (data.credentials.username == "utech_3bab7de9fde646ad8b9dc63ab01d210b_p_obj_build_svcs"){
-                console.log("Utech_started")
-            }
-
             const mongoDBConn = await newMongoDBConn({
                 mongoHost: data.credentials.host,
                 mongoPort: data.credentials.port,
@@ -150,9 +146,6 @@ let projectStore = {
                         await addFields({ project_id: data.project_id })
                         await is_static({ project_id: data.project_id, mongoDBConn: mongoDBConn })
                         await add_permission_field( { project_id: data.project_id } )
-                        if (data.credentials.username == "utech_3bab7de9fde646ad8b9dc63ab01d210b_p_obj_build_svcs"){
-                            console.log("enter to person table ===>")
-                        }
                         await personTable({ project_id: data.project_id })
                         resolve()
                     });

@@ -7,10 +7,6 @@ const staticFields = require('../initial_setups/field');
 
 async function initialSetupPerson(data) {
     try {
-        if (data.project_id === "10148570-29d7-4082-8482-773bd5012c1c"){
-            console.log("project id ====>", data?.project_id)            
-        }
-        
         if (!data || !data.project_id) {
             throw new Error("Invalid data or project_id.");
         }
@@ -20,7 +16,7 @@ async function initialSetupPerson(data) {
         if (!mongoConn || !mongoConn.models) {
             throw new Error(`Mongo connection or models are unavailable for project_id: ${data.project_id}`);
         }
-        
+
         const layoutCollection = mongoConn.models["Layout"];
         const tabCollection = mongoConn.models["Tab"]
         const sectionCollection = mongoConn.models["Section"]
@@ -382,9 +378,9 @@ async function initialSetupPerson(data) {
             await sectionCollection.insertMany(sectionRequest)
         }
 
-        const role = await roleCollection.findOne({ name: "DEFAULT ADMIN", status: true, is_system: true })
+        const role = await roleCollection.findOne({ name: "DEFAULT ADMIN", status: true, is_system: true });
         const recordPermissionResponse = await recordPermissionCollection.findOne({ role_id: role.guid, table_slug: "person" })
-      
+       
         if (!recordPermissionResponse){
             await recordPermissionCollection.create({
                 "role_id": role.guid,
@@ -423,14 +419,12 @@ async function initialSetupPerson(data) {
         const fieldPermissionsToCreate = [];
 
         for (const field of staticPersonFields){
-            const exist = fieldsCollection.findOne( { slug: "user_id_auth", table_id: tableId } )
-            if (!exist) {
-                fieldsToCreate.push(field)
-            }
+            const exist = await fieldsCollection.findOne( { slug: field.slug, table_id: field.table_id } )
+            if (!exist) { fieldsToCreate.push(field) }
         }
 
-        if (fieldsToCreate.length){
-            await fieldsCollection.insertMany(fieldPermissionsToCreate);
+        if (fieldsToCreate.length > 0){
+            await fieldsCollection.insertMany(fieldsToCreate);
         }
 
         for (const field of staticPersonFields) {

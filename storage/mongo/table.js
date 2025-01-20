@@ -328,7 +328,6 @@ let tableStore = {
                 slug: table.slug
             };
         } catch (err) {
-            console.error(`error 1234567890${err}`)
             throw err
         }
     }),

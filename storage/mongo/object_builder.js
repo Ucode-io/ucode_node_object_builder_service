@@ -5537,7 +5537,6 @@ let objectBuilder = {
 
             return { table_slug: req.table_slug, data: {} };
         } catch (err) {
-            console.error(`error when delete many ${err.message}`)
             throw err
         }
     }),

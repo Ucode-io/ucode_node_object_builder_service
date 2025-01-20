@@ -17,7 +17,7 @@ module.exports = async function (mongoConn) {
             await field.save()
     }
     let initialApps = await createApp()
-    const app = await App.findOneAndUpdate({id: initialApps[0]?.id}, {is_system: true})
+    await App.findOneAndUpdate({id: initialApps[0]?.id}, {is_system: true})
 
     let initial_table_ids = (await initialTables()).map(el => el.id)
     const tables = await Table.find({id: {$in: initial_table_ids}, $or: [{is_system: false}, {is_system: null}]})

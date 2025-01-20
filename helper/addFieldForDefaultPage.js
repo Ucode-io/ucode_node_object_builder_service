@@ -1,7 +1,5 @@
 const mongoPool = require('../pkg/pool');
 
-
-
 module.exports = async function (data) {
     try {
         const mongoConn = await mongoPool.get(data.project_id)

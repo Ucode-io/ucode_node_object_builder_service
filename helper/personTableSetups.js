@@ -412,6 +412,8 @@ async function initialSetupPerson(data) {
             })
         }
 
+        
+
         const fields = await fieldsCollection.find( { table_id: tableId } );
         const fieldUserIdAuth = await fieldsCollection.findOne( { slug: "user_id_auth", table_id: tableId } )
         if (!fieldUserIdAuth) {

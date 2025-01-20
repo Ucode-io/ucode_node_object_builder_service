@@ -1,8 +1,6 @@
 const mongoPool = require('../pkg/pool');
-const { v4 } = require("uuid");
 const bucket = require("./addMinioBucket");
 const folderMinio = require("./addMinioBucket");
-
 
 module.exports = async function (data) {
     try {
@@ -41,9 +39,8 @@ module.exports = async function (data) {
             await Menu.findOneAndUpdate({ id: "c57eedc3-a954-4262-a0af-376c65b5a284" }, { $set: { menu_settings_id: menu_settings.id } }, { new: true })
         }
 
-        let favourite = await Menu.findOne({
-            id: "c57eedc3-a954-4262-a0af-376c65b5a282",
-        })
+        let favourite = await Menu.findOne( { id: "c57eedc3-a954-4262-a0af-376c65b5a282" } )
+
         if (!favourite) {
             await Menu.create({
                 "label": "Content",
@@ -61,9 +58,7 @@ module.exports = async function (data) {
             await Menu.findOneAndUpdate({ id: "c57eedc3-a954-4262-a0af-376c65b5a282" }, { $set: { label: "Content" } }, { new: true })
         }
         
-        let adminMenu = await Menu.findOne({
-            id: "c57eedc3-a954-4262-a0af-376c65b5a280"
-        })
+        let adminMenu = await Menu.findOne( {id: "c57eedc3-a954-4262-a0af-376c65b5a280" } )
         if (!adminMenu) {
             await Menu.create({
                 "label": "Settings", // Admin ~> changed to Settings
@@ -83,45 +78,33 @@ module.exports = async function (data) {
             }
         }
 
-        let analyticsMenu = await Menu.findOne({
-            id: "c57eedc3-a954-4262-a0af-376c65b5a278"
-        })
+        let analyticsMenu = await Menu.findOne( { id: "c57eedc3-a954-4262-a0af-376c65b5a278" } )
         if (analyticsMenu) {
             await Menu.findOneAndDelete({"id": "c57eedc3-a954-4262-a0af-376c65b5a278"})
         }
 
-        let pivotMenu = await Menu.findOne({
-            id: "c57eedc3-a954-4262-a0af-376c65b5a276"
-        })
+        let pivotMenu = await Menu.findOne( { id: "c57eedc3-a954-4262-a0af-376c65b5a276" } )
         if (pivotMenu) {
             await Menu.findOneAndDelete({"id": "c57eedc3-a954-4262-a0af-376c65b5a276"})
         }
 
-        let reportSettingsMenu = await Menu.findOne({
-            id: "c57eedc3-a954-4262-a0af-376c65b5a274"
-        })
+        let reportSettingsMenu = await Menu.findOne( { id: "c57eedc3-a954-4262-a0af-376c65b5a274" } )
         if (reportSettingsMenu) {
             await Menu.findOneAndDelete({"id": "c57eedc3-a954-4262-a0af-376c65b5a274"})
         }
 
-        let resourceMenu = await Menu.findOne({
-            id: "f313614f-f018-4ddc-a0ce-10a1f5716401"
-        })
+        let resourceMenu = await Menu.findOne( { id: "f313614f-f018-4ddc-a0ce-10a1f5716401" } )
         if (resourceMenu) {
             await Menu.findOneAndDelete({"id": "f313614f-f018-4ddc-a0ce-10a1f5716401"})
         }
 
-        let constructorMenu = await Menu.findOne({
-            id: "c19594a8-9b5e-4c12-a0a1-f97c2357070c"
-        })
+        let constructorMenu = await Menu.findOne( { id: "c19594a8-9b5e-4c12-a0a1-f97c2357070c" } )
         if (constructorMenu) {
             await Menu.findOneAndDelete({"id": "c19594a8-9b5e-4c12-a0a1-f97c2357070c"})
         }
         
 
-        let files = await Menu.findOne({
-            id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
-        })
+        let files = await Menu.findOne( { id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9" } )
         if (files) {
             try {
                 await bucket.createMinioBucket(data.project_id)
@@ -167,17 +150,11 @@ module.exports = async function (data) {
             }
           };
           
-        let default_minio_menu = await Menu.find({
-           parent_id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9"
-        })
+        let default_minio_menu = await Menu.find( { parent_id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9" } )
         if (default_minio_menu.length == 1 && default_minio_menu[0].label == "Media") {
-            await Field.updateMany({type: {$in: file_types}}, 
-                {
-                $set: 
-                {
-                    'attributes.fields.path.stringValue': 'Media'
-                }
-            })
+            await Field.updateMany( { type: { $in: file_types } }, 
+                { $set: { 'attributes.fields.path.stringValue': 'Media' } }
+            )
 
             await Menu.updateOne({id: "f4089a64-4f6f-4604-a57a-b1c99f4d16a8"}, {$set: {attributes: attributes}})
         }
@@ -206,22 +183,18 @@ module.exports = async function (data) {
                 "type":"MINIO_FOLDER",
                 "label":"Media",
              })
-            await Field.updateMany({type: {$in: file_types}}, 
-                {
-                $set: 
-                {
-                    'attributes.fields.path.stringValue': 'Media'
-                }
-            })
+            await Field.updateMany( { type: { $in: file_types } }, 
+                { $set: { 'attributes.fields.path.stringValue': 'Media' } } 
+            )
 
          }
 
-        const UserAndPermissinMenu = await Menu.findOne({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
+        const UserAndPermissinMenu = await Menu.findOne( { id: "a8de4296-c8c3-48d6-bef0-ee17057733d6" } )
         if(UserAndPermissinMenu) {
             await Menu.findOneAndDelete({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
         }
 
-        const userMenu = await Menu.findOne({id:"9e988322-cffd-484c-9ed6-460d8701551b"})
+        const userMenu = await Menu.findOne( { id: "9e988322-cffd-484c-9ed6-460d8701551b" } )
         if(!userMenu) {
             await Menu.create({
                 "label": "Users",
@@ -242,8 +215,7 @@ module.exports = async function (data) {
             await Menu.findOneAndDelete({id:"31a91a86-7ad3-47a6-a172-d33ceaebb35f"})
         }
 
-
-        const wikiMenu = await Menu.findOne({id:"744d63e6-0ab7-4f16-a588-d9129cf959d1"})
+        const wikiMenu = await Menu.findOne( { id: "744d63e6-0ab7-4f16-a588-d9129cf959d1" } )
         if(!wikiMenu) {
             await Menu.create({
                 "label": "Wiki",
@@ -259,7 +231,7 @@ module.exports = async function (data) {
             })
         }
 
-        const wikiDocsMenu = await Menu.findOne({id: "cd5f1ab0-432c-459d-824a-e64c139038ea"})
+        const wikiDocsMenu = await Menu.findOne( { id: "cd5f1ab0-432c-459d-824a-e64c139038ea" } )
         if (!wikiDocsMenu) {
             await Menu.create({
                 "label": "Wiki docs",

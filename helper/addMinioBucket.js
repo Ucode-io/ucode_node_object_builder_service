@@ -1,15 +1,15 @@
 const Minio = require('minio')
+const cfg = require("../config/index");
 
-const endpoint = 'dev-cdn.ucode.run';
-const accessKey = 'Mouch0aij8hui2Aivie7Weethoobee3o';
-const secretKey = 'eezei5eaJah7mohNgohxo1Eb3wiex1sh';
+const endpoint = cfg.minioEndpoint;
+const accessKey = cfg.minioAccessKeyID;
+const secretKey = cfg.minioSecretAccessKey;
 
 const minioClient = new Minio.Client({
     endPoint: endpoint,
-    port: 9002,
     accessKey: accessKey,
     secretKey: secretKey,
-    useSSL: false, 
+    useSSL: true, 
 })
 
 async function createMinioBucket(bucketName) {

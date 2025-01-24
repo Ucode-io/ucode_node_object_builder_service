@@ -87,6 +87,50 @@ let objectBuilder = {
 
             const mongoConn = await mongoPool.get(req.project_id)
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
+            const body = struct.decode(req.data)
+
+
+            if (body.from_auth_service){
+                const tableAttributes = struct.decode(tableData.attributes)
+                const authInfo = tableAttributes.auth_info
+                if (!body[authInfo['client_type_id']] || !body[authInfo['role_id']]){
+                    throw new Error('This table is auth table. Auth information not fully given')
+                }
+
+                const login = body['login']
+                const phone = body['phone']
+                const email = body['email']
+                const roleId = body['role_id']
+                const password = body['password']
+                const clientTypeId = body['client_type_id']
+
+                body[authInfo['client_type_id']] = clientTypeId
+                body[authInfo['role_id']] = roleId
+                
+                for (const loginStrategy of authInfo?.login_strategy){
+                    if (loginStrategy === "login"){
+                        body[authInfo["login"]] = login
+                        body[authInfo["password"]] = password
+                    }else if (loginStrategy === "phone"){
+                        body[authInfo["phone"]] = phone
+                    }else if (loginStrategy === "email"){
+                        body[authInfo["email"]] = email
+                    }
+                }
+
+                await allTableInfos["person"]?.models?.create({
+                    "guid":             body["guid"],
+                    "user_id_auth":     body["user_id_auth"],
+                    "full_name":        body["name"],
+                    "image":            body["photo"],
+                    "login":            login,
+                    "password":         password,
+                    "email":            email,
+                    "phone_number":     phone,
+                    "role_id":          roleId,
+                    "client_type_id":   clientTypeId,
+                })
+            }
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             ownGuid = payload.guid;
@@ -101,9 +145,8 @@ let objectBuilder = {
 
                 if (tableAttributes && tableAttributes.auth_info) {
                     let authInfo = tableAttributes.auth_info
-                    if (!data[authInfo['client_type_id']]
-                        || !data[authInfo['role_id']]
-                        || !(data[authInfo['login']] || data[authInfo['email']] || data[authInfo['phone']])
+                    if ( !data[authInfo['client_type_id']] || !data[authInfo['role_id']] || !(data[authInfo['login']] 
+                        || data[authInfo['email']] || data[authInfo['phone']] )
                     ) {
                         throw new Error('This table is auth table. Auth information not fully given')
                     }

@@ -1775,8 +1775,7 @@ let objectBuilder = {
             view_permission: viewPermission
          } = await ObjectBuilder(true, req.project_id)
 
-        // const viewPermission = allTables["view_permission"]
-        // const tableInfo = allTables[req.table_slug]
+
         let role_id_from_token = params["role_id_from_token"]
         if (!tableInfo) {
             throw new Error("table not found")
@@ -1804,43 +1803,27 @@ let objectBuilder = {
 
         const permission = await permissionTable.models.findOne({
             $and: [
-                {
-                    role_id: params["role_id_from_token"]
-                },
-                {
-                    table_slug: req.table_slug
-                }
+                { role_id: params["role_id_from_token"] },
+                { table_slug: req.table_slug }
             ]
         })
         const relations = await Relation.find({
-            $or: [{
-                table_from: req.table_slug,
-            },
-            {
-                table_to: req.table_slug,
-            },
-            {
-                "dynamic_tables.table_slug": req.table_slug
-            }
+            $or: [
+                { table_from: req.table_slug },
+                { table_to: req.table_slug },
+                { "dynamic_tables.table_slug": req.table_slug }
             ]
         })
 
         if (permission?.is_have_condition) {
             const automatic_filters = await automaticFilterTable.models.find({
                 $and: [
-                    {
-                        role_id: params["role_id_from_token"]
-                    },
-                    {
-                        table_slug: req.table_slug
-                    },
-                    {
-                        method: "read"
-                    }
+                    { role_id: params["role_id_from_token"] },
+                    { table_slug: req.table_slug },
+                    { method: "read" }
                 ]
             })
             if (automatic_filters.length) {
-
                 const dupMap = new Map()
                 const query = []
                 let isDup = false
@@ -2221,11 +2204,11 @@ let objectBuilder = {
                 { deleted_at: null }
             ]
         }
+
         if (limit !== 0) {
             if (relations.length == 0) {
-                result = await tableInfo.models.find({
-                    $and: [params]
-                },
+                result = await tableInfo.models.find(
+                    { $and: [params] },
                     {
                         createdAt: 0,
                         updatedAt: 0,
@@ -2269,6 +2252,7 @@ let objectBuilder = {
                         }
                     }
                 }
+
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -2282,6 +2266,7 @@ let objectBuilder = {
                     if (field) {
                         table_to_slug = field.slug + "_data"
                     }
+
                     if (table_to_slug === "") {
                         continue
                     }
@@ -2321,6 +2306,7 @@ let objectBuilder = {
                             }
                         }
                     }
+                    
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,

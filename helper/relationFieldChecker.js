@@ -9,9 +9,7 @@ async function checkRelationFieldExists(field_name, table_id, project_id, field_
     const Table = mongoConn.models['Table']
     const Field = mongoConn.models['Field']
 
-    const table = await Table.findOne({
-        id: table_id
-    })
+    await Table.findOne( { id: table_id } )
 
     let filter  = new RegExp(`^${field_name}`)
     const relationFields = await Field.find(
@@ -19,7 +17,6 @@ async function checkRelationFieldExists(field_name, table_id, project_id, field_
             table_id: table_id,
             slug: filter,
             type: field_type
-            // slug: {$regex: field_name+"*"}
         },
         {
             createdAt: 0, 
@@ -30,7 +27,7 @@ async function checkRelationFieldExists(field_name, table_id, project_id, field_
             __v: 0
         },
         {
-            sort: {slug: -1}
+            sort: { slug: -1 }
         }
     );
     let lastField = ""

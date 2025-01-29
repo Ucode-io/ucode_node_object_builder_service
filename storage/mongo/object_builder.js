@@ -27,6 +27,7 @@ const RelationStorage = require('./relation')
 const MenuStorage = require('./menu');
 const { OrderUpdate } = require('../../helper/board_order')
 const updateISODateFunction = require('../../helper/updateISODate');
+const personSync = require('../../helper/personSync');
 
 let NAMESPACE = "storage.object_builder";
 
@@ -86,74 +87,148 @@ let objectBuilder = {
 
             const mongoConn = await mongoPool.get(req.project_id)
             const tableData = await tableVersion(mongoConn, { slug: req.table_slug })
+            const body = struct.decode(req.data)
+
+
+            if (body.from_auth_service){
+                const tableAttributes = struct.decode(tableData.attributes)
+                const authInfo = tableAttributes.auth_info
+                if (!body[authInfo['client_type_id']] || !body[authInfo['role_id']]){
+                    throw new Error('This table is auth table. Auth information not fully given')
+                }
+
+                const login = body['login']
+                const phone = body['phone']
+                const email = body['email']
+                const roleId = body['role_id']
+                const password = body['password']
+                const clientTypeId = body['client_type_id']
+
+                body[authInfo['client_type_id']] = clientTypeId
+                body[authInfo['role_id']] = roleId
+                
+                for (const loginStrategy of authInfo?.login_strategy){
+                    if (loginStrategy === "login"){
+                        body[authInfo["login"]] = login
+                        body[authInfo["password"]] = password
+                    }else if (loginStrategy === "phone"){
+                        body[authInfo["phone"]] = phone
+                    }else if (loginStrategy === "email"){
+                        body[authInfo["email"]] = email
+                    }
+                }
+
+                await allTableInfos["person"]?.models?.create({
+                    "guid":             body["guid"],
+                    "user_id_auth":     body["user_id_auth"],
+                    "full_name":        body["name"],
+                    "image":            body["photo"],
+                    "login":            login,
+                    "password":         password,
+                    "email":            email,
+                    "phone_number":     phone,
+                    "role_id":          roleId,
+                    "client_type_id":   clientTypeId,
+                })
+            }
 
             let { payload, data, appendMany2ManyObjects } = await PrepareFunction.prepareToCreateInObjectBuilder(req, mongoConn)
             ownGuid = payload.guid;
             payload = await payload.save();
+           
             for (const appendMany2Many of appendMany2ManyObjects) {
                 await objectBuilder.appendManyToMany(appendMany2Many)
             }
+            
             if (tableData && tableData.is_login_table && !data.from_auth_service && !req.blocked_login_table) {
-                let tableAttributes = struct.decode(tableData.attributes)
+                const tableAttributes = struct.decode(tableData.attributes)
+
                 if (tableAttributes && tableAttributes.auth_info) {
                     let authInfo = tableAttributes.auth_info
-                    if (!data[authInfo['client_type_id']]
-                        || !data[authInfo['role_id']]
-                        || !(data[authInfo['login']] || data[authInfo['email']] || data[authInfo['phone']])
+                    if ( !data[authInfo['client_type_id']] || !data[authInfo['role_id']] || !(data[authInfo['login']] 
+                        || data[authInfo['email']] || data[authInfo['phone']] )
                     ) {
                         throw new Error('This table is auth table. Auth information not fully given')
                     }
+
                     let loginTable = await allTableInfos['client_type']?.models?.findOne({
                         guid: data[authInfo['client_type_id']],
                         table_slug: tableData.slug
                     })
+
                     if (loginTable) {
                         let loginStrategy = ['login', 'email', 'phone']
                         if (authInfo['login_strategy'] && authInfo['login_strategy'].length) {
                             loginStrategy = authInfo['login_strategy']
                         }
-                        let authCheckRequest = {
+
+                        const authCheckRequest = {
                             client_type_id: data['client_type_id'],
                             role_id: data['role_id'],
                             login: data[authInfo['login']],
+                            password: data[authInfo['password']],
                             email: (data[authInfo['email']] || "").toLowerCase(),
                             phone: data[authInfo['phone']],
                             project_id: data['company_service_project_id'],
                             company_id: data['company_service_company_id'],
-                            password: data[authInfo['password']],
                             resource_environment_id: req.project_id,
                             invite: data['invite'],
                             environment_id: data["company_service_environment_id"],
                             login_strategy: loginStrategy
                         }
+
+                        const personTableRequest = {
+                            guid: ownGuid,
+                            client_type_id: data['client_type_id'],
+                            role_id: data['role_id'],
+                            login: data[authInfo['login']],
+                            password: data[authInfo['password']],
+                            email: (data[authInfo['email']] || "").toLowerCase(),
+                            phone_number: data[authInfo['phone']],
+                            user_id_auth: ""
+                        }
+
                         await grpcClient.createUserAuth(authCheckRequest)
                         .catch((err) => {
                             console.error("error while creating user in auth service", JSON.stringify(err))
+                            throw err
                         })
                         .then((res)=> {
-                            // data.guid = res?.user_id
-                            tableInfo.models.updateOne({
-                                guid: ownGuid
-                            }, {
-                                $set: { 
-                                    email: (authCheckRequest.email) ,
-                                    user_id_auth: res.user_id,
+                            tableInfo.models.updateOne(
+                                { guid: ownGuid }, 
+                                {
+                                    $set: { 
+                                        email: (authCheckRequest.email) ,
+                                        user_id_auth: res.user_id,
+                                    }
                                 }
-                            })
-                            .catch((err) => {
+                            ).catch((err) => {
                                 console.error("error update login table", JSON.stringify(err));
+                                throw err
                             });
 
                             payload.user_id_auth = res.user_id
+                            personTableRequest.user_id_auth = res.user_id
                         })
+
+                        await allTableInfos["person"]?.models?.create(personTableRequest)
                     }
                 }
                 await payload.save();
             }
 
-            if (!data.guid) {
-                data.guid = payload.guid
+            if (req.table_slug === 'person'){
+                if (!data['client_type_id'] || !data['role_id'] || !data['login'] 
+                    || !data['phone_number'] || !data['email'] || !data['password']
+                ) {
+                    throw new Error('This table is people table. Auth information not fully given') 
+                }
+
+                await personSync.createSync(mongoConn, allTableInfos, data, req.project_id, grpcClient)
             }
+
+            if (!data.guid) { data.guid = payload.guid }
+            
             const object = struct.encode({ data });
             let customMessage = ""
             if (tableData) {
@@ -199,28 +274,27 @@ let objectBuilder = {
         try {
             const mongoConn = await mongoPool.get(req.project_id)
             const allTableInfo = (await ObjectBuilder(true, req.project_id))
-
             const tableInfo = (await ObjectBuilder(true, req.project_id))[req.table_slug]
 
             if (req.blocked_builder) {
                 const data = struct.decode(req.data)
                 await tableInfo.models.findOneAndUpdate({ guid: data.guid }, { $set: data });
-
                 return { table_slug: req.table_slug, data: struct.encode(data), custom_message: "" };
             }
+
             const tableModel = await tableVersion(mongoConn, { slug: req.table_slug })
             let customMessage = ""
             let updatedUser = {}
+            let personTableRequest = { user_id_auth: "" };
 
             try {
                 const data = struct.decode(req.data)
-                if (!data.guid) {
-                    data.guid = data.id
-                }
+                if (!data.guid) { data.guid = data.id }
+                
                 data.id = data.guid
-                if (data.auth_guid) {
-                    data.guid = data.auth_guid
-                }
+                
+                if (data.auth_guid) { data.guid = data.auth_guid }
+                
                 let response = await allTableInfo[req.table_slug].models.findOne({
                     guid: data.id
                 });
@@ -232,141 +306,136 @@ let objectBuilder = {
                     authInfo = tableAttributes.auth_info;
                 }
 
-                if (!data.from_auth_service) {
-                    if (authInfo && authInfo['password'] && data[authInfo['password']] !== "") {
-                        let checkPassword = ""
-                        if (data[authInfo['password']]) {
-                            checkPassword = data[authInfo['password']].substring(0, 4)
-                        }
-                        if (checkPassword != "$2b$" && checkPassword != "$2a$") {
-                            if (response) {
-                                if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                                    if (tableAttributes && tableAttributes.auth_info) {
-                                        if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
-                                            throw new Error('This table is an auth table. Auth information not fully given');
-                                        }
+                const isLoginTable = (!data?.from_auth_service && 
+                    tableModel && 
+                    tableModel?.is_login_table && 
+                    response && 
+                    tableAttributes && 
+                    tableAttributes?.auth_info && 
+                    authInfo);
+                    
+                if (isLoginTable) {
+                    personTableRequest = {
+                        guid: data.id,
+                        client_type_id: data['client_type_id'],
+                        role_id: data['role_id'],
+                        login: data[authInfo['login']],
+                        password: data[authInfo['password']],
+                        email: (data[authInfo['email']] || "").toLowerCase(),
+                        phone_number: data[authInfo['phone']],
+                        user_id_auth: data.user_id_auth
+                    }
 
-                                        let loginTable = allTableInfo['client_type']?.models?.findOne({
-                                            guid: response[authInfo['client_type_id']],
-                                            table_slug: tableModel.slug
-                                        });
+                    if (authInfo['password'] && data[authInfo['password']] !== "") {
+                        if (String(data[authInfo['password']]).length !== 60) {
+                            if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                throw new Error('This table is an auth table. Auth information not fully given');
+                            }
 
-                                        if (loginTable && response['user_id_auth'] !== '') {
-                                            let updateUserRequest = {
-                                                env_id: req.env_id,
-                                                phone: data[authInfo['phone']],
-                                                login: data[authInfo['login']],
-                                                email: data[authInfo['email']],
-                                                guid: response['user_id_auth'],
-                                                project_id: req.company_project_id,
-                                                role_id: response[authInfo['role_id']],
-                                                client_type_id: response[authInfo['client_type_id']],
-                                            };
+                            const loginTable = allTableInfo['client_type']?.models?.findOne({
+                                guid: response[authInfo['client_type_id']],
+                                table_slug: tableModel.slug
+                            });
 
-                                            if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
-                                                updateUserRequest['is_changed_phone'] = true
-                                            }
+                            if (loginTable && response['user_id_auth'] !== '') {
+                                const updateUserRequest = {
+                                    env_id: req.env_id,
+                                    phone: data[authInfo['phone']],
+                                    login: data[authInfo['login']],
+                                    email: data[authInfo['email']],
+                                    guid: response['user_id_auth'],
+                                    project_id: req.company_project_id,
+                                    role_id: response[authInfo['role_id']],
+                                    client_type_id: response[authInfo['client_type_id']],
+                                };
 
-                                            if (data[authInfo['login']] && data[authInfo['login']] !== response[authInfo['login']]) {
-                                                updateUserRequest['is_changed_login'] = true
-                                            }
-
-                                            if (data[authInfo['email']] && data[authInfo['email']] !== response[authInfo['email']]) {
-                                                updateUserRequest['is_changed_email'] = true
-                                            }
-
-                                            if (data[authInfo['password']] && data[authInfo['password']] !== response[authInfo['password']]) {
-                                                updateUserRequest['password'] = data[authInfo['password']]
-                                            }
-
-                                            updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
-                                        }
-                                    }
+                                if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
+                                    updateUserRequest['is_changed_phone'] = true
                                 }
+
+                                if (data[authInfo['login']] && data[authInfo['login']] !== response[authInfo['login']]) {
+                                    updateUserRequest['is_changed_login'] = true
+                                }
+
+                                if (data[authInfo['email']] && data[authInfo['email']] !== response[authInfo['email']]) {
+                                    updateUserRequest['is_changed_email'] = true
+                                }
+
+                                if (data[authInfo['password']] && data[authInfo['password']] !== response[authInfo['password']]) {
+                                    updateUserRequest['password'] = data[authInfo['password']]
+                                }
+                                
+                                updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
+                                personTableRequest.user_id_auth = updatedUser.user_id
                             }
                         } else {
-                            if (response) {
-                                if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                                    let tableAttributes = struct.decode(tableModel.attributes);
+                            if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                                throw new Error('This table is an auth table. Auth information not fully given');
+                            }
+                            
+                            delete personTableRequest["password"];
 
-                                    if (tableAttributes && tableAttributes.auth_info) {
-                                        let authInfo = tableAttributes.auth_info;
+                            const loginTable = allTableInfo['client_type']?.models?.findOne({
+                                guid: response[authInfo['client_type_id']],
+                                table_slug: tableModel.slug
+                            });
+                            
+                            if (loginTable && response['user_id_auth'] !== '') {
+                                const updateUserRequest = {
+                                    env_id: req.env_id,
+                                    phone: data[authInfo['phone']],
+                                    login: data[authInfo['login']],
+                                    email: data[authInfo['email']],
+                                    guid: response['user_id_auth'],
+                                    project_id: req.company_project_id,
+                                    role_id: response[authInfo['role_id']],
+                                    client_type_id: response[authInfo['client_type_id']],
+                                };
 
-                                        if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
-                                            throw new Error('This table is an auth table. Auth information not fully given');
-                                        }
-
-                                        let loginTable = allTableInfo['client_type']?.models?.findOne({
-                                            guid: response[authInfo['client_type_id']],
-                                            table_slug: tableModel.slug
-                                        });
-
-                                        if (loginTable && response['user_id_auth'] !== '') {
-                                            let updateUserRequest = {
-                                                env_id: req.env_id,
-                                                phone: data[authInfo['phone']],
-                                                login: data[authInfo['login']],
-                                                email: data[authInfo['email']],
-                                                guid: response['user_id_auth'],
-                                                project_id: req.company_project_id,
-                                                role_id: response[authInfo['role_id']],
-                                                client_type_id: response[authInfo['client_type_id']],
-                                            };
-                                            if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
-                                                updateUserRequest['is_changed_phone'] = true
-                                            }
-
-                                            if (data[authInfo['login']] && data[authInfo['login']] !== response[authInfo['login']]) {
-                                                updateUserRequest['is_changed_login'] = true
-                                            }
-
-                                            if (data[authInfo['email']] && data[authInfo['email']] !== response[authInfo['email']]) {
-                                                updateUserRequest['is_changed_email'] = true
-                                            }
-
-                                            updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
-                                        }
-                                    }
+                                if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
+                                    updateUserRequest['is_changed_phone'] = true
                                 }
+
+                                if (data[authInfo['login']] && data[authInfo['login']] !== response[authInfo['login']]) {
+                                    updateUserRequest['is_changed_login'] = true
+                                }
+
+                                if (data[authInfo['email']] && data[authInfo['email']] !== response[authInfo['email']]) {
+                                    updateUserRequest['is_changed_email'] = true
+                                }
+                                
+                                updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
+                                personTableRequest.user_id_auth = updatedUser.user_id
                             }
                         }
-                    } else if (authInfo && authInfo['phone'] && data[authInfo['phone']]) {
-                        if (response) {
-                            if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                                let tableAttributes = struct.decode(tableModel.attributes);
+                    } else if (authInfo['phone'] && data[authInfo['phone']]) {
+                        if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                            throw new Error('This table is an auth table. Auth information not fully given');
+                        }
 
-                                if (tableAttributes && tableAttributes.auth_info) {
-                                    let authInfo = tableAttributes.auth_info;
+                        const loginTable = allTableInfo['client_type']?.models?.findOne({
+                            guid: response[authInfo['client_type_id']],
+                            table_slug: tableModel.slug
+                        });
 
-                                    if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
-                                        throw new Error('This table is an auth table. Auth information not fully given');
-                                    }
+                        if (loginTable && response['user_id_auth'] !== '') {
+                            const updateUserRequest = {
+                                env_id: req.env_id,
+                                phone: data[authInfo['phone']],
+                                login: data[authInfo['login']],
+                                email: data[authInfo['email']],
+                                guid: response['user_id_auth'],
+                                project_id: req.company_project_id,
+                                role_id: response[authInfo['role_id']],
+                                client_type_id: response[authInfo['client_type_id']],
+                            };
 
-                                    let loginTable = allTableInfo['client_type']?.models?.findOne({
-                                        guid: response[authInfo['client_type_id']],
-                                        table_slug: tableModel.slug
-                                    });
-
-                                    if (loginTable && response['user_id_auth'] !== '') {
-                                        let updateUserRequest = {
-                                            env_id: req.env_id,
-                                            phone: data[authInfo['phone']],
-                                            login: data[authInfo['login']],
-                                            email: data[authInfo['email']],
-                                            guid: response['user_id_auth'],
-                                            project_id: req.company_project_id,
-                                            role_id: response[authInfo['role_id']],
-                                            client_type_id: response[authInfo['client_type_id']],
-                                        };
-
-                                        if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
-                                            updateUserRequest['is_changed_phone'] = true
-                                        }
-
-                                        updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
-                                    }
-                                }
+                            if (data[authInfo['phone']] && data[authInfo['phone']] !== response[authInfo['phone']]) {
+                                updateUserRequest['is_changed_phone'] = true
                             }
+
+                            updatedUser = await grpcClient.updateUserAuth(updateUserRequest);
+                            personTableRequest.user_id_auth = updatedUser.user_id
                         }
                     }
                 }
@@ -375,7 +444,20 @@ let objectBuilder = {
             }
             
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
-            data.user_id_auth = updatedUser.user_id
+            data.user_id_auth = updatedUser?.user_id
+
+            if (req.table_slug === "person"){
+                const response = await allTableInfo[req.table_slug].models.findOne( { guid: data.id } );
+                await personSync.updateSync(mongoConn, allTableInfo, data, req.env_id, req.project_id, response)
+            }
+
+            if (String(personTableRequest?.user_id_auth).length !== 0){
+                await allTableInfo["person"]?.models.findOneAndUpdate(
+                    { guid: personTableRequest?.guid },
+                    { $set: personTableRequest },
+                    { upsert: true }
+                )
+            }
 
             await OrderUpdate(mongoConn, tableInfo, req.table_slug, data)
             await tableInfo.models.findOneAndUpdate({ guid: data.id }, { $set: data });
@@ -2732,7 +2814,6 @@ let objectBuilder = {
 
         if (params.view_fields && params.search) {
             if (params.view_fields.length && params.search !== "") {
-
                 let empty = ""
                 if (typeof params.search === "string") {
                     for (let el of params.search) {
@@ -2856,8 +2937,6 @@ let objectBuilder = {
                     .lean();
                 count = await tableInfo.models.countDocuments(params);
             } else {
-
-
                 tableParams = []
                 for (const key of Object.keys(params)) {
                     if (key.includes('.')) {
@@ -3412,38 +3491,47 @@ let objectBuilder = {
             let response = await allTableInfo[req.table_slug].models.findOne({
                 guid: data.id
             })
-            if (response) {
-                if (tableModel && tableModel.is_login_table && !data.from_auth_service) {
-                    let tableAttributes = struct.decode(tableModel.attributes)
-                    let authId = response['user_id_auth']
 
-                    if (tableAttributes && tableAttributes.auth_info && authId && authId != '') {
-                        let authInfo = tableAttributes.auth_info
-                        if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
-                            throw new Error('This table is auth table. Auth information not fully given')
+            if (response && tableModel && tableModel.is_login_table && !data.from_auth_service) {
+                const tableAttributes = struct.decode(tableModel.attributes)
+                const authId = response['user_id_auth']
+
+                if (tableAttributes && tableAttributes.auth_info && authId && authId != '') {
+                    const authInfo = tableAttributes.auth_info
+
+                    if (!response[authInfo['client_type_id']] || !response[authInfo['role_id']]) {
+                        throw new Error('This table is auth table. Auth information not fully given')
+                    }
+
+                    const loginTable = allTableInfo['client_type']?.models?.findOne({
+                        guid: response[authInfo['client_type_id']],
+                        table_slug: tableModel.slug
+                    })
+
+                    if (loginTable && authId !== '') {
+                        const authDeleteUserRequest = {
+                            client_type_id: response[authInfo['client_type_id']],
+                            role_id: response[authInfo['role_id']],
+                            project_id: data['company_service_project_id'],
+                            user_id: authId,
+                            environment_id: data['company_service_environment_id']
                         }
-                        let loginTable = allTableInfo['client_type']?.models?.findOne({
-                            guid: response[authInfo['client_type_id']],
-                            table_slug: tableModel.slug
-                        })
-                        if (loginTable && authId !== '') {
-                            let authDeleteUserRequest = {
-                                client_type_id: response[authInfo['client_type_id']],
-                                role_id: response[authInfo['role_id']],
-                                project_id: data['company_service_project_id'],
-                                user_id: authId,
-                                environment_id: data['company_service_environment_id']
-                            }
 
-                            try {
-                                await grpcClient.deleteUserAuth(authDeleteUserRequest);
-                            } catch (grpcError) {
-                                throw new Error('Failed to delete user authorization: ' + grpcError.message);
-                            }
+                        try {
+                            await grpcClient.deleteUserAuth(authDeleteUserRequest);
+                        } catch (grpcError) {
+                            throw new Error('Failed to delete user authorization: ' + grpcError.message);
                         }
                     }
                 }
+
+                await allTableInfo['person']?.models?.findOneAndDelete( { guid: data.id } );
             }
+
+            if (req.table_slug === 'person'){
+                await personSync.deleteSync(mongoConn, allTableInfo, data, response)
+            }
+
             if (!tableModel.soft_delete) {
                 response = await allTableInfo[req.table_slug].models.findOneAndDelete({ guid: data.id });
             } else if (tableModel.soft_delete) {
@@ -4483,12 +4571,12 @@ let objectBuilder = {
                     }
                 }
             }
+            
             const allTableInfos = (await ObjectBuilder(true, req.project_id))
-
-
             const data = struct.decode(req.data)
             const tableInfo = allTableInfos[req.table_slug]
             let objects = [], appendMany2ManyObj = [], authCheckRequests = [], guids = []
+
             for (const object of data.objects) {
                 //this condition used for object.guid may be exists
                 if (!object.guid) {
@@ -5407,40 +5495,53 @@ let objectBuilder = {
             }
 
             if (response && response.length) {
-                if (tableModel.attributes && tableModel.attributes !== null && tableModel.is_login_table) {
-                    let tableAttributes = struct.decode(tableModel.attributes)
+                if (tableModel && tableModel.is_login_table){
+                    let userAuthIds = []
+                    const tableAttributes = struct.decode(tableModel?.attributes)
+
                     if (tableAttributes && tableAttributes.auth_info) {
                         let readyForAuth = [];
                         for (const obj of response) {
                             if (tableModel && !data.from_auth_service) {
-
                                 let authInfo = tableAttributes.auth_info
+    
                                 if (!obj[authInfo['client_type_id']] || !obj[authInfo['role_id']]) {
                                     throw new Error('This table is auth table. Auth information not fully given')
                                 }
-                                let loginTable = allTableInfo['client_type']?.models?.findOne({
+    
+                                const loginTable = allTableInfo['client_type']?.models?.findOne({
                                     guid: obj[authInfo['client_type_id']],
                                     table_slug: tableModel.slug
                                 })
+    
                                 if (loginTable) {
                                     readyForAuth.push({
                                         client_type_id: obj[authInfo['client_type_id']],
                                         role_id: obj[authInfo['role_id']],
                                         user_id: obj['user_id_auth']
                                     })
-
+                                    userAuthIds.push(obj['user_id_auth'])
                                 }
                             }
                         }
+    
                         if (response.length !== readyForAuth.length) {
                             throw new Error('This table is auth table. Auth information not fully given for delete many users')
                         }
+    
                         await grpcClient.deleteUsersAuth({
                             users: readyForAuth,
                             project_id: data['company_service_project_id'],
                             environment_id: data['company_service_environment_id'],
                         })
+    
+                        await allTableInfo["person"]?.models?.deleteMany( { guid: { $in: data.ids } } )
+    
                     }
+                }
+
+                if (req.table_slug === 'person'){
+                    await personSync.multipleDeleteSync(mongoConn, allTableInfo, data, response)
                 }
                 
                 if (!tableModel.soft_delete) {
@@ -5451,7 +5552,7 @@ let objectBuilder = {
                     }
                 } else if (tableModel.soft_delete) {
                     if (data.ids.length){
-                        await allTableInfo[req.table_slug].models.models.updateMany({ guid: { $in: data.ids } }, { $set: { deleted_at: new Date() } })
+                        await allTableInfo[req.table_slug].models.updateMany({ guid: { $in: data.ids } }, { $set: { deleted_at: new Date() } })
                     }else if(data.query){
                         await allTableInfo[req.table_slug].models.updateMany( data.query, { $set: { deleted_at: new Date() } })
                     }

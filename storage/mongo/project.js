@@ -13,6 +13,7 @@ const defaultPage = require("../../helper/addFieldForDefaultPage");
 const addFields = require("../../helper/addFields");
 const is_static = require("../../helper/is_static");
 const add_permission_field = require("../../helper/add_record_permission");
+const personTable = require("../../helper/personTableSetups");
 
 let NAMESPACE = "storage.project";
 
@@ -76,8 +77,9 @@ let projectStore = {
                 mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
                 mongoDBConn.model('IncrementSeq', require('../../schemas/increment'))
 
-                await pool.add(data.project_id, mongoDBConn)
+                await pool.add( data.project_id , mongoDBConn )
                 await objectBuilder(false, data.project_id)
+                await personTable( { project_id: data.project_id } )
             });
 
             return {}
@@ -143,7 +145,8 @@ let projectStore = {
                         await defaultPage({ project_id: data.project_id })
                         await addFields({ project_id: data.project_id })
                         await is_static({ project_id: data.project_id, mongoDBConn: mongoDBConn })
-                        await add_permission_field({project_id: data.project_id})
+                        await add_permission_field( { project_id: data.project_id } )
+                        await personTable({ project_id: data.project_id })
                         resolve()
                     });
 

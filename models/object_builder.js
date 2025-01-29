@@ -116,8 +116,6 @@ async function buildModels(is_build = true, project_id) {
         let fieldsModel = [];
         let fieldsIndex = [];
         let dropIndex = {};
-        let hashPasswordOnSaveMiddleware = {};
-        let hashPasswordOnUpdateMiddleware = {};
         let arrayOfMiddlewares = []
         let hasPasswordField = false;
         if (fields) {
@@ -135,9 +133,6 @@ async function buildModels(is_build = true, project_id) {
                                     if (checkPassword !== "$2b$" && checkPassword !== "$2a$") {
                                         this[field.slug] = passwordTools.generatePasswordHash(this[field.slug]);
                                     }
-                                    // else {
-                                    //     // throw new Error("Wrong password type. Password must not be started '$2a$' or $2b$' ")
-                                    // }
                                 }
                                 next()
                             }
@@ -237,7 +232,6 @@ async function buildModels(is_build = true, project_id) {
                     const relation = await Relation.findOne({ id: field.relation_id })
                     const view = await View.findOne({ 
                         relation_id: field.relation_id, 
-                        // relation_table_slug: table.slug 
                     })
                     let resField = {}
                     resField.id = field.id
@@ -262,7 +256,6 @@ async function buildModels(is_build = true, project_id) {
                         viewFieldIds = relation.view_fields
                         let viewOfRelation = await View.findOne({
                             relation_id: field.relation_id,
-                            // relation_table_slug: table.slug
                         })
                         if (viewOfRelation && ((viewOfRelation.view_fields && viewOfRelation.view_fields.length) || (field.type == "DYNAMIC")) ) {
                             viewFieldIds = viewOfRelation.view_fields

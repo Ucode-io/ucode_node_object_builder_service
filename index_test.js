@@ -22,16 +22,18 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
         await projectStorage.reconnect({
-            project_id: "e20d0b06-5bcb-467b-8cdf-74abca30e3ff",
+            project_id: "a22c5b96-f9a4-4f8b-8248-981119148d45",
             credentials: {
                 host: "95.217.155.57",
                 port: 30027,
-                database: "task_151b92c9f6aa4ae096b79f335ac02363_p_obj_build_svcs",
-                username: "task_151b92c9f6aa4ae096b79f335ac02363_p_obj_build_svcs",
-                password: "gJ9PMaR6Hf"
+                database: "katana1!_68ece413821349d9807fc0112f1c2959_p_obj_build_svcs",
+                username: "katana1!_68ece413821349d9807fc0112f1c2959_p_obj_build_svcs",
+                password: "neA8VncNC9"
             }
         })
 
+
+        //a22c5b96-f9a4-4f8b-8248-981119148d45:mongodb://katana1!_68ece413821349d9807fc0112f1c2959_p_obj_build_svcs:neA8VncNC9@95.217.155.57:30027/katana1!_68ece413821349d9807fc0112f1c2959_p_obj_build_svcs
         //10148570-29d7-4082-8482-773bd5012c1c:mongodb://utech_3bab7de9fde646ad8b9dc63ab01d210b_p_obj_build_svcs:Wt4YN57ZqE@95.217.155.57:30027/utech_3bab7de9fde646ad8b9dc63ab01d210b_p_obj_build_svcs
         //e20d0b06-5bcb-467b-8cdf-74abca30e3ff:mongodb://task_151b92c9f6aa4ae096b79f335ac02363_p_obj_build_svcs:gJ9PMaR6Hf@95.217.155.57:30027/task_151b92c9f6aa4ae096b79f335ac02363_p_obj_build_svcs
         //43715880-3534-453e-b1df-a7546f69305e:mongodb://swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs:J65e1tOKfd@95.217.155.57:30027/swagger_d45da286d4714f6ea49088d9dd65a7bb_p_obj_build_svcs

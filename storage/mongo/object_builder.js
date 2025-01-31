@@ -6459,6 +6459,79 @@ let objectBuilder = {
         } catch (err) {
             throw err
         }
+    }),
+    agGridTree: catchWrapDbObjectBuilder(`${NAMESPACE}.agGridTree`, async (req) => {
+        try {
+            const mongoConn = await mongoPool.get(req.project_id);
+            if (!mongoConn) {
+                throw new Error("Failed to connect to MongoDB.");
+            }
+    
+            const data = struct.decode(req?.data);
+            const allTables = await ObjectBuilder(true, req.project_id);
+            const tableInfo = allTables[req.table_slug];
+            const fields = data.fields;
+    
+            if (!fields || !Array.isArray(fields)) {
+                throw new Error("Invalid or missing fields in request data.");
+            }
+    
+            const groupStage = {
+                $group: {
+                    _id: "$guid",
+                    ancestors: { $push: "$ancestors" }
+                }
+            };
+            fields.forEach(field => {
+                groupStage.$group[field] = { $first: `$${field}` };
+            });
+    
+            const projectStage = {
+                $project: {
+                    _id: 0,
+                    path: {
+                        $concatArrays: [
+                            { 
+                                $map: {
+                                    input: { $reverseArray: "$ancestors" },
+                                    as: "a",
+                                    in: "$$a.guid"
+                                }
+                            },
+                            ["$guid"]
+                        ]
+                    }
+                }
+            };
+            fields.forEach(field => {
+                projectStage.$project[field] = 1;
+            });
+    
+            const response = await tableInfo.models.aggregate([
+                {
+                    $graphLookup: {
+                        from: pluralize(req.table_slug),
+                        startWith: `$${req.table_slug}_id`,
+                        connectFromField: `${req.table_slug}_id`,
+                        connectToField: "guid",
+                        as: "ancestors",
+                        depthField: "depth"
+                    }
+                },
+                {
+                    $unwind: { path: "$ancestors", preserveNullAndEmptyArrays: true }
+                },
+                {
+                    $sort: { "ancestors.depth": 1 }
+                },
+                groupStage,
+                projectStage
+            ])
+    
+            return { table_slug: req.table_slug, data: struct.encode({response}) };
+        } catch (err) {
+            throw err; 
+        }
     })
 }
 

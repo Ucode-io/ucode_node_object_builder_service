@@ -785,7 +785,7 @@ let relationStore = {
             }
 
             await View.updateMany(
-                { table_slug: data.table_slug },
+                { table_slug: relation.table_from },
                 { $push: { columns: relation.id } }
             )
 

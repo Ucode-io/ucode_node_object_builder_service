@@ -32,6 +32,7 @@ let viewStore = {
             const View = mongoConn.models['View']
             const Role = mongoConn.models['role']
             const ViewPermission = mongoConn.models['view_permission']
+            const Relation = mongoConn.models['Relation']
             const History = mongoConn.models['object_builder_service.version_history']
 
             const idsRes = await Table.aggregate([
@@ -61,6 +62,9 @@ let viewStore = {
             ]);
 
             const ids = idsRes.length > 0 ? idsRes[0].ids : [];
+
+            const documents = await Relation.find({ table_from: data.table_slug }, { id: 1 }).lean().exec();
+            ids.push(...documents.map(doc => doc.id));
 
             if (data.attributes) {
                 data.attributes = struct.decode(data.attributes)

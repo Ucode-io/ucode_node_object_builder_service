@@ -619,7 +619,43 @@ module.exports = async function (data) {
             "created_at": new Date(),
             "updated_at": new Date(),
             "__v": 0
-        },]
+        },
+        {
+            "id": "4cb3bfc7-7160-4d36-b71a-e0878f368ae8",
+            "table_id": "ed3bf0d9-40a3-4b79-beb4-52506aa0b5ea",
+            "required": false,
+            "slug": "session_limit",
+            "label": "Session Limit",
+            "default": "",
+            "type": "NUMBER",
+            "index": "string",
+            "attributes": {
+                "fields": {
+                    "show_label": {
+                        "boolValue": false,
+                        "kind": "boolValue"
+                    },
+                    "defaultValue": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "icon": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "showTooltip": {
+                        "boolValue": false,
+                        "kind": "boolValue"
+                    }
+                }
+            },
+            "is_visible": false,
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "is_system": true,
+            "__v": 0
+        }
+    ]
         let bulkWriteFields = []
         fields.forEach(field => {
             bulkWriteFields.push(

@@ -26,14 +26,7 @@ let functionStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id);
             const Function = mongoConn.models["function_service.function"];
-            return await Function.updateOne(
-                {
-                    id: data.id,
-                },
-                {
-                    $set: data,
-                }
-            );
+            return await Function.updateOne( { id: data.id }, { $set: data } );
         } catch (error) {
             throw error;
         }
@@ -42,16 +35,13 @@ let functionStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id);
             const Function = mongoConn.models["function_service.function"];
-            let query = { type: { $in: [data.type, "KNATIVE"] } };
+            let query = { type: { $in: data.type } };
             
             if (data.search) { query.name = RegExp(data.search, "i") }
 
             const functions = await Function.find(
                 query,
-                {
-                    _id: 0,
-                    __v: 0,
-                },
+                { _id: 0, __v: 0 },
                 { sort: { created_at: -1 } }
             ).skip(data.offset).limit(data.limit);
 

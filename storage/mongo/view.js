@@ -32,7 +32,39 @@ let viewStore = {
             const View = mongoConn.models['View']
             const Role = mongoConn.models['role']
             const ViewPermission = mongoConn.models['view_permission']
+            const Relation = mongoConn.models['Relation']
             const History = mongoConn.models['object_builder_service.version_history']
+
+            const idsRes = await Table.aggregate([
+                { $match: { slug: data.table_slug } },
+                {
+                    $lookup: {
+                        from: "fields",
+                        localField: "id",
+                        foreignField: "table_id",
+                        as: "fields"
+                    }
+                },
+                {  $unwind: "$fields" },
+                { $match: {"fields.slug": { $nin: ["folder_id", "guid"] } } },
+                {
+                    $group: {
+                        _id: null,
+                        ids: { $addToSet: "$fields.id" }
+                    }
+                },
+                {
+                    $project: {
+                        _id: 0,
+                        ids: 1
+                    }
+                }
+            ]);
+
+            const ids = idsRes.length > 0 ? idsRes[0].ids : [];
+
+            const documents = await Relation.find({ table_from: data.table_slug }, { id: 1 }).lean().exec();
+            ids.push(...documents.map(doc => doc.id));
 
             if (data.attributes) {
                 data.attributes = struct.decode(data.attributes)
@@ -45,6 +77,9 @@ let viewStore = {
             if(data.type == VIEW_TYPES.BOARD) {
                 await BoardOrderChecker(mongoConn, data.table_slug)
             }
+
+            data.columns = ids;
+
             const response = await View.create(data)
 
             const resp = await Table.updateOne({
@@ -102,9 +137,6 @@ let viewStore = {
         } catch (err) {
             throw err
         }
-
-
-
     }),
     update: catchWrapDb(`${NAMESPACE}.update`, async (data) => {
         const startMemoryUsage = process.memoryUsage();

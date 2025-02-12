@@ -132,6 +132,7 @@ let fieldStore = {
             const Tab = mongoConn.models['Tab']
             const Section = mongoConn.models['Section']
             const Layout = mongoConn.models['Layout']
+            const View = mongoConn.models['View']
 
             if (!data.id) {
                 data.id = v4()
@@ -208,6 +209,10 @@ let fieldStore = {
                 {
                     new: true
                 }
+            )
+            await View.updateMany(
+                { table_slug: table.slug },
+                { $push: { columns: field.id } }
             )
          
             const fieldPermissionTable = (await ObjectBuilder(true, data.project_id))["field_permission"]

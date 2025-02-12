@@ -12,7 +12,8 @@ async function createClientType(clientPlatformID, clientTypeID, projectID) {
         "client_platform_ids": [
           clientPlatformID
         ],
-        "is_system": true
+        "is_system": true,
+        "session_limit": 50
       }]
 
     return clientTypes

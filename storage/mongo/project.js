@@ -76,6 +76,7 @@ let projectStore = {
                 mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
                 mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
                 mongoDBConn.model('IncrementSeq', require('../../schemas/increment'))
+                mongoDBConn.model("Language", require('../../schemas/language'))
 
                 await pool.add( data.project_id , mongoDBConn )
                 await objectBuilder(false, data.project_id)
@@ -140,6 +141,7 @@ let projectStore = {
                         mongoDBConn.model('object_builder_service.menu.templates', require('../../schemas/menu_template'))
                         mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
                         mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
+                        mongoDBConn.model('Language', require('../../schemas/language'))
                         await objectBuilder(false, data.project_id)
                         await initialMenu({ project_id: data.project_id })
                         await defaultPage({ project_id: data.project_id })
@@ -155,6 +157,7 @@ let projectStore = {
                         reject(err)
                     })
                 } catch (err) {
+                    console.log("ERRRRRR_>", err)
                     reject(err)
                 }
 

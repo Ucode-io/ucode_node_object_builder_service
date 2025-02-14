@@ -41,6 +41,7 @@ const itemsService = require("../services/items");
 const fileService = require("../services/file");
 const versionHistoryServiceService = require("../services/version_history");
 const versionService = require("../services/version");
+const languageService = require("../services/language")
 
 const PROTO_URL =
     __dirname +
@@ -104,6 +105,7 @@ module.exports = async function () {
             server.addService(objectBuilderProto.FileService.service, fileService);
             server.addService(objectBuilderProto.VersionHistoryService.service, versionHistoryServiceService);
             server.addService(objectBuilderProto.VersionService.service, versionService);
+            server.addService(objectBuilderProto.LanguageService.service, languageService)
 
             server.bindAsync(
                 "0.0.0.0:" + cfg.RPCPort,

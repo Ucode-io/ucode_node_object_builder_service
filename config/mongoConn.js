@@ -97,7 +97,7 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         conn.model('IncrementSeq', require('../schemas/increment'));
         conn.model('rowOrder', require('../schemas/roworder'));
         conn.model('object_builder_service.version', require('../schemas/version.js'));
-        conn.model('Language', require("../services/language.js"));
+        conn.model('Language', require("../schemas/language"));
     }
     return conn;
 }

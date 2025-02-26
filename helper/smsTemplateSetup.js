@@ -48,7 +48,7 @@ async function initialSetupSmsTemplate(data) {
             }
             await tableCollection.create(tableRequest)
         }
-
+ 
         const layout = await layoutCollection.findOne({ table_id: tableId });
         if (!layout) {
             const layoutId = v4();

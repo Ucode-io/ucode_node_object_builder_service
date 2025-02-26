@@ -5677,6 +5677,51 @@ async function createField() {
 		"created_at": 			new Date(),
 		"updated_at": 			new Date(),
 		"__v": 					0
+	}, {
+		"id": 			"0a7e1036-b609-4285-984e-95512274fe0a",
+		"table_id": 	"c5ef7f8f-f76b-4cb8-afd9-387f45d88a83",
+		"required": 	false,
+		"slug": 		"guid",
+		"label": 		"ID",
+		"default": 		"v4",
+		"type": 		"UUID",
+		"index": 		"true",
+		"is_visible": 	true,
+		"unique": 		true,
+		"is_system": 	true,
+		"created_at": 	new Date(),
+		"updated_at": 	new Date(),
+		"__v": 			0
+	}, {
+		"id": 			"6f861c3b-65d0-4217-b1e0-86a9d709443d",
+		"table_id": 	"c5ef7f8f-f76b-4cb8-afd9-387f45d88a83",
+		"required": 	false,
+		"slug": 		"text",
+		"label": 		"Text",
+		"default": 		"",
+		"type": 		"SINGLE_LINE",
+		"index": 		"string",
+		"attributes": {
+		  "fields": {
+			"label_en": 		{ "stringValue": "Text", "kind": "stringValue" },
+			"number_of_rounds": { "nullValue": "NULL_VALUE", "kind": "nullValue" },
+			"defaultValue": 	{ "stringValue": "", "kind": "stringValue" },
+			"label": 			{ "stringValue": "", "kind": "stringValue" }
+		  }
+		},
+		"is_visible": 			false,
+		"autofill_field": 		"",
+		"autofill_table": 		"",
+		"automatic": 			false,
+		"commit_id": 			"",
+		"relation_field": 		"",
+		"is_system": 			true,
+		"show_label": 			true,
+		"enable_multilanguage": false,
+		"hide_multilanguage": 	false,
+		"created_at": 			new Date(),
+		"updated_at": 			new Date(),
+		"__v": 					0
 	}]
 
 	return fields

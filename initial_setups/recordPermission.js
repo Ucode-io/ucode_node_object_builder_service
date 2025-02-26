@@ -162,6 +162,35 @@ async function createRecordPermision(roleID) {
         "createdAt": new Date(),
         "updatedAt": new Date(),
         "__v": 0
+    }, {
+        "update": "Yes",
+        "table_slug": "sms_template",
+        "write": "Yes",
+        "guid": "15cc0743-28ab-4803-af93-709da349d9aa",
+        "read": "Yes",
+        "delete": "Yes",
+        "role_id": roleID,
+        "is_have_condition": false,
+        "is_public": false,
+        "pdf_action": "Yes",
+        "add_filter": "Yes",
+        "fix_column": "Yes",
+        "tab_group": "Yes",
+        "columns": "Yes",
+        "group": "Yes",
+        "excel_menu": "Yes",
+        "search_button": "Yes",
+        "field_filter": "Yes",
+        "add_field": "Yes",
+        "language_btn": "Yes",
+        "view_create": "Yes",
+        "automation": "Yes",
+        "settings": "Yes",
+        "share_modal": "Yes",
+        "delete_all": "Yes",
+        "createdAt": new Date(),
+        "updatedAt": new Date(),
+        "__v": 0
     }]
 
     return recordPermission

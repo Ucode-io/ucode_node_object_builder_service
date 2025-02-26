@@ -14,6 +14,7 @@ const addFields = require("../../helper/addFields");
 const is_static = require("../../helper/is_static");
 const add_permission_field = require("../../helper/add_record_permission");
 const personTable = require("../../helper/personTableSetups");
+const smsTemplateTable = require("../../helper/smsTemplateSetup");
 
 let NAMESPACE = "storage.project";
 
@@ -81,6 +82,7 @@ let projectStore = {
                 await pool.add( data.project_id , mongoDBConn )
                 await objectBuilder(false, data.project_id)
                 await personTable( { project_id: data.project_id } )
+                await smsTemplateTable( { project_id: data.project_id } )
             });
 
             return {}
@@ -149,6 +151,7 @@ let projectStore = {
                         await is_static({ project_id: data.project_id, mongoDBConn: mongoDBConn })
                         await add_permission_field( { project_id: data.project_id } )
                         await personTable({ project_id: data.project_id })
+                        await smsTemplateTable({project_id: data.project_id})
                         resolve()
                     });
 

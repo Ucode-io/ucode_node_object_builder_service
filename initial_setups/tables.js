@@ -386,6 +386,24 @@ async function createTable() {
         "created_at": new Date(),
         "updated_at": new Date(),
         "__v": 0
+    }, {
+       "id": "c5ef7f8f-f76b-4cb8-afd9-387f45d88a83",
+        "label": "SMS Template",
+        "slug": "sms_template",
+        "description": "",
+        "deleted_at": new Date('1970-01-01T18:00:00.000+00:00'),
+        "show_in_menu": true,
+        "is_changed": false,
+        "icon": "comment-sms.svg",
+        "subtitle_field_slug": "",
+        "folder_id": "",
+        "is_cached": false,
+        "soft_delete": false,
+        "order_by": false,
+        "is_system": true,
+        "created_at": new Date(),
+        "updated_at": new Date(),
+        "__v": 0 
     }]
     
     return tables;

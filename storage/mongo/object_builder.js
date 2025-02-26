@@ -6475,6 +6475,19 @@ let objectBuilder = {
             if (!fields || !Array.isArray(fields)) {
                 throw new Error("Invalid or missing fields in request data.");
             }
+
+            let filter = {};
+            let keys = Object.keys(data);
+            for (const key of keys) {
+                if (typeof(data[key]) === "object" && key != "fields") {
+                    if (data[key]) {
+                        let is_array = Array.isArray(data[key])
+                        if (is_array) {
+                            filter[key] = { $in: data[key] };
+                        }
+                    }
+                }
+            }
     
             const groupStage = {
                 $group: {
@@ -6508,6 +6521,9 @@ let objectBuilder = {
             });
     
             const response = await tableInfo.models.aggregate([
+                {
+                    $match: filter
+                },
                 {
                     $graphLookup: {
                         from: pluralize(req.table_slug),

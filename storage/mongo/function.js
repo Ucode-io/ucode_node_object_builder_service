@@ -39,6 +39,13 @@ let functionStore = {
             
             if (data.search) { query.name = RegExp(data.search, "i") }
 
+            if (data.function_id) {
+                query.$or = [
+                    { _id: { $in: data.function_id } },
+                    query
+                ];
+            }
+
             const functions = await Function.find(
                 query,
                 { _id: 0, __v: 0 },

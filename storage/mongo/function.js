@@ -35,28 +35,20 @@ let functionStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id);
             const Function = mongoConn.models["function_service.function"];
-            let query = {};
+            let query = { type: { $in: data.type } };
+            
+            if (data.search) { query.name = RegExp(data.search, "i") }
 
-            const types = Array.isArray(data.type) ? data.type : [data.type];
-
-            if (data.function_id) {
-                query.$or = [
-                    { id: data.function_id },
-                    { type: { $in: types } }
-                ];
-            } else {
-                query.type = { $in: types };
-            }
-
-            if (data.search) {
-                query.name = new RegExp(data.search, "i");
-            }
-
-            const functions = await Function.find(
+            let functions = await Function.find(
                 query,
                 { _id: 0, __v: 0 },
                 { sort: { created_at: -1 } }
             ).skip(data.offset).limit(data.limit);
+
+            if (data.function_id) {
+                let func = await Function.findOne({ id: data.function_id })
+                functions.push(func)
+            }
 
             const count = await Function.countDocuments(query);
             return { functions, count };

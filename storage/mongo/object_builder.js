@@ -445,6 +445,24 @@ let objectBuilder = {
             
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
             data.user_id_auth = updatedUser?.user_id
+            
+            if (req.project_id == "088bf450-6381-45b5-a236-2cb0880dcaab") {
+                if (req.table_slug === "order" || req.table_slug === "orders") {
+                    let order = await allTableInfo[req.table_slug].models.findOne({
+                        guid: data.id
+                    });
+                    if (order.status.includes("accepted") && data.status.includes("canceled")) {
+                        data.status = ["accepted"];
+                    }                        
+                } else if (req.table_slug === "transaction" || req.table_slug === "transactions") {
+                    let transaction = await allTableInfo[req.table_slug].models.findOne({
+                        guid: data.id
+                    });
+                    if (transaction.status.includes("accepted") && data.status.includes("canceled")) {
+                        data.status = ["accepted"]
+                    }
+                }
+            }
 
             if (req.table_slug === "person"){
                 const response = await allTableInfo[req.table_slug].models.findOne( { guid: data.id } );

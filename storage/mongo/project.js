@@ -82,7 +82,7 @@ let projectStore = {
                 await pool.add( data.project_id , mongoDBConn )
                 await objectBuilder(false, data.project_id)
                 await personTable( { project_id: data.project_id } )
-                await smsTemplateTable( { project_id: data.project_id } )
+                // await smsTemplateTable( { project_id: data.project_id } )
             });
 
             return {}
@@ -151,7 +151,7 @@ let projectStore = {
                         await is_static({ project_id: data.project_id, mongoDBConn: mongoDBConn })
                         await add_permission_field( { project_id: data.project_id } )
                         await personTable({ project_id: data.project_id })
-                        await smsTemplateTable({project_id: data.project_id})
+                        // await smsTemplateTable({project_id: data.project_id})
                         resolve()
                     });
 

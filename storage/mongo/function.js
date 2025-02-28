@@ -35,15 +35,21 @@ let functionStore = {
         try {
             const mongoConn = await mongoPool.get(data.project_id);
             const Function = mongoConn.models["function_service.function"];
-            let query = { type: { $in: data.type } };
-            
-            if (data.search) { query.name = RegExp(data.search, "i") }
+            let query = {};
+
+            const types = Array.isArray(data.type) ? data.type : [data.type];
 
             if (data.function_id) {
                 query.$or = [
-                    { _id: { $in: data.function_id } },
-                    query
+                    { id: data.function_id },
+                    { type: { $in: types } }
                 ];
+            } else {
+                query.type = { $in: types };
+            }
+
+            if (data.search) {
+                query.name = new RegExp(data.search, "i");
             }
 
             const functions = await Function.find(

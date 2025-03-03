@@ -3649,7 +3649,7 @@ async function createLanguage() {
                 "ru": "Установить переменные",
                 "en": "Set variables"
             },
-            "category": "Menu",
+            "category": "Table",
             "platform": "Admin"
         },
         {
@@ -3660,7 +3660,7 @@ async function createLanguage() {
                 "ru": "Введите",
                 "en": "Enter"
             },
-            "category": "Manu",
+            "category": "Menu",
             "platform": "Admin"
         },
         {

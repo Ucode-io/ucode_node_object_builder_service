@@ -16,6 +16,7 @@ const createRelation = require("../initial_setups/relation");
 const createSettingLanguage = require("../initial_setups/setting_language");
 const createSettingCurrency = require("../initial_setups/setting_currency");
 const createSettingTimezone = require("../initial_setups/setting_timezone");
+const createLanguage = require("../initial_setups/language");
 const createGlobalPermission = require("../initial_setups/global_permission");
 const guessRole = require("../initial_setups/defaultRole")
 const settingCheker = require("./settingChecker")
@@ -174,6 +175,13 @@ async function insertCollections(conn, userId, projectId, clientTypeID, roleID) 
 
         const settingTimezones = await createSettingTimezone()
         conn.collection('setting.timezones').insertMany(settingTimezones, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['languages']) {
+        const languages = await createLanguage()
+        conn.collection('languages').insertMany(languages, function (err, result) {
             if (err) throw err;
         })
     }

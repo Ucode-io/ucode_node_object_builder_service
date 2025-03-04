@@ -5,8 +5,8 @@ const LanguageSchema = mongoose.Schema(
     {
         id: {
             type: String,
+            unique: true,
             default: v4,
-            unique: true
         },
         key: {
             type: String,
@@ -28,7 +28,7 @@ const LanguageSchema = mongoose.Schema(
                 'API keys',
                 'Custom endpoint',
                 'UserInvite',
-                'Fuctions',
+                'Functions',
                 'Activity Logs',
                 'Layout',
                 'Fields',
@@ -46,7 +46,7 @@ const LanguageSchema = mongoose.Schema(
         platform: {
             type: String,
             default: "Admin",
-            required: true
+            required: true,
         }
     },
     {
@@ -55,5 +55,7 @@ const LanguageSchema = mongoose.Schema(
         toJSON: { virtuals: true },
     }
 );
+
+LanguageSchema.index({ key: 1, category: 1, platform: 1 }, { unique: true });
 
 module.exports = LanguageSchema;

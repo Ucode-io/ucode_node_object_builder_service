@@ -49,6 +49,12 @@ let versionHistoryStorage = {
             if (data.version_ids && data.version_ids.length > 0) {
                 query.version_id = { $in: data.version_ids };
             }
+            if (data.action_type) {
+                query.action_type = data.action_type;
+            }
+            if (data.collection) {
+                query.table_slug = data.collection;
+            }
 
             const sortOrder = data.order_by ? 1 : -1
 

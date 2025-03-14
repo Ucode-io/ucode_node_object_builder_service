@@ -40,9 +40,6 @@ let versionHistoryStorage = {
                 }
                 query.created_at.$lte = new Date(data.to_date);
             }
-            if (data.user_info) {
-                query.user_info = data.user_info;
-            }
             if (data.api_key) {
                 query.api_key = data.api_key
             }
@@ -53,7 +50,10 @@ let versionHistoryStorage = {
                 query.action_type = data.action_type;
             }
             if (data.collection) {
-                query.table_slug = data.collection;
+                query.table_slug = { $regex: new RegExp(data.collection, "i") };
+            }
+            if (data.user_info) {
+                query.user_info = { $regex: new RegExp(data.user_info, "i") };
             }
 
             const sortOrder = data.order_by ? 1 : -1

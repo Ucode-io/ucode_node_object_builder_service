@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { ACTION_TYPES, VERSION_SOURCE_TYPES } = require('../helper/constants')
+const { ACTION_TYPES } = require('../helper/constants')
 const { v4 } = require("uuid");
 
 const VersionHistory = mongoose.Schema(
@@ -21,9 +21,6 @@ const VersionHistory = mongoose.Schema(
         },
         current: {
             type: String
-        },
-        used_envrironments: {
-            type: mongoose.Schema.Types.Object
         },
         date: {
             type: String

@@ -72,7 +72,8 @@ module.exports = {
     },
     ACTION_TYPES: [
         "CREATE", 
-        "UPDATE", "DELETE", 
+        "UPDATE", 
+        "DELETE", 
         "BULKWRITE", 
         "GET", 
         "LOGIN", 

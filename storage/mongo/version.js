@@ -63,12 +63,6 @@ let versionStorage = {
             // Execute the aggregation pipeline
             const resp = await Version.aggregate(pipeline);
             
-            // Count documents matching the query
-            // const countPipeline = pipeline.slice(); // Create a copy of the pipeline
-            // countPipeline.push({ $count: "count" });
-            // const [{ count }] = await Version.aggregate(countPipeline);
-    
-            
             return { versions: resp, count: count || 0 };
         } catch (err) {
             throw err;

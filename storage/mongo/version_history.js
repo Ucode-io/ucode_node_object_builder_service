@@ -40,14 +40,20 @@ let versionHistoryStorage = {
                 }
                 query.created_at.$lte = new Date(data.to_date);
             }
-            if (data.user_info) {
-                query.user_info = data.user_info;
-            }
             if (data.api_key) {
                 query.api_key = data.api_key
             }
             if (data.version_ids && data.version_ids.length > 0) {
                 query.version_id = { $in: data.version_ids };
+            }
+            if (data.action_type) {
+                query.action_type = data.action_type;
+            }
+            if (data.collection) {
+                query.table_slug = { $regex: new RegExp(data.collection, "i") };
+            }
+            if (data.user_info) {
+                query.user_info = { $regex: new RegExp(data.user_info, "i") };
             }
 
             const sortOrder = data.order_by ? 1 : -1

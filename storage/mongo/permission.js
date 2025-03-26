@@ -788,7 +788,7 @@ let permission = {
             tablesList.push(tableCopy)
         }
         roleCopy.tables = tablesList
-        roleCopy.global_permission = await CustomPermission?.findOne({ role_id: roleCopy.guid }) || {}
+        roleCopy.global_permission = await CustomPermission?.findOne({ role_id: roleCopy.guid }).lean() || {}
         return { project_id: req.project_id, data: roleCopy }
 
     }),
@@ -1269,7 +1269,7 @@ let permission = {
             role_id: roleId,
         }, {
             $set: req.data.global_permission
-        }, { upsert: true })
+        }, { upsert: true, strict: false })
 
 
         await AutomaticFilter.deleteMany({ role_id: roleId })
@@ -1561,7 +1561,10 @@ let permission = {
             profile_settings_button: true,
             project_button: true,
             sms_button: true,
-            version_button: true
+            version_button: true,
+            gitbook_button: true,
+            chatwoot_button: true,
+            gpt_button: true
         }
         await CustomPermission.findOneAndUpdate({
             role_id: req.role_id,

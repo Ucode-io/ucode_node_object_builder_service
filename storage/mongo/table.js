@@ -1050,11 +1050,11 @@ let tableStore = {
     getChart: catchWrapDb(`${NAMESPACE}.getChart`, async (data) => {
         try {
             const mongoConn = await mongoPool.get(data.project_id);
-
+    
             const Table = mongoConn.models['Table'];
             const Field = mongoConn.models['Field'];
             const Relation = mongoConn.models['Relation'];
-
+    
             const tables = {};
             const tablesCursor = await Table.find({
                 $or: [
@@ -1062,61 +1062,61 @@ let tableStore = {
                     { slug: { $in: ['role', 'client_type'] } }
                 ]
             });
-
+    
             for (const table of tablesCursor) {
                 tables[table.id] = {
                     id: table.id,
                     label: table.label,
-                    slug: table.slug
+                    slug: table.slug.replace(/-/g, '_') 
                 };
             }
-
+    
             const fields = {}
             const fieldsCursor = await Field.find({});
-
+    
             for (const field of fieldsCursor) {
                 if (!fields[field.table_id]) {
                     fields[field.table_id] = [];
                 }
                 fields[field.table_id].push({
-                    slug: field.slug,
+                    slug: field.slug.replace(/-/g, '_'),
                     type: field.type,
                 });
             }
-
+    
             const relations = [];
             const relationsCursor = await Relation.find(
                 { is_system: null }
             )
-
+    
             for (const rel of relationsCursor) {
                 relations.push({
-                    tableFrom: rel.table_from,
-                    tableTo: rel.table_to,
-                    fieldFrom: rel.field_from,
-                    fieldTo: rel.field_to
+                    tableFrom: rel.table_from.replace(/-/g, '_'),  
+                    tableTo: rel.table_to.replace(/-/g, '_'),   
+                    fieldFrom: rel.field_from.replace(/-/g, '_'), 
+                    fieldTo: 'guid'
                 });
             }
-
+    
             let dbml = '';
-
+    
             for (const tableId in tables) {
                 const table = tables[tableId];
                 dbml += `Table ${table.slug} {\n`;
-
+    
                 if (fields[tableId]) {
                     for (const field of fields[tableId]) {
                         dbml += `  ${field.slug} ${field.type}\n`;
                     }
                 }
-
+    
                 dbml += '}\n\n';
             }
-
+    
             for (const rel of relations) {
                 dbml += `Ref: ${rel.tableFrom}.${rel.fieldFrom} > ${rel.tableTo}.guid\n`;
             }
-
+    
             return {
                 dbml: dbml
             };

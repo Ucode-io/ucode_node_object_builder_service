@@ -79,6 +79,10 @@ const FunctionServiceCustomEventSchema = mongoose.Schema({
             type: String,
             enum: ["ASYNC", "SYNC"],
             default: "ASYNC"
+        },
+        is_public: {
+            type: Boolean,
+            default: false,
         }
     },
     {

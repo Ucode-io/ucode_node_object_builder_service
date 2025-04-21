@@ -6,7 +6,7 @@ const { v4 } = require("uuid");
 const { struct } = require('pb-util');
 const os = require("os")
 const layoutStorage = require("./layout")
-const { STATIC_TABLE_IDS } = require("../../helper/constants")
+const { STATIC_TABLE_IDS, FIELD_TYPES } = require("../../helper/constants")
 const mongoPool = require('../../pkg/pool');
 
 let NAMESPACE = "storage.table";
@@ -1080,7 +1080,7 @@ let tableStore = {
                 }
                 fields[field.table_id].push({
                     slug: field.slug.replace(/-/g, '_'),
-                    type: field.type,
+                    type: FIELD_TYPES[field.type],
                 });
             }
     

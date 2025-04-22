@@ -1108,7 +1108,8 @@ let tableStore = {
                     tableFrom: rel.table_from.replace(/-/g, '_'),  
                     tableTo: rel.table_to.replace(/-/g, '_'),   
                     fieldFrom: rel.field_from.replace(/-/g, '_'), 
-                    fieldTo: 'guid'
+                    fieldTo: 'guid',
+                    type: rel.type,
                 });
             }
     
@@ -1128,7 +1129,11 @@ let tableStore = {
             }
     
             for (const rel of relations) {
-                dbml += `Ref: ${rel.tableFrom}.${rel.fieldFrom} > ${rel.tableTo}.guid\n`;
+                if (rel.type === 'Recursive') {
+                    dbml += `Ref: ${rel.tableFrom}.${rel.fieldTo} > ${rel.tableTo}.guid\n`;
+                } else {
+                    dbml += `Ref: ${rel.tableFrom}.${rel.fieldFrom} > ${rel.tableTo}.guid\n`;
+                }
             }
     
             return {

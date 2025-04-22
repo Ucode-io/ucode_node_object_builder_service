@@ -1108,7 +1108,7 @@ let tableStore = {
                     tableFrom: rel.table_from.replace(/-/g, '_'),  
                     tableTo: rel.table_to.replace(/-/g, '_'),   
                     fieldFrom: rel.field_from.replace(/-/g, '_'), 
-                    fieldTo: 'guid',
+                    fieldTo: rel.field_to.replace(/-/g, '_'),
                     type: rel.type,
                 });
             }

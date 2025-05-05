@@ -29,9 +29,6 @@ const ViewSchema = mongoose.Schema(
         quick_filters: {
             type: mongoose.Schema.Types.Mixed,
         },
-        users: {
-            type: mongoose.Schema.Types.Mixed,
-        },
         name: {
             type: String,
         },
@@ -47,43 +44,13 @@ const ViewSchema = mongoose.Schema(
         time_interval: {
             type: Number,
         },
-        multiple_insert: {
-            type: Boolean,
-        },
-        status_field_slug: {
-            type: String,
-        },
-        is_editable: {
-            type: Boolean,
-        },
         relation_table_slug: {
             type: String,
         },
         relation_id: {
             type: String,
         },
-        summaries: {
-            type: mongoose.Schema.Types.Mixed,
-        },
-        multiple_insert_field: {
-            type: String
-        },
-        updated_fields: {
-            type: mongoose.Schema.Types.Mixed,
-        },
-        default_values: {
-            type: mongoose.Schema.Types.Mixed,
-        },
         app_id: {
-            type: String,
-        },
-        table_label: {
-            type: String,
-        },
-        action_relations: {
-            type: mongoose.Schema.Types.Mixed
-        },
-        default_limit: {
             type: String,
         },
         attributes: {
@@ -92,17 +59,8 @@ const ViewSchema = mongoose.Schema(
         navigate: {
             type: mongoose.Schema.Types.Mixed
         },
-        default_editable: {
-            type: Boolean,
-        },
-        creatable: {
-            type: Boolean,
-        },
         function_path: {
             type: String
-        },
-        navigate: {
-            type: mongoose.Schema.Types.Mixed
         },
         order: {
             type: Number,
@@ -112,6 +70,9 @@ const ViewSchema = mongoose.Schema(
             type: String,
         },
         name_en: {
+            type: String,
+        },
+        table_id: {
             type: String,
         },
     },

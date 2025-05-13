@@ -6474,7 +6474,7 @@ let objectBuilder = {
             const tableSlugs = [];
 
             for (const field of tableInfo.fields) {
-                if ((field.type == "LOOKUP" || field.type == "LOOKUPS") && field?.table_slug != req.table_slug) {
+                if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
                     tableSlugs.push(field.table_slug);
                 }
             }

@@ -6546,7 +6546,7 @@ let objectBuilder = {
             ];
 
             tableSlugs.forEach((slug, index) => {
-                const lookupField = `${slug}_id`;
+                const lookupField = fieldSlugs[index];
                 const dataField = `${fieldSlugs[index]}_data`;
                 
                 pipeline.push({

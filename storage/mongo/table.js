@@ -1056,6 +1056,8 @@ let tableStore = {
             const Relation = mongoConn.models['Relation'];
     
             const tables = {};
+            const tableIds = [];
+            const tableSlugs = [];
             const tablesCursor = await Table.find({
                 $or: [
                     { is_system: null },
@@ -1069,15 +1071,25 @@ let tableStore = {
                     label: table.label,
                     slug: table.slug.replace(/-/g, '_') 
                 };
+                tableIds.push(table.id);
+                tableSlugs.push(table.slug);
             }
     
-            const fields = {}
-            const fieldsCursor = await Field.find({});
+            const fields = {};
+            const fieldSlugSet = new Set();
+            const fieldsCursor = await Field.find({
+                table_id: { $in: tableIds }
+            });
     
             for (const field of fieldsCursor) {
+                const key = `${field.table_id}_${field.slug}`;
+                if (fieldSlugSet.has(key)) continue;
+                fieldSlugSet.add(key);
+    
                 if (!fields[field.table_id]) {
                     fields[field.table_id] = [];
                 }
+    
                 fields[field.table_id].push({
                     slug: field.slug.replace(/-/g, '_'),
                     type: FIELD_TYPES[field.type],
@@ -1085,16 +1097,19 @@ let tableStore = {
             }
     
             const relations = [];
-            const relationsCursor = await Relation.find(
-                { is_system: null }
-            )
+            const relationsCursor = await Relation.find({
+                is_system: null,
+                table_to: { $in: tableSlugs },
+                table_from: { $in: tableSlugs }
+            });
     
             for (const rel of relationsCursor) {
                 relations.push({
                     tableFrom: rel.table_from.replace(/-/g, '_'),  
                     tableTo: rel.table_to.replace(/-/g, '_'),   
                     fieldFrom: rel.field_from.replace(/-/g, '_'), 
-                    fieldTo: 'guid'
+                    fieldTo: rel.field_to.replace(/-/g, '_'),
+                    type: rel.type,
                 });
             }
     
@@ -1114,7 +1129,11 @@ let tableStore = {
             }
     
             for (const rel of relations) {
-                dbml += `Ref: ${rel.tableFrom}.${rel.fieldFrom} > ${rel.tableTo}.guid\n`;
+                if (rel.type === 'Recursive') {
+                    dbml += `Ref: ${rel.tableFrom}.${rel.fieldTo} > ${rel.tableTo}.guid\n`;
+                } else {
+                    dbml += `Ref: ${rel.tableFrom}.${rel.fieldFrom} > ${rel.tableTo}.guid\n`;
+                }
             }
     
             return {
@@ -1124,6 +1143,7 @@ let tableStore = {
             throw err;
         }
     })
+    
 };
 
 module.exports = tableStore;

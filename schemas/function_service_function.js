@@ -83,6 +83,10 @@ const FunctionServiceCustomEventSchema = mongoose.Schema({
         is_public: {
             type: Boolean,
             default: false,
+        },
+        max_scale: {
+            type: Number,
+            default: 3,
         }
     },
     {

@@ -6471,6 +6471,13 @@ let objectBuilder = {
             const allTables = await ObjectBuilder(true, req.project_id);
             const tableInfo = allTables[req.table_slug];
             const fields = data.fields;
+            const tableSlugs = [];
+
+            for (const field of tableInfo.fields) {
+                if ((field.type == "LOOKUP" || field.type == "LOOKUPS") && field?.table_slug != req.table_slug) {
+                    tableSlugs.push(field.table_slug);
+                }
+            }
     
             if (!fields || !Array.isArray(fields)) {
                 throw new Error("Invalid or missing fields in request data.");
@@ -6519,11 +6526,9 @@ let objectBuilder = {
             fields.forEach(field => {
                 projectStage.$project[field] = 1;
             });
-    
-            const response = await tableInfo.models.aggregate([
-                {
-                    $match: filter
-                },
+
+            let pipeline = [
+                { $match: filter },
                 {
                     $graphLookup: {
                         from: pluralize(req.table_slug),
@@ -6534,15 +6539,43 @@ let objectBuilder = {
                         depthField: "depth"
                     }
                 },
-                {
-                    $unwind: { path: "$ancestors", preserveNullAndEmptyArrays: true }
-                },
-                {
-                    $sort: { "ancestors.depth": 1 }
-                },
-                groupStage,
-                projectStage
-            ])
+                { $unwind: { path: "$ancestors", preserveNullAndEmptyArrays: true } },
+                { $sort: { "ancestors.depth": 1 } }
+            ];
+
+            tableSlugs.forEach(slug => {
+                const lookupField = `${slug}_id`;
+                const dataField = `${slug}_id_data`;
+                
+                pipeline.push({
+                    $lookup: {
+                        from: pluralize(slug),
+                        localField: lookupField,
+                        foreignField: "guid",
+                        as: dataField,
+                        pipeline: [
+                            {
+                                $project: {
+                                    createdAt: 0,
+                                    updatedAt: 0,
+                                    __v: 0,
+                                    _id: 0
+                                }
+                            }
+                        ]
+                    }
+                });
+    
+                groupStage.$group[lookupField] = { $first: `$${lookupField}` };
+                groupStage.$group[dataField] = { $first: { $arrayElemAt: [`$${dataField}`, 0] } };
+    
+                projectStage.$project[lookupField] = 1;
+                projectStage.$project[dataField] = 1;
+            });
+
+            pipeline.push(groupStage, projectStage);
+    
+            const response = await tableInfo.models.aggregate(pipeline)
     
             return { table_slug: req.table_slug, data: struct.encode({response}) };
         } catch (err) {

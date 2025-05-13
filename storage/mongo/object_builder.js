@@ -28,6 +28,7 @@ const MenuStorage = require('./menu');
 const { OrderUpdate } = require('../../helper/board_order')
 const updateISODateFunction = require('../../helper/updateISODate');
 const personSync = require('../../helper/personSync');
+const { json } = require('stream/consumers');
 
 let NAMESPACE = "storage.object_builder";
 
@@ -6471,11 +6472,12 @@ let objectBuilder = {
             const allTables = await ObjectBuilder(true, req.project_id);
             const tableInfo = allTables[req.table_slug];
             const fields = data.fields;
-            const tableSlugs = [];
+            const tableSlugs = [], fieldSlugs = [];
 
             for (const field of tableInfo.fields) {
                 if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
                     tableSlugs.push(field.table_slug);
+                    fieldSlugs.push(field.slug);
                 }
             }
     
@@ -6543,9 +6545,9 @@ let objectBuilder = {
                 { $sort: { "ancestors.depth": 1 } }
             ];
 
-            tableSlugs.forEach(slug => {
+            tableSlugs.forEach((slug, index) => {
                 const lookupField = `${slug}_id`;
-                const dataField = `${slug}_id_data`;
+                const dataField = `${fieldSlugs[index]}_data`;
                 
                 pipeline.push({
                     $lookup: {

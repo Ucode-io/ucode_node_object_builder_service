@@ -26,9 +26,9 @@ const logger = require("./config/logger");
             credentials: {
                 host: "142.93.164.37",
                 port: 27017,
-                database: "binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs",
-                username: "binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs",
-                password: "QGmh717SEf"
+                database: "ucode_36aeec31639f41ad890b6aba6464695d_p_obj_build_svcs",
+                username: "ucode_36aeec31639f41ad890b6aba6464695d_p_obj_build_svcs",
+                password: "0oVJgmwqDQ"
             } 
         })
 

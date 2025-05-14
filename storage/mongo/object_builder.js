@@ -28,7 +28,6 @@ const MenuStorage = require('./menu');
 const { OrderUpdate } = require('../../helper/board_order')
 const updateISODateFunction = require('../../helper/updateISODate');
 const personSync = require('../../helper/personSync');
-const { json } = require('stream/consumers');
 
 let NAMESPACE = "storage.object_builder";
 

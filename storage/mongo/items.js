@@ -555,7 +555,7 @@ let objectBuilderV2 = {
                         value = Object.assign(value, el)
                     }
                     params[key] = value
-                } else if (objectKeys.length === 1 && objectValues.length === 1 && objectKeys[0].slice(0, 1) === "_") {
+                } else if (objectKeys.length === 1 && objectValues.length === 1 && objectKeys[0].slice(0, 1) === "$") {
                     // case #2
                     let value = filterRules(objectKeys[0], objectValues[0])
                     params[key] = value

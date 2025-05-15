@@ -20,9 +20,6 @@ const ViewSchema = mongoose.Schema(
         view_fields: {
             type: [String]
         },
-        main_field: {
-            type: String,
-        },
         disable_dates: {
             type: mongoose.Schema.Types.Mixed,
         },

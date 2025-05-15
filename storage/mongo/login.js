@@ -374,22 +374,11 @@ let loginStore = {
             )
     
             const loginTableAttribute = struct.decode(loginTable?.attributes)
-            // let IsLoginStrategy = false
-    
-            // for (let strategy of loginTableAttribute?.auth_info?.login_strategy){
-            //     if (strategy === "login"){
-            //         IsLoginStrategy = true
-            //         break;
-            //     }
-            // }
-    
-            // if (IsLoginStrategy){
                 const password = user[loginTableAttribute?.auth_info?.password]
                 const checkPassword = passwordTools.comparePasswordHash(req?.password, password)
                 if (!checkPassword){
                     return { user_found: true, compare_password: checkPassword }
                 } 
-            // }
         }
 
         const roleTable = allTables["role"]

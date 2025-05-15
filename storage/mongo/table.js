@@ -390,6 +390,7 @@ let tableStore = {
             }
 
             if (data.is_login_table && data.is_login_table === true) {
+                let passwordObj = {}
                 let loginStrategies = attributes?.auth_info?.login_strategy
                 let authInfo = {
                     "client_type_id": "client_type_id",
@@ -402,6 +403,7 @@ let tableStore = {
                         case "phone":
                             if (loginStrategyMap[strategy]){
                                 authInfo["phone"] = loginStrategyMap[strategy]
+                                authInfo["password"] = "password"
                                 break;
                             }
 
@@ -424,8 +426,30 @@ let tableStore = {
                                 "project_id": data.project_id
                             }
 
+                            passwordObj = {
+                                "attributes": {
+                                    "fields": {
+                                        "label_en": {
+                                            "stringValue": "Password",
+                                            "kind": "stringValue"
+                                        }
+                                    }
+                                },
+                                "default": "",
+                                "label": "Password",
+                                "required": false,
+                                "slug": "password",
+                                "table_id": data.id,
+                                "type": "PASSWORD",
+                                "show_label": true,
+                                "project_id": data.project_id
+                            }
+
                             fieldStore.createForLoginTable(phoneObj)
+                            fieldStore.createForLoginTable(passwordObj)
+                            
                             authInfo["phone"] = "phone"
+                            authInfo["password"] = "password"
                             break;
                         case "login":
                             if (loginStrategyMap[strategy]){
@@ -453,7 +477,7 @@ let tableStore = {
                                 "project_id": data.project_id
                             }
 
-                            let passwordObj = {
+                            passwordObj = {
                                 "attributes": {
                                     "fields": {
                                         "label_en": {
@@ -481,6 +505,7 @@ let tableStore = {
                         case "email":
                             if (loginStrategyMap[strategy]){
                                 authInfo["email"] = loginStrategyMap[strategy]
+                                authInfo["password"] = "password"
                                 break;
                             }
 
@@ -503,8 +528,30 @@ let tableStore = {
                                 "project_id": data.project_id
                             }
 
+                            passwordObj = {
+                                "attributes": {
+                                    "fields": {
+                                        "label_en": {
+                                            "stringValue": "Password",
+                                            "kind": "stringValue"
+                                        }
+                                    }
+                                },
+                                "default": "",
+                                "label": "Password",
+                                "required": false,
+                                "slug": "password",
+                                "table_id": data.id,
+                                "type": "PASSWORD",
+                                "show_label": true,
+                                "project_id": data.project_id
+                            }
+
                             fieldStore.createForLoginTable(emailObj)
+                            fieldStore.createForLoginTable(passwordObj)
+                            
                             authInfo["email"] = "email"
+                            authInfo["password"] = "password"
                             break;
                         default:
                             console.log(`Unknown strategy: ${strategy}`);

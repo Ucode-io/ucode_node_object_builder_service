@@ -1496,8 +1496,6 @@ let objectBuilder = {
                     $and: [params]
                 },
                     {
-                        // createdAt: 0,
-                        // updatedAt: 0,
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
@@ -1580,8 +1578,6 @@ let objectBuilder = {
                     ...params
                 },
                     {
-                        // createdAt: 0,
-                        // updatedAt: 0,
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,

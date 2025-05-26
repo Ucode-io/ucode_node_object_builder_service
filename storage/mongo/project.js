@@ -160,7 +160,6 @@ let projectStore = {
                         reject(err)
                     })
                 } catch (err) {
-                    console.log("ERRRRRR_>", err)
                     reject(err)
                 }
 

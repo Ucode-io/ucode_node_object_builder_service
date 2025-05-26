@@ -353,13 +353,11 @@ let objectBuilderV2 = {
             custom_message: customMessage
         }
     }),
-    getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
+    getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getListSlim2`, async (req) => {
         const startMemoryUsage = process.memoryUsage();
-
         const mongoConn = await mongoPool.get(req.project_id)
         const Field = mongoConn.models['Field']
         const Relation = mongoConn.models['Relation']
-        const View = mongoConn.models['View']
         let params = struct.decode(req?.data)
         const limit = params.limit
         const offset = params.offset
@@ -367,7 +365,6 @@ let objectBuilderV2 = {
         delete params["limit"]
         const allTables = (await ObjectBuilder(true, req.project_id))
         const tableInfo = allTables[req.table_slug]
-        let role_id_from_token = params["role_id_from_token"]
         if (!tableInfo) {
             throw new Error("table not found")
         }
@@ -375,20 +372,9 @@ let objectBuilderV2 = {
         let order = params.order || {}
         let fields = tableInfo.fields
         let tableRelationFields = {}
-        let columnIds = {}
-        let relationIdsForPopulate = []
-        let selectedRelations = false
-        let view = await View.findOne({ id: params.view_id })
-        view && view.columns && view.columns.length && view.columns.forEach(id => {
-            columnIds[id] = id
-            selectedRelations = true
-        })
         fields.length && fields.forEach(field => {
             if (field.relation_id) {
                 tableRelationFields[field.relation_id] = field
-                if (columnIds[field.id] && selectedRelations) {
-                    relationIdsForPopulate.push(field.relation_id)
-                }
             }
         })
 
@@ -411,20 +397,36 @@ let objectBuilderV2 = {
             ]
         })
         let relations = []
-        selectedRelations ? relations = await Relation.find({
-            id: { $in: relationIdsForPopulate }
-        }) : relations = await Relation.find({
-            $or: [{
-                table_from: req.table_slug,
-            },
-            {
-                table_to: req.table_slug,
-            },
-            {
-                "dynamic_tables.table_slug": req.table_slug
+        if (params.with_relations) {
+            if (params.selected_relations && params.selected_relations.length) {
+                relations = await Relation.find(
+                    {
+                        $or: [{
+                            table_from: req.table_slug,
+                            table_to: { $in: params.selected_relations },
+                        },
+                        {
+                            "dynamic_tables.table_slug": req.table_slug
+                        }
+                        ]
+                    }
+                )
+            } else {
+                relations = await Relation.find({
+                    $or: [{
+                        table_from: req.table_slug,
+                    },
+                    {
+                        table_to: req.table_slug,
+                    },
+                    {
+                        "dynamic_tables.table_slug": req.table_slug
+                    }
+                    ]
+                })
             }
-            ]
-        })
+        }
+
 
         if (permission?.is_have_condition) {
             const automaticFilterTable = allTables["automatic_filter"]
@@ -529,59 +531,33 @@ let objectBuilderV2 = {
                 }
             }
         }
-
-        let tableParams = {}
         for (const key of keys) {
             if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {
                 params["guid"] = params[key]
             }
-            if (typeof params[key] === "object") {
-                //please don't delete this comment
-                /*
-                    
-                    key                     params[key]
-                    "sum":                  { "_gte": 1000, "_lte": 3000 }                                             // case #1
-                    "name":                 { "_constains": "a" }                                                      // case #2
-                    "product_id_data":      {"number_of_count": { "_gte": 1000, "_lte": 3000 }}                        // case #2
-                    "product_id_data":      { "name": { "_constains": "a" } }                                          // case #4
-                */
-                let value = {}
-                let objectKeys = Object.keys(params[key])
-                let objectValues = Object.values(params[key])
-                if (objectKeys.length > 1 && objectValues.length > 1) {
-                    // case #1
-                    for (let i = 0; i < objectKeys.length; i++) {
-                        let el = filterRules(objectKeys[i], objectValues[i])
-                        value = Object.assign(value, el)
-                    }
-                    params[key] = value
-                } else if (objectKeys.length === 1 && objectValues.length === 1 && objectKeys[0].slice(0, 1) === "_") {
-                    // case #2
-                    let value = filterRules(objectKeys[0], objectValues[0])
-                    params[key] = value
-                } else if (typeof objectValues[0] === "object") {
-                    let nestedObjectKeys = Object.keys(objectValues[0])
-                    let nestedObjectValues = Object.values(objectValues[0])
-                    if (nestedObjectKeys.length > 1 && nestedObjectValues.length > 1) {
-                        // case #3
-                        for (let i = 0; i < nestedObjectKeys.length; i++) {
-                            let el = filterRules(nestedObjectKeys[i], nestedObjectValues[i])
-                            value = Object.assign(value, el)
+            if (typeof (params[key]) === "object") {
+
+                if (params[key]) {
+                    let is_array = Array.isArray(params[key])
+                    if (is_array) {
+                        if (key == "$or") {
+                        } else {
+                            params[key] = { $in: params[key] }
                         }
-                        tableParams[key] = { [objectKeys[0]]: value }
-                    } else {
-                        // case #4
-                        value = filterRules(nestedObjectKeys[0], nestedObjectValues[0])
-                        tableParams[key] = { [objectKeys[0]]: value }
                     }
-                } else {
-                    throw new Error("Invalid filter")
                 }
+            } else if (!key.includes('.') && typeof (params[key]) !== "number" && key !== "search" && typeof (params[key]) !== "boolean") {
+                if (params[key]) {
+                    if (params[key].includes("(")) {
+                        params[key] = params[key].replaceAll("(", ("\\("))
+                    }
+                    if (params[key].includes(")")) {
+                        params[key] = params[key].replaceAll(")", ("\\)"))
+                    }
+                }
+                params[key] = RegExp(params[key], "i")
             }
         }
-
-        let { unusedFieldsSlugs } = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
-
         let result = [], count;
         let populateArr = []
 
@@ -604,25 +580,52 @@ let objectBuilderV2 = {
                 { deleted_at: null }
             ]
         }
+        order = { ...order, _id: 1 }
         if (limit !== 0) {
             if (relations.length == 0) {
                 result = await tableInfo.models.find({
                     $and: [params]
                 },
                     {
-                        createdAt: 0,
-                        updatedAt: 0,
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
                         __v: 0,
-                        ...unusedFieldsSlugs
                     }, { sort: order }
                 ).skip(offset)
                     .limit(limit)
                     .lean();
                 count = await tableInfo.models.countDocuments(params);
             } else {
+                tableParams = []
+                for (const key of Object.keys(params)) {
+                    if (key.includes('.')) {
+                        if (typeof params[key] === "object") {
+                            let objectKeys = Object.keys(params[key])
+                            let interval = {}
+                            for (const objectKey of objectKeys) {
+                                interval[objectKey] = params[key][objectKey]
+                            }
+                            if (tableParams[key.split('.')[0]]) {
+                                tableParams[key.split('.')[0]][key.split('.')[1]] = interval
+                            } else {
+                                tableParams[key.split('.')[0]] = {
+                                    [key.split('.')[1]]: interval,
+                                    select: '-_id'
+                                }
+                            }
+                        } else if (typeof (params[key]) !== "number" && key !== "search" && typeof (params[key]) !== "boolean") {
+                            if (tableParams[key.split('.')[0]]) {
+                                tableParams[key.split('.')[0]][key.split('.')[1]] = { $regex: params[key] }
+                            } else {
+                                tableParams[key.split('.')[0]] = {
+                                    [key.split('.')[1]]: { $regex: params[key] },
+                                    select: '-_id'
+                                }
+                            }
+                        }
+                    }
+                }
                 for (const relation of relations) {
                     if (relation.type === "One2Many") {
                         relation.table_to = relation.table_from
@@ -630,6 +633,7 @@ let objectBuilderV2 = {
                         continue
                     }
                     let table_to_slug = ""
+                    let deepRelations = []
                     const field = tableRelationFields[relation.id]
                     if (field) {
                         table_to_slug = field.slug + "_data"
@@ -640,20 +644,15 @@ let objectBuilderV2 = {
                     if (tableParams[table_to_slug]) {
                         papulateTable = {
                             path: table_to_slug,
-                            match: tableParams[table_to_slug]
+                            match: tableParams[table_to_slug],
+                            populate: deepRelations,
                         }
                     } else {
                         if (relation.type === "Many2Dynamic") {
                             for (dynamic_table of relation.dynamic_tables) {
-                                if (tableParams[relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data"]) {
-                                    papulateTable = {
-                                        path: table_to_slug,
-                                        match: tableParams[table_to_slug]
-                                    }
-                                } else {
-                                    papulateTable = {
-                                        path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
-                                    }
+                                papulateTable = {
+                                    path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
+                                    populate: deepRelations
                                 }
                                 populateArr.push(papulateTable)
                             }
@@ -661,6 +660,7 @@ let objectBuilderV2 = {
                         }
                         papulateTable = {
                             path: table_to_slug,
+                            populate: deepRelations
                         }
                     }
                     populateArr.push(papulateTable)
@@ -669,13 +669,10 @@ let objectBuilderV2 = {
                     ...params
                 },
                     {
-                        createdAt: 0,
-                        updatedAt: 0,
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
                         __v: 0,
-                        ...unusedFieldsSlugs
                     }, { sort: order }
                 )
                     .skip(offset)
@@ -685,203 +682,147 @@ let objectBuilderV2 = {
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }
+
         count = await tableInfo.models.count(params);
         if (result && result.length) {
             let prev = result.length
             count = count - (prev - result.length)
         }
-
-        if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
-            let additional_results;
-            const additional_param = {};
-            let result_ids = {}
-            result.forEach(el => result_ids[el.guid] = 1)
-            let ids = params.additional_request.additional_values.filter(el => result_ids[el] !== 1)
-            if (ids.length) {
-                additional_param[params.additional_request.additional_field] = { $in: ids }
-                if (relations.length == 0) {
-                    additional_results = await tableInfo.models.find({
-                        ...additional_param
-                    },
-                        {
-                            createdAt: 0,
-                            updatedAt: 0,
-                            created_at: 0,
-                            updated_at: 0,
-                            _id: 0,
-                            __v: 0,
-                            ...unusedFieldsSlugs
-                        }, { sort: order }
-                    )
-                        .lean();
-                } else {
-                    additional_results = await tableInfo.models.find({
-                        ...additional_param
-                    },
-                        {
-                            createdAt: 0,
-                            updatedAt: 0,
-                            created_at: 0,
-                            updated_at: 0,
-                            _id: 0,
-                            __v: 0,
-                            ...unusedFieldsSlugs
-                        }, { sort: order }
-                    )
-                        .populate(populateArr)
-                        .lean()
-                }
-                if (additional_results.length) {
-                    result = result.concat(additional_results)
-                }
-            }
-        }
-        let updatedObjects = []
-        let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
-
-        let attribute_table_from_slugs = []
-        let attribute_table_from_relation_ids = []
-        for (const field of formulaFields) {
-            let attributes = struct.decode(field.attributes);
-            if (field.type === "FORMULA") {
-                if (attributes.table_from && attributes.sum_field) {
-                    attribute_table_from_slugs.push(
-                        attributes.table_from.split("#")[0]
-                    );
-                    const id = attributes.table_from.split("#")[1]
-                    if (id) {
-                        attribute_table_from_relation_ids.push(id);
-                    }
-                }
-            }
-        }
-        let relationFieldTablesMap = {}
-        let relationFieldTableIds = []
-        if (attribute_table_from_slugs.length > 0) {
-            const relationFieldTables = await tableVersion(
-                mongoConn,
-                {
-                    slug: { $in: attribute_table_from_slugs },
-                    deleted_at: "1970-01-01T18:00:00.000+00:00",
-                },
-                params.version_id,
-                false
-            );
-            for (const table of relationFieldTables) {
-                relationFieldTablesMap[table.slug] = table
-                relationFieldTableIds.push(table.id)
-            }
-        }
-        let relationFieldsMap = {}
-        if (attribute_table_from_relation_ids.length > 0 && relationFieldTableIds.length > 0) {
-            const relationFields = await Field.find({
-                relation_id: { $in: attribute_table_from_relation_ids },
-                table_id: { $in: relationFieldTableIds },
-            });
-            for (const relationField of relationFields) {
-                relationFieldsMap[relationField.relation_id + "_" + relationField.table_id] = relationField
-            }
-        }
-        let dynamicRelationsMap = {}
-        if (attribute_table_from_relation_ids.length > 0) {
-            const dynamicRelations = await Relation.find({ id: { $in: attribute_table_from_relation_ids } })
-            for (const dynamicRelation of dynamicRelations) {
-                dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
-            }
-        }
-        for (const res of result) {
-            let isChanged = false
+        if (params.calculate_formula) {
+            let updatedObjects = []
+            let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
+    
+            let attribute_table_from_slugs = []
+            let attribute_table_from_relation_ids = []
             for (const field of formulaFields) {
-                let attributes = struct.decode(field.attributes)
+                let attributes = struct.decode(field.attributes);
                 if (field.type === "FORMULA") {
                     if (attributes.table_from && attributes.sum_field) {
-                        let filters = {}
-                        if (attributes.formula_filters) {
-                            attributes.formula_filters.forEach(el => {
-                                filters[el.key.split("#")[0]] = el.value
-                                if (Array.isArray(el.value)) {
-                                    filters[el.key.split("#")[0]] = { $in: el.value }
-                                }
-                            })
+                        attribute_table_from_slugs.push(
+                            attributes.table_from.split("#")[0]
+                        );
+                        const id = attributes.table_from.split("#")[1]
+                        if (id) {
+                            attribute_table_from_relation_ids.push(id);
                         }
-                        const relation_id = attributes.table_from.split('#')[1]
-                        const relationFieldTable = relationFieldTablesMap[attributes.table_from.split('#')[0]]
-                        const relationField = relationFieldsMap[relation_id + "_" + relationFieldTable.id]
-                        if (!relationField || !relationFieldTable) {
-                            res[field.slug] = 0
-                            continue
-                        }
-                        const dynamicRelation = dynamicRelationsMap[relation_id]
-                        let matchField = relationField ? relationField.slug : req.table_slug + "_id"
-                        if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
-                            matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
-                        }
-                        let matchParams = {
-                            [matchField]: { '$eq': res.guid },
-                            ...filters
-                        }
-                        const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, allTables)
-                        if (resultFormula.length) {
-                            if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
-                                if (!isNaN(resultFormula[0].res)) {
-                                    resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
-                                }
+                    }
+                }
+            }
+    
+            let relationFieldTablesMap = {}
+            let relationFieldTableIds = []
+            if (attribute_table_from_slugs.length > 0) {
+                const relationFieldTables = await tableVersion(
+                    mongoConn,
+                    {
+                        slug: { $in: attribute_table_from_slugs },
+                        deleted_at: "1970-01-01T18:00:00.000+00:00",
+                    },
+                    params.version_id,
+                    false
+                );
+                for (const table of relationFieldTables) {
+                    relationFieldTablesMap[table.slug] = table
+                    relationFieldTableIds.push(table.id)
+                }
+            }
+            let relationFieldsMap = {}
+            if (attribute_table_from_relation_ids.length > 0 && relationFieldTableIds.length > 0) {
+                const relationFields = await Field.find({
+                    relation_id: { $in: attribute_table_from_relation_ids },
+                    table_id: { $in: relationFieldTableIds },
+                });
+                for (const relationField of relationFields) {
+                    relationFieldsMap[relationField.relation_id + "_" + relationField.table_id] = relationField
+                }
+            }
+            let dynamicRelationsMap = {}
+            if (attribute_table_from_relation_ids.length > 0) {
+                const dynamicRelations = await Relation.find({ id: { $in: attribute_table_from_relation_ids } })
+                for (const dynamicRelation of dynamicRelations) {
+                    dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
+                }
+            }
+    
+            for (const res of result) {
+                let isChanged = false
+                for (const field of formulaFields) {
+                    let attributes = struct.decode(field.attributes)
+                    if (field.type === "FORMULA") {
+                        if (attributes.table_from && attributes.sum_field) {
+                            let filters = {}
+                            if (attributes.formula_filters) {
+                                attributes.formula_filters.forEach(el => {
+                                    filters[el.key.split("#")[0]] = el.value
+                                    if (Array.isArray(el.value)) {
+                                        filters[el.key.split("#")[0]] = { $in: el.value }
+                                    }
+                                })
                             }
-                            if (resultFormula[0]?.res && res[field.slug] !== resultFormula[0].res) {
-                                res[field.slug] = resultFormula[0].res
+                            const relation_id = attributes.table_from.split('#')[1]
+                            const relationFieldTable = relationFieldTablesMap[attributes.table_from.split('#')[0]]
+                            const relationField = relationFieldsMap[relation_id + "_" + relationFieldTable.id]
+                            if (!relationField || !relationFieldTable) {
+                                res[field.slug] = 0
+                                continue
+                            }
+                            const dynamicRelation = dynamicRelationsMap[relation_id]
+                            let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+                            if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+                                matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+                            }
+                            let matchParams = {
+                                [matchField]: { '$eq': res.guid },
+                                ...filters
+                            }
+                            const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, allTables)
+                            if (resultFormula.length) {
+                                if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
+                                    if (!isNaN(resultFormula[0].res)) {
+                                        resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
+                                    }
+                                }
+                                if (resultFormula[0]?.res && res[field.slug] !== resultFormula[0].res) {
+                                    res[field.slug] = resultFormula[0].res
+                                    isChanged = true
+                                }
+    
+                            } else {
+                                res[field.slug] = 0
                                 isChanged = true
                             }
-
-                        } else {
-                            res[field.slug] = 0
-                            isChanged = true
+                        }
+                    } else {
+                        if (attributes && attributes.formula) {
+                            const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
+                            if (res[field.slug] !== resultFormula) {
+                                isChanged = true
+                            }
+                            res[field.slug] = resultFormula
                         }
                     }
-                } else {
-                    if (attributes && attributes.formula) {
-                        const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
-                        if (res[field.slug] !== resultFormula) {
-                            isChanged = true
-                        }
-                        res[field.slug] = resultFormula
-                    }
+                }
+                if (isChanged) {
+                    updatedObjects.push(res)
                 }
             }
-            if (isChanged) {
-                let bulk = {
-                    updateOne: {
-                        filter:
-                            { guid: data.id },
-                        update: res
-                    }
-                }
-                updatedObjects.push(bulk)
+    
+            if (updatedObjects.length) {
+                await objectBuilder.multipleUpdateV2({
+                    table_slug: req.table_slug,
+                    project_id: req.project_id,
+                    data: struct.encode({ objects: updatedObjects })
+                })
             }
-        }
-        await tableInfo.models.bulkWrite(updatedObjects)
-        const response = struct.encode({
-            count: count,
-            response: result,
-        });
-        const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
-        let customMessage = ""
-        if (tableWithVersion) {
-            const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
-                code: 200,
-                table_id: tableWithVersion.id,
-                action_type: "GET_LIST"
-            })
-            if (customErrMsg) { customMessage = customErrMsg.message }
         }
 
         const endMemoryUsage = process.memoryUsage();
 
         const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
         if (memoryUsed > 300) {
-            logger.info("getList items-->Project->" + req.project_id)
+            logger.info("getListSlim2-->Project->" + req.project_id)
             logger.info("Request->" + JSON.stringify(req))
-
-            logger.info(`--> P-M Memory used by getList items: ${memoryUsed.toFixed(2)} MB`);
+            logger.info(`--> P-M Memory used by getListSlim2: ${memoryUsed.toFixed(2)} MB`);
             logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
             logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
             logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
@@ -891,11 +832,561 @@ let objectBuilderV2 = {
             logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
             logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
         } else {
-            logger.info(`--> P-M Memory used by getList items: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            logger.info(`--> P-M Memory used by getListSlim2: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
         }
 
-        return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
+        const response = struct.encode({
+            count: count,
+            response: result,
+        });
+
+        return { table_slug: req.table_slug, data: response, is_cached: currentTable.is_cached }
+
     }),
+
+    // getList: catchWrapDbObjectBuilder(`${NAMESPACE}.getList`, async (req) => {
+    //     const startMemoryUsage = process.memoryUsage();
+
+    //     const mongoConn = await mongoPool.get(req.project_id)
+    //     const Field = mongoConn.models['Field']
+    //     const Relation = mongoConn.models['Relation']
+    //     const View = mongoConn.models['View']
+    //     let params = struct.decode(req?.data)
+    //     const limit = params.limit
+    //     const offset = params.offset
+    //     delete params["offset"]
+    //     delete params["limit"]
+    //     const allTables = (await ObjectBuilder(true, req.project_id))
+    //     const tableInfo = allTables[req.table_slug]
+    //     let role_id_from_token = params["role_id_from_token"]
+    //     if (!tableInfo) {
+    //         throw new Error("table not found")
+    //     }
+    //     let keys = Object.keys(params)
+    //     let order = params.order || {}
+    //     let fields = tableInfo.fields
+    //     let tableRelationFields = {}
+    //     let columnIds = {}
+    //     let relationIdsForPopulate = []
+    //     let selectedRelations = false
+    //     let view = await View.findOne({ id: params.view_id })
+    //     view && view.columns && view.columns.length && view.columns.forEach(id => {
+    //         columnIds[id] = id
+    //         selectedRelations = true
+    //     })
+    //     fields.length && fields.forEach(field => {
+    //         if (field.relation_id) {
+    //             tableRelationFields[field.relation_id] = field
+    //             if (columnIds[field.id] && selectedRelations) {
+    //                 relationIdsForPopulate.push(field.relation_id)
+    //             }
+    //         }
+    //     })
+
+    //     const currentTable = await tableVersion(mongoConn, { slug: req.table_slug })
+
+    //     if (currentTable.order_by && !Object.keys(order).length) {
+    //         order = { createdAt: 1 }
+    //     } else if (!currentTable.order_by && !Object.keys(order).length) {
+    //         order = { createdAt: -1 }
+    //     }
+    //     const permissionTable = allTables["record_permission"]
+    //     const permission = await permissionTable.models.findOne({
+    //         $and: [
+    //             {
+    //                 role_id: params["role_id_from_token"]
+    //             },
+    //             {
+    //                 table_slug: req.table_slug
+    //             }
+    //         ]
+    //     })
+    //     let relations = []
+    //     selectedRelations ? relations = await Relation.find({
+    //         id: { $in: relationIdsForPopulate }
+    //     }) : relations = await Relation.find({
+    //         $or: [{
+    //             table_from: req.table_slug,
+    //         },
+    //         {
+    //             table_to: req.table_slug,
+    //         },
+    //         {
+    //             "dynamic_tables.table_slug": req.table_slug
+    //         }
+    //         ]
+    //     })
+
+    //     if (permission?.is_have_condition) {
+    //         const automaticFilterTable = allTables["automatic_filter"]
+    //         const automatic_filters = await automaticFilterTable.models.find({
+    //             $and: [
+    //                 {
+    //                     role_id: params["role_id_from_token"]
+    //                 },
+    //                 {
+    //                     table_slug: req.table_slug
+    //                 },
+    //                 {
+    //                     method: "read"
+    //                 }
+    //             ]
+    //         })
+    //         if (automatic_filters.length) {
+    //             for (const autoFilter of automatic_filters) {
+    //                 if (autoFilter.not_use_in_tab && params.from_tab) {
+    //                     continue
+    //                 }
+    //                 let many2manyRelation = false
+    //                 if (autoFilter?.object_field?.includes('#')) {
+    //                     let splitedElement = autoFilter.object_field.split('#')
+    //                     autoFilter.object_field = splitedElement[0]
+    //                     let obj = relations.find(el => el.id === splitedElement[1])
+    //                     if (obj) {
+    //                         if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
+    //                             autoFilter.custom_field = obj.field_from
+    //                         } else if (obj.type === 'Many2Many') {
+    //                             many2manyRelation = true
+    //                             if (obj.table_from === req.table_slug) {
+    //                                 autoFilter.custom_field = obj.field_from
+    //                             } else if (obj.table_to === req.table_slug) {
+    //                                 autoFilter.custom_field = obj.field_to
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //                 if (autoFilter.custom_field === "user_id") {
+    //                     if (autoFilter.object_field !== req.table_slug) {
+    //                         if (!many2manyRelation) {
+    //                             params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
+    //                         } else {
+    //                             params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
+    //                         }
+    //                     }
+    //                 } else {
+    //                     let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+    //                     let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
+    //                     if (objFromAuth) {
+    //                         if (connectionTableSlug !== req.table_slug) {
+    //                             if (!many2manyRelation) {
+    //                                 params[autoFilter.custom_field] = objFromAuth.object_id
+    //                             } else {
+    //                                 params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
+    //                             }
+    //                         } else {
+    //                             params["guid"] = objFromAuth.object_id
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     } else {
+    //         let objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
+    //         if (objFromAuth) {
+    //             params["guid"] = objFromAuth.object_id
+    //         }
+    //     }
+
+    //     if (params.view_fields && params.search) {
+    //         if (params.view_fields.length && params.search !== "") {
+
+    //             let empty = ""
+    //             if (typeof params.search === "string") {
+    //                 for (let el of params.search) {
+    //                     if (el == "(") {
+    //                         empty += "\\("
+    //                     } else if (el == ")") {
+    //                         empty += "\\)"
+    //                     } else {
+    //                         empty += el
+    //                     }
+    //                 }
+    //                 params.search = empty
+    //             }
+    //             let arrayOfViewFields = [];
+    //             for (const view_field of params.view_fields) {
+    //                 let field = fields.find(val => (val.slug === view_field))
+    //                 let obj = {};
+    //                 if (!constants.NUMBER_TYPES.includes(field.type) && !constants.BOOLEAN_TYPES.includes(field.type)) {
+    //                     obj[view_field] = { $regex: new RegExp(params.search.toString(), "i") }
+    //                     arrayOfViewFields.push(obj)
+    //                 } else if (constants.NUMBER_TYPES.includes(field.type) && !isNaN(params.search)) {
+    //                     obj[view_field] = params.search
+    //                     arrayOfViewFields.push(obj)
+    //                 }
+    //             }
+    //             if (arrayOfViewFields.length) {
+    //                 params["$or"] = arrayOfViewFields
+    //             }
+    //         }
+    //     }
+
+    //     let tableParams = {}
+    //     for (const key of keys) {
+    //         if ((key === req.table_slug + "_id" || key === req.table_slug + "_ids") && params[key] !== "" && !params["is_recursive"]) {
+    //             params["guid"] = params[key]
+    //         }
+    //         if (typeof params[key] === "object") {
+    //             //please don't delete this comment
+    //             /*
+                    
+    //                 key                     params[key]
+    //                 "sum":                  { "_gte": 1000, "_lte": 3000 }                                             // case #1
+    //                 "name":                 { "_constains": "a" }                                                      // case #2
+    //                 "product_id_data":      {"number_of_count": { "_gte": 1000, "_lte": 3000 }}                        // case #2
+    //                 "product_id_data":      { "name": { "_constains": "a" } }                                          // case #4
+    //             */
+    //             let value = {}
+    //             let objectKeys = Object.keys(params[key])
+    //             let objectValues = Object.values(params[key])
+    //             if (objectKeys.length > 1 && objectValues.length > 1) {
+    //                 // case #1
+    //                 for (let i = 0; i < objectKeys.length; i++) {
+    //                     let el = filterRules(objectKeys[i], objectValues[i])
+    //                     value = Object.assign(value, el)
+    //                 }
+    //                 params[key] = value
+    //             } else if (objectKeys.length === 1 && objectValues.length === 1 && objectKeys[0].slice(0, 1) === "$") {
+    //                 // case #2
+    //                 let value = filterRules(objectKeys[0], objectValues[0])
+    //                 params[key] = value
+    //             } else if (typeof objectValues[0] === "object") {
+    //                 let nestedObjectKeys = Object.keys(objectValues[0])
+    //                 let nestedObjectValues = Object.values(objectValues[0])
+    //                 if (nestedObjectKeys.length > 1 && nestedObjectValues.length > 1) {
+    //                     // case #3
+    //                     for (let i = 0; i < nestedObjectKeys.length; i++) {
+    //                         let el = filterRules(nestedObjectKeys[i], nestedObjectValues[i])
+    //                         value = Object.assign(value, el)
+    //                     }
+    //                     tableParams[key] = { [objectKeys[0]]: value }
+    //                 } else {
+    //                     // case #4
+    //                     value = filterRules(nestedObjectKeys[0], nestedObjectValues[0])
+    //                     tableParams[key] = { [objectKeys[0]]: value }
+    //                 }
+    //             } else {
+    //                 throw new Error("Invalid filter")
+    //             }
+    //         }
+    //     }
+
+    //     let { unusedFieldsSlugs } = await AddPermission.toField(fields, role_id_from_token, req.table_slug, req.project_id)
+
+    //     let result = [], count;
+    //     let populateArr = []
+
+    //     // check soft deleted datas
+    //     if (params.$or) {
+    //         params.$and = [
+    //             { $or: params.$or },
+    //             {
+    //                 $or: [
+    //                     { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+    //                     { deleted_at: null }
+    //                 ]
+    //             }
+    //         ]
+
+    //         delete params.$or
+    //     } else {
+    //         params.$or = [
+    //             { deleted_at: new Date("1970-01-01T18:00:00.000+00:00") },
+    //             { deleted_at: null }
+    //         ]
+    //     }
+    //     if (limit !== 0) {
+    //         if (relations.length == 0) {
+    //             result = await tableInfo.models.find({
+    //                 $and: [params]
+    //             },
+    //                 {
+    //                     createdAt: 0,
+    //                     updatedAt: 0,
+    //                     created_at: 0,
+    //                     updated_at: 0,
+    //                     _id: 0,
+    //                     __v: 0,
+    //                     ...unusedFieldsSlugs
+    //                 }, { sort: order }
+    //             ).skip(offset)
+    //                 .limit(limit)
+    //                 .lean();
+    //             count = await tableInfo.models.countDocuments(params);
+    //         } else {
+    //             for (const relation of relations) {
+    //                 if (relation.type === "One2Many") {
+    //                     relation.table_to = relation.table_from
+    //                 } else if (relation.type === "Many2Many") {
+    //                     continue
+    //                 }
+    //                 let table_to_slug = ""
+    //                 const field = tableRelationFields[relation.id]
+    //                 if (field) {
+    //                     table_to_slug = field.slug + "_data"
+    //                 }
+    //                 if (table_to_slug === "") {
+    //                     continue
+    //                 }
+    //                 if (tableParams[table_to_slug]) {
+    //                     papulateTable = {
+    //                         path: table_to_slug,
+    //                         match: tableParams[table_to_slug]
+    //                     }
+    //                 } else {
+    //                     if (relation.type === "Many2Dynamic") {
+    //                         for (dynamic_table of relation.dynamic_tables) {
+    //                             if (tableParams[relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data"]) {
+    //                                 papulateTable = {
+    //                                     path: table_to_slug,
+    //                                     match: tableParams[table_to_slug]
+    //                                 }
+    //                             } else {
+    //                                 papulateTable = {
+    //                                     path: relation.relation_field_slug + "." + dynamic_table.table_slug + "_id_data",
+    //                                 }
+    //                             }
+    //                             populateArr.push(papulateTable)
+    //                         }
+    //                         continue
+    //                     }
+    //                     papulateTable = {
+    //                         path: table_to_slug,
+    //                     }
+    //                 }
+    //                 populateArr.push(papulateTable)
+    //             }
+    //             result = await tableInfo.models.find({
+    //                 ...params
+    //             },
+    //                 {
+    //                     createdAt: 0,
+    //                     updatedAt: 0,
+    //                     created_at: 0,
+    //                     updated_at: 0,
+    //                     _id: 0,
+    //                     __v: 0,
+    //                     ...unusedFieldsSlugs
+    //                 }, { sort: order }
+    //             )
+    //                 .skip(offset)
+    //                 .limit(limit)
+    //                 .populate(populateArr)
+    //                 .lean()
+    //             result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
+    //         }
+    //     }
+    //     count = await tableInfo.models.count(params);
+    //     if (result && result.length) {
+    //         let prev = result.length
+    //         count = count - (prev - result.length)
+    //     }
+
+    //     if (params.additional_request && params.additional_request.additional_values?.length && params.additional_request.additional_field) {
+    //         let additional_results;
+    //         const additional_param = {};
+    //         let result_ids = {}
+    //         result.forEach(el => result_ids[el.guid] = 1)
+    //         let ids = params.additional_request.additional_values.filter(el => result_ids[el] !== 1)
+    //         if (ids.length) {
+    //             additional_param[params.additional_request.additional_field] = { $in: ids }
+    //             if (relations.length == 0) {
+    //                 additional_results = await tableInfo.models.find({
+    //                     ...additional_param
+    //                 },
+    //                     {
+    //                         createdAt: 0,
+    //                         updatedAt: 0,
+    //                         created_at: 0,
+    //                         updated_at: 0,
+    //                         _id: 0,
+    //                         __v: 0,
+    //                         ...unusedFieldsSlugs
+    //                     }, { sort: order }
+    //                 )
+    //                     .lean();
+    //             } else {
+    //                 additional_results = await tableInfo.models.find({
+    //                     ...additional_param
+    //                 },
+    //                     {
+    //                         createdAt: 0,
+    //                         updatedAt: 0,
+    //                         created_at: 0,
+    //                         updated_at: 0,
+    //                         _id: 0,
+    //                         __v: 0,
+    //                         ...unusedFieldsSlugs
+    //                     }, { sort: order }
+    //                 )
+    //                     .populate(populateArr)
+    //                     .lean()
+    //             }
+    //             if (additional_results.length) {
+    //                 result = result.concat(additional_results)
+    //             }
+    //         }
+    //     }
+    //     let updatedObjects = []
+    //     let formulaFields = tableInfo.fields.filter(val => (val.type === "FORMULA" || val.type === "FORMULA_FRONTEND"))
+
+    //     let attribute_table_from_slugs = []
+    //     let attribute_table_from_relation_ids = []
+    //     for (const field of formulaFields) {
+    //         let attributes = struct.decode(field.attributes);
+    //         if (field.type === "FORMULA") {
+    //             if (attributes.table_from && attributes.sum_field) {
+    //                 attribute_table_from_slugs.push(
+    //                     attributes.table_from.split("#")[0]
+    //                 );
+    //                 const id = attributes.table_from.split("#")[1]
+    //                 if (id) {
+    //                     attribute_table_from_relation_ids.push(id);
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     let relationFieldTablesMap = {}
+    //     let relationFieldTableIds = []
+    //     if (attribute_table_from_slugs.length > 0) {
+    //         const relationFieldTables = await tableVersion(
+    //             mongoConn,
+    //             {
+    //                 slug: { $in: attribute_table_from_slugs },
+    //                 deleted_at: "1970-01-01T18:00:00.000+00:00",
+    //             },
+    //             params.version_id,
+    //             false
+    //         );
+    //         for (const table of relationFieldTables) {
+    //             relationFieldTablesMap[table.slug] = table
+    //             relationFieldTableIds.push(table.id)
+    //         }
+    //     }
+    //     let relationFieldsMap = {}
+    //     if (attribute_table_from_relation_ids.length > 0 && relationFieldTableIds.length > 0) {
+    //         const relationFields = await Field.find({
+    //             relation_id: { $in: attribute_table_from_relation_ids },
+    //             table_id: { $in: relationFieldTableIds },
+    //         });
+    //         for (const relationField of relationFields) {
+    //             relationFieldsMap[relationField.relation_id + "_" + relationField.table_id] = relationField
+    //         }
+    //     }
+    //     let dynamicRelationsMap = {}
+    //     if (attribute_table_from_relation_ids.length > 0) {
+    //         const dynamicRelations = await Relation.find({ id: { $in: attribute_table_from_relation_ids } })
+    //         for (const dynamicRelation of dynamicRelations) {
+    //             dynamicRelationsMap[dynamicRelation.id] = dynamicRelation
+    //         }
+    //     }
+    //     for (const res of result) {
+    //         let isChanged = false
+    //         for (const field of formulaFields) {
+    //             let attributes = struct.decode(field.attributes)
+    //             if (field.type === "FORMULA") {
+    //                 if (attributes.table_from && attributes.sum_field) {
+    //                     let filters = {}
+    //                     if (attributes.formula_filters) {
+    //                         attributes.formula_filters.forEach(el => {
+    //                             filters[el.key.split("#")[0]] = el.value
+    //                             if (Array.isArray(el.value)) {
+    //                                 filters[el.key.split("#")[0]] = { $in: el.value }
+    //                             }
+    //                         })
+    //                     }
+    //                     const relation_id = attributes.table_from.split('#')[1]
+    //                     const relationFieldTable = relationFieldTablesMap[attributes.table_from.split('#')[0]]
+    //                     const relationField = relationFieldsMap[relation_id + "_" + relationFieldTable.id]
+    //                     if (!relationField || !relationFieldTable) {
+    //                         res[field.slug] = 0
+    //                         continue
+    //                     }
+    //                     const dynamicRelation = dynamicRelationsMap[relation_id]
+    //                     let matchField = relationField ? relationField.slug : req.table_slug + "_id"
+    //                     if (dynamicRelation && dynamicRelation.type === "Many2Dynamic") {
+    //                         matchField = dynamicRelation.field_from + `.${req.table_slug}` + "_id"
+    //                     }
+    //                     let matchParams = {
+    //                         [matchField]: { '$eq': res.guid },
+    //                         ...filters
+    //                     }
+    //                     const resultFormula = await FormulaFunction.calculateFormulaBackend(attributes, matchField, matchParams, req.project_id, allTables)
+    //                     if (resultFormula.length) {
+    //                         if (attributes.number_of_rounds && attributes.number_of_rounds > 0) {
+    //                             if (!isNaN(resultFormula[0].res)) {
+    //                                 resultFormula[0].res = resultFormula[0]?.res?.toFixed(attributes.number_of_rounds)
+    //                             }
+    //                         }
+    //                         if (resultFormula[0]?.res && res[field.slug] !== resultFormula[0].res) {
+    //                             res[field.slug] = resultFormula[0].res
+    //                             isChanged = true
+    //                         }
+
+    //                     } else {
+    //                         res[field.slug] = 0
+    //                         isChanged = true
+    //                     }
+    //                 }
+    //             } else {
+    //                 if (attributes && attributes.formula) {
+    //                     const resultFormula = await FormulaFunction.calculateFormulaFrontend(attributes, tableInfo.fields, res)
+    //                     if (res[field.slug] !== resultFormula) {
+    //                         isChanged = true
+    //                     }
+    //                     res[field.slug] = resultFormula
+    //                 }
+    //             }
+    //         }
+    //         if (isChanged) {
+    //             let bulk = {
+    //                 updateOne: {
+    //                     filter:
+    //                         { guid: data.id },
+    //                     update: res
+    //                 }
+    //             }
+    //             updatedObjects.push(bulk)
+    //         }
+    //     }
+    //     await tableInfo.models.bulkWrite(updatedObjects)
+    //     const response = struct.encode({
+    //         count: count,
+    //         response: result,
+    //     });
+    //     const tableWithVersion = await tableVersion(mongoConn, { slug: req.table_slug })
+    //     let customMessage = ""
+    //     if (tableWithVersion) {
+    //         const customErrMsg = await mongoConn?.models["CustomErrorMessage"]?.findOne({
+    //             code: 200,
+    //             table_id: tableWithVersion.id,
+    //             action_type: "GET_LIST"
+    //         })
+    //         if (customErrMsg) { customMessage = customErrMsg.message }
+    //     }
+
+    //     const endMemoryUsage = process.memoryUsage();
+
+    //     const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+    //     if (memoryUsed > 300) {
+    //         logger.info("getList items-->Project->" + req.project_id)
+    //         logger.info("Request->" + JSON.stringify(req))
+
+    //         logger.info(`--> P-M Memory used by getList items: ${memoryUsed.toFixed(2)} MB`);
+    //         logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+    //         logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+    //         logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+    //         logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+    //         logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+            
+    //         logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+    //         logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+    //     } else {
+    //         logger.info(`--> P-M Memory used by getList items: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+    //     }
+
+    //     return { table_slug: req.table_slug, data: response, is_cached: tableWithVersion.is_cached ?? false, custom_message: customMessage }
+    // }),
     delete: catchWrapDbObjectBuilder(`${NAMESPACE}.delete`, async (req) => {
         const startMemoryUsage = process.memoryUsage();
 

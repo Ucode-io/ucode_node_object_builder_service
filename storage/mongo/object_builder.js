@@ -445,7 +445,6 @@ let objectBuilder = {
             
             let { data, appendMany2Many, deleteMany2Many } = await PrepareFunction.prepareToUpdateInObjectBuilder(req, mongoConn)
             data.user_id_auth = updatedUser?.user_id
-
             if (req.table_slug === "person"){
                 const response = await allTableInfo[req.table_slug].models.findOne( { guid: data.id } );
                 await personSync.updateSync(mongoConn, allTableInfo, data, req.env_id, req.project_id, response)
@@ -1496,8 +1495,6 @@ let objectBuilder = {
                     $and: [params]
                 },
                     {
-                        // createdAt: 0,
-                        // updatedAt: 0,
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
@@ -1580,8 +1577,6 @@ let objectBuilder = {
                     ...params
                 },
                     {
-                        // createdAt: 0,
-                        // updatedAt: 0,
                         created_at: 0,
                         updated_at: 0,
                         _id: 0,
@@ -6466,39 +6461,111 @@ let objectBuilder = {
             if (!mongoConn) {
                 throw new Error("Failed to connect to MongoDB.");
             }
-    
+
             const data = struct.decode(req?.data);
             const allTables = await ObjectBuilder(true, req.project_id);
             const tableInfo = allTables[req.table_slug];
             const fields = data.fields;
-    
+            const tableSlugs = [], fieldSlugs = [];
+
+            const limit = data.limit;
+            const offset = data.offset;
+
+            for (const field of tableInfo.fields) {
+                if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
+                    tableSlugs.push(field.table_slug);
+                    fieldSlugs.push(field.slug);
+                }
+            }
+
             if (!fields || !Array.isArray(fields)) {
                 throw new Error("Invalid or missing fields in request data.");
             }
 
             let filter = {};
-            let keys = Object.keys(data);
-            for (const key of keys) {
-                if (typeof(data[key]) === "object" && key != "fields") {
-                    if (data[key]) {
-                        let is_array = Array.isArray(data[key])
-                        if (is_array) {
-                            filter[key] = { $in: data[key] };
-                        }
+            Object.entries(data).forEach(([key, value]) => {
+                if (typeof value === "object" && key !== "fields" && value) {
+                    if (Array.isArray(value)) {
+                        filter[key] = { $in: value };
                     }
                 }
-            }
-    
+            });
+
+            let pipeline = [
+                { $match: filter },
+                {
+                    $lookup: {
+                        from: pluralize(req.table_slug),
+                        let: { currentGuid: "$guid" },
+                        pipeline: [
+                            {
+                                $match: {
+                                    $expr: { $eq: [`$${req.table_slug}_id`, "$$currentGuid"] }
+                                }
+                            },
+                            { $limit: 1 },
+                            { $project: { _id: 1 } }
+                        ],
+                        as: "children"
+                    }
+                },
+                {
+                    $graphLookup: {
+                        from: pluralize(req.table_slug),
+                        startWith: `$${req.table_slug}_id`,
+                        connectFromField: `${req.table_slug}_id`,
+                        connectToField: "guid",
+                        as: "ancestors",
+                        depthField: "depth"
+                    }
+                },
+                { $unwind: { path: "$ancestors", preserveNullAndEmptyArrays: true } },
+                { $sort: { "ancestors.depth": 1 } }
+            ];
+
+            tableSlugs.forEach((slug, index) => {
+                const lookupField = fieldSlugs[index];
+                const dataField = `${fieldSlugs[index]}_data`;
+                
+                pipeline.push({
+                    $lookup: {
+                        from: pluralize(slug),
+                        localField: lookupField,
+                        foreignField: "guid",
+                        as: dataField,
+                        pipeline: [
+                            {
+                                $project: {
+                                    createdAt: 0,
+                                    updatedAt: 0,
+                                    __v: 0,
+                                    _id: 0
+                                }
+                            }
+                        ]
+                    }
+                });
+            });
+
             const groupStage = {
                 $group: {
                     _id: "$guid",
-                    ancestors: { $push: "$ancestors" }
+                    ancestors: { $push: "$ancestors" },
+                    has_child: { $first: { $gt: [{ $size: "$children" }, 0] } }
                 }
             };
+
             fields.forEach(field => {
                 groupStage.$group[field] = { $first: `$${field}` };
             });
-    
+
+            tableSlugs.forEach((_, index) => {
+                const lookupField = fieldSlugs[index];
+                const dataField = `${fieldSlugs[index]}_data`;
+                groupStage.$group[lookupField] = { $first: `$${lookupField}` };
+                groupStage.$group[dataField] = { $first: { $arrayElemAt: [`$${dataField}`, 0] } };
+            });
+
             const projectStage = {
                 $project: {
                     _id: 0,
@@ -6513,38 +6580,31 @@ let objectBuilder = {
                             },
                             ["$guid"]
                         ]
-                    }
+                    },
+                    has_child: 1
                 }
             };
+
             fields.forEach(field => {
                 projectStage.$project[field] = 1;
             });
-    
-            const response = await tableInfo.models.aggregate([
-                {
-                    $match: filter
-                },
-                {
-                    $graphLookup: {
-                        from: pluralize(req.table_slug),
-                        startWith: `$${req.table_slug}_id`,
-                        connectFromField: `${req.table_slug}_id`,
-                        connectToField: "guid",
-                        as: "ancestors",
-                        depthField: "depth"
-                    }
-                },
-                {
-                    $unwind: { path: "$ancestors", preserveNullAndEmptyArrays: true }
-                },
-                {
-                    $sort: { "ancestors.depth": 1 }
-                },
-                groupStage,
-                projectStage
-            ])
-    
-            return { table_slug: req.table_slug, data: struct.encode({response}) };
+
+            tableSlugs.forEach((_, index) => {
+                const lookupField = fieldSlugs[index];
+                const dataField = `${fieldSlugs[index]}_data`;
+                projectStage.$project[lookupField] = 1;
+                projectStage.$project[dataField] = 1;
+            });
+
+            pipeline.push(
+                { $skip: offset },
+                { $limit: limit }
+            );
+
+            pipeline.push(groupStage, projectStage);
+
+            const response = await tableInfo.models.aggregate(pipeline);
+            return { table_slug: req.table_slug, data: struct.encode({ response }) };
         } catch (err) {
             throw err; 
         }

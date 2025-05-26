@@ -6487,6 +6487,9 @@ let objectBuilder = {
             const fields = data.fields;
             const tableSlugs = [], fieldSlugs = [];
 
+            const limit = data.limit;
+            const offset = data.offset;
+
             for (const field of tableInfo.fields) {
                 if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
                     tableSlugs.push(field.table_slug);
@@ -6611,6 +6614,11 @@ let objectBuilder = {
                 projectStage.$project[lookupField] = 1;
                 projectStage.$project[dataField] = 1;
             });
+
+            pipeline.push(
+                { $skip: offset },
+                { $limit: limit }
+            );
 
             pipeline.push(groupStage, projectStage);
 

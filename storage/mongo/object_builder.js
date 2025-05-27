@@ -6480,6 +6480,7 @@ let objectBuilder = {
             if (!mongoConn) {
                 throw new Error("Failed to connect to MongoDB.");
             }
+            const startMemoryUsage = process.memoryUsage();
 
             const Relation = mongoConn.models['Relation']
 
@@ -6722,6 +6723,26 @@ let objectBuilder = {
             pipeline.push(groupStage, projectStage);
 
             const response = await tableInfo.models.aggregate(pipeline);
+
+            const endMemoryUsage = process.memoryUsage();
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getListRelationTabInExcel-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by getListRelationTabInExcel: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getListRelationTabInExcel: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
             return { table_slug: req.table_slug, data: struct.encode({ response }) };
         } catch (err) {
             throw err; 

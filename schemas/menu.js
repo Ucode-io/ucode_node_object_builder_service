@@ -41,21 +41,8 @@ const MenuSchema = mongoose.Schema(
         attributes: {
             type: mongoose.Schema.Types.Mixed
         },
-        report_setting_id: {
-            type: String,
-        },
-        pivot_template_id: {
-            type: String,
-        },
         bucket_path: {
             type: String,
-        },
-        wiki_id: {
-            type: String,
-        },
-        is_visible: {
-            type: Boolean,
-            default: false,
         },
         wiki_id: {
             type: String,
@@ -63,6 +50,9 @@ const MenuSchema = mongoose.Schema(
         is_static: {
             type: Boolean,
             default: false,
+        },
+        view_id: {
+            type: String,
         }
     },
     {

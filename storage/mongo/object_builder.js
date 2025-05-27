@@ -6697,6 +6697,7 @@ let objectBuilder = {
             });
 
             pipeline.push(
+                { $sort: { createdAt: 1 } },
                 { $skip: offset },
                 { $limit: limit }
             );

@@ -6658,6 +6658,7 @@ let objectBuilder = {
             fields.forEach(field => {
                 groupStage.$group[field] = { $first: `$${field}` };
             });
+            groupStage.$group.createdAt = { $first: "$createdAt" };
 
             tableSlugs.forEach((_, index) => {
                 const lookupField = fieldSlugs[index];
@@ -6697,12 +6698,11 @@ let objectBuilder = {
             });
 
             pipeline.push(
-                { $sort: { createdAt: 1 } },
                 { $skip: offset },
                 { $limit: limit }
             );
 
-            pipeline.push(groupStage, projectStage);
+            pipeline.push(groupStage, { $sort: { createdAt: 1 } }, projectStage);
 
             const response = await tableInfo.models.aggregate(pipeline);
 

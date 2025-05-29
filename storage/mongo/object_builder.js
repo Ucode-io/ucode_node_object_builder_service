@@ -6554,7 +6554,7 @@ let objectBuilder = {
                             if (objFromAuth) {
                                 if (connectionTableSlug !== req.table_slug) {
                                     if (!many2manyRelation) {
-                                        params[autoFilter.custom_field] = objFromAuth.object_id
+                                        params[autoFilter.custom_field] = [objFromAuth.object_id]
                                     } else {
                                         params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
                                     }
@@ -6584,7 +6584,7 @@ let objectBuilder = {
             }
 
             Object.entries(params).forEach(([key, value]) => {
-                if (typeof value === "object" && key !== "fields" && value) {
+                if (typeof value === "object" && key !== "fields" && key != "tables" && value) {
                     if (Array.isArray(value)) {
                         filter[key] = { $in: value };
                     }

@@ -6554,7 +6554,7 @@ let objectBuilder = {
                             if (objFromAuth) {
                                 if (connectionTableSlug !== req.table_slug) {
                                     if (!many2manyRelation) {
-                                        params[autoFilter.custom_field] = objFromAuth.object_id
+                                        params[autoFilter.custom_field] = [objFromAuth.object_id]
                                     } else {
                                         params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
                                     }
@@ -6584,7 +6584,7 @@ let objectBuilder = {
             }
 
             Object.entries(params).forEach(([key, value]) => {
-                if (typeof value === "object" && key !== "fields" && value) {
+                if (typeof value === "object" && key !== "fields" && key != "tables" && value) {
                     if (Array.isArray(value)) {
                         filter[key] = { $in: value };
                     }
@@ -6658,6 +6658,7 @@ let objectBuilder = {
             fields.forEach(field => {
                 groupStage.$group[field] = { $first: `$${field}` };
             });
+            groupStage.$group.createdAt = { $first: "$createdAt" };
 
             tableSlugs.forEach((_, index) => {
                 const lookupField = fieldSlugs[index];
@@ -6701,7 +6702,7 @@ let objectBuilder = {
                 { $limit: limit }
             );
 
-            pipeline.push(groupStage, projectStage);
+            pipeline.push(groupStage, { $sort: { createdAt: 1 } }, projectStage);
 
             const response = await tableInfo.models.aggregate(pipeline);
 

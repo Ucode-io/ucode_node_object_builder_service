@@ -30,6 +30,7 @@ const objectBuilderService = {
     UpdateByUserIdAuth: catchWrapServiceObjectBuilder(`service.object_builder.updateByUserIdAuth`, objectBuilderStore.updateByUserIdAuth),
     AgGridTree: catchWrapServiceObjectBuilder(`service.object_builder.agGridTree`, objectBuilderStore.agGridTree),
     GetBoardStructure: catchWrapServiceObjectBuilder(`service.object_builder.getBoardStructure`, objectBuilderStore.getBoardStructure),
+    GetBoardData: catchWrapServiceObjectBuilder(`service.object_builder.getBoardData`, objectBuilderStore.getBoardData),
 };
 
 module.exports = objectBuilderService;  

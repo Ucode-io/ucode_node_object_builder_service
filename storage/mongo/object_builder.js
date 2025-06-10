@@ -6821,7 +6821,7 @@ let objectBuilder = {
                         }
                     }
                 ]
-                
+
                 const subgroupsResult = await tableInfo.models.aggregate(subgroupPipeline);
 
                 subgroups = subgroupsResult.map(subgroup => ({
@@ -6834,7 +6834,102 @@ let objectBuilder = {
         } catch (err) {
             throw err;
         }
+    }),
+    getBoardData: catchWrapDbObjectBuilder(`${NAMESPACE}.getBoardData`, async (req) => {
+        try {
+            const mongoConn = await mongoPool.get(req.project_id);
+            if (!mongoConn) {
+                throw new Error("Failed to connect to MongoDB.");
+            }
+
+            const params = struct.decode(req?.data);
+            const allTables = await ObjectBuilder(true, req.project_id);
+            const tableInfo = allTables[req.table_slug];
+
+            const groupBy = params.group_by || {};
+            const subgroupBy = params.subgroup_by || {};
+            const groupByField = groupBy.field;
+            const subgroupByField = subgroupBy.field;
+            const fields = params.fields || [];
+            const limit = params.limit || 300;
+            const offset = params.offset || 0;
+
+            const hasSubgroup = Boolean(subgroupByField);
+            const noGroupValue = "Unassigned";
+            const orderBy = hasSubgroup ? subgroupByField : "created_at";
+
+            const pipeline = [
+                { $match: { deleted_at: null } },
+                {
+                    $facet: {
+                        data: [
+                            { $sort: { [orderBy]: 1, board_order: 1, updated_at: -1 } },
+                            { $skip: offset },
+                            { $limit: limit },
+                            {
+                                $project: {
+                                    _id: 0,
+                                    ...fields.reduce((acc, field) => ({ ...acc, [field]: 1 }), {})
+                                }
+                            }
+                        ],
+                        totalCount: [
+                            { $count: "count" }
+                        ]
+                    }
+                },
+                {
+                    $project: {
+                        data: 1,
+                        count: { $arrayElemAt: ["$totalCount.count", 0] }
+                    }
+                }
+            ];
+
+            const [result] = await tableInfo.models.aggregate(pipeline);
+            const { data: rows = [], count = 0 } = result || {};
+
+            const groupedData = groupResults(rows, {
+                groupByField,
+                subgroupByField,
+                hasSubgroup,
+                noGroupValue
+            });
+
+            return {
+                table_slug: req.table_slug,
+                project_id: req.project_id,
+                data: struct.encode({
+                    response: groupedData,
+                    count
+                })
+            };
+        } catch (err) {
+            throw err;
+        }
     })
+}
+
+function groupResults(rows, { groupByField, subgroupByField, hasSubgroup, noGroupValue }) {
+    return rows.reduce((acc, row) => {
+        const groupValue = normalizeValue(row[groupByField], noGroupValue);
+        
+        if (hasSubgroup) {
+            const subgroupValue = normalizeValue(row[subgroupByField], noGroupValue);
+            acc[subgroupValue] = acc[subgroupValue] || {};
+            acc[subgroupValue][groupValue] = (acc[subgroupValue][groupValue] || []).concat(row);
+        } else {
+            acc[groupValue] = (acc[groupValue] || []).concat(row);
+        }
+        
+        return acc;
+    }, {});
+}
+
+function normalizeValue(value, noGroupValue) {
+    if (value === null || value === undefined) return noGroupValue;
+    if (Array.isArray(value)) return value.length ? String(value[0]) : noGroupValue;
+    return String(value);
 }
 
 module.exports = objectBuilder;

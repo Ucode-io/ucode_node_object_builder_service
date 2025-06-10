@@ -6729,6 +6729,111 @@ let objectBuilder = {
         } catch (err) {
             throw err; 
         }
+    }),
+    getBoardStructure: catchWrapDbObjectBuilder(`${NAMESPACE}.getBoardStructure`, async (req) => {
+        try {
+            const mongoConn = await mongoPool.get(req.project_id);
+            if (!mongoConn) {
+                throw new Error("Failed to connect to MongoDB.");
+            }
+
+            const params = struct.decode(req?.data);
+            const allTables = await ObjectBuilder(true, req.project_id);
+            const tableInfo = allTables[req.table_slug];
+
+            const {
+                group_by: groupBy = {},
+                subgroup_by: subgroupBy = {}
+            } = params;
+
+            const groupByField = groupBy.field;
+            const subgroupByField = subgroupBy.field;
+            const hasSubgroup = subgroupByField !== '';
+            const noGroupValue = "Unassigned";
+
+            if (!groupByField) {
+                throw new Error("group_by field is required");
+            }
+
+            const groupPipeline = [
+                { $match: { deleted_at: null } },
+                {
+                    $unwind: {
+                        path: `$${groupByField}`,
+                        preserveNullAndEmptyArrays: true
+                    }
+                },
+                {
+                    $group: {
+                        _id: `$${groupByField}`,
+                        count: { $sum: 1 }
+                    }
+                },
+                {
+                    $project: {
+                        _id: 0,
+                        name: { $ifNull: ["$_id", noGroupValue] },
+                        count: 1
+                    }
+                }
+            ];
+
+            const groupsResult = await tableInfo.models.aggregate(groupPipeline);
+
+            const groups = groupsResult.map(group => ({
+                name: group.name,
+                count: group.count
+            }));
+
+            let subgroups = [];
+
+            if (hasSubgroup) {
+                const subgroupPipeline = [
+                    { $match: { deleted_at: null } },
+                    {
+                        $addFields: {
+                            _subgroupField: {
+                                $cond: {
+                                    if: { $isArray: `$${subgroupByField}` },
+                                    then: `$${subgroupByField}`,
+                                    else: [`$${subgroupByField}`]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        $unwind: {
+                            path: "$_subgroupField",
+                            preserveNullAndEmptyArrays: true
+                        }
+                    },
+                    {
+                        $group: {
+                            _id: { $ifNull: ["$_subgroupField", noGroupValue] },
+                            count: { $sum: 1 }
+                        }
+                    },
+                    {
+                        $project: {
+                            _id: 0,
+                            name: "$_id",
+                            count: 1
+                        }
+                    }
+                ]
+                
+                const subgroupsResult = await tableInfo.models.aggregate(subgroupPipeline);
+
+                subgroups = subgroupsResult.map(subgroup => ({
+                    name: subgroup.name,
+                    count: subgroup.count
+                }));
+            }
+
+            return { table_slug: req.table_slug, data: struct.encode({ groups, subgroups }) };
+        } catch (err) {
+            throw err;
+        }
     })
 }
 

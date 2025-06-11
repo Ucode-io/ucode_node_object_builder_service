@@ -6856,35 +6856,78 @@ let objectBuilder = {
 
             const hasSubgroup = Boolean(subgroupByField);
             const noGroupValue = "Unassigned";
-            const orderBy = hasSubgroup ? subgroupByField : "created_at";
+            const orderBy = hasSubgroup ? subgroupByField : "createdAt";
 
-            const pipeline = [
-                { $match: { deleted_at: null } },
-                {
-                    $facet: {
-                        data: [
-                            { $sort: { [orderBy]: 1, board_order: 1, updated_at: -1 } },
-                            { $skip: offset },
-                            { $limit: limit },
-                            {
-                                $project: {
-                                    _id: 0,
-                                    ...fields.reduce((acc, field) => ({ ...acc, [field]: 1 }), {})
-                                }
-                            }
-                        ],
-                        totalCount: [
-                            { $count: "count" }
-                        ]
-                    }
-                },
-                {
-                    $project: {
-                        data: 1,
-                        count: { $arrayElemAt: ["$totalCount.count", 0] }
-                    }
+            const tableSlugs = [];
+            const fieldSlugs = [];
+            const pipeline = [{ $match: { deleted_at: null } }];
+
+            for (const field of tableInfo.fields) {
+                if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
+                    tableSlugs.push(field.table_slug);
+                    fieldSlugs.push(field.slug);
                 }
-            ];
+            }
+
+            tableSlugs.forEach((slug, index) => {
+                const lookupField = fieldSlugs[index];
+                const dataField = `${fieldSlugs[index]}_data`;
+                
+                pipeline.push({
+                    $lookup: {
+                        from: pluralize(slug),
+                        localField: lookupField,
+                        foreignField: "guid",
+                        as: dataField,
+                        pipeline: [{
+                            $project: {
+                                createdAt: 0,
+                                updatedAt: 0,
+                                __v: 0,
+                                _id: 0
+                            }
+                        }]
+                    }
+                });
+
+                if (tableInfo.fields.find(f => f.slug === fieldSlugs[index])?.type === "LOOKUP") {
+                    pipeline.push({
+                        $addFields: {
+                            [dataField]: { $arrayElemAt: [`$${dataField}`, 0] }
+                        }
+                    });
+                }
+            });
+
+            pipeline.push({
+                $facet: {
+                    data: [
+                        { $sort: { [orderBy]: 1, board_order: 1, updatedAt: -1 } },
+                        { $skip: offset },
+                        { $limit: limit },
+                        {
+                            $project: {
+                                _id: 0,
+                                ...fields.reduce((acc, field) => ({ ...acc, [field]: 1 }), {}),
+                                ...fieldSlugs.reduce((acc, slug) => ({ 
+                                    ...acc, 
+                                    [`${slug}_data`]: 1 
+                                }), {})
+                            }
+                        }
+                    ],
+                    totalCount: [
+                        { $count: "count" }
+                    ]
+                }
+            });
+
+            pipeline.push({
+                $project: {
+                    data: 1,
+                    count: { $arrayElemAt: ["$totalCount.count", 0] }
+                }
+            });
 
             const [result] = await tableInfo.models.aggregate(pipeline);
             const { data: rows = [], count = 0 } = result || {};

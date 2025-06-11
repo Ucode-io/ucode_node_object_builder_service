@@ -6709,10 +6709,10 @@ let objectBuilder = {
             const endMemoryUsage = process.memoryUsage();
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("getListRelationTabInExcel-->Project->" + req.project_id)
+                logger.info("agGridTree-->Project->" + req.project_id)
                 logger.info("Request->" + JSON.stringify(req))
 
-                logger.info(`--> P-M Memory used by getListRelationTabInExcel: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Memory used by agGridTree: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
                 logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
                 logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
@@ -6722,7 +6722,7 @@ let objectBuilder = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by getListRelationTabInExcel: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by agGridTree: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
             }
 
             return { table_slug: req.table_slug, data: struct.encode({ response }) };
@@ -6841,6 +6841,9 @@ let objectBuilder = {
             if (!mongoConn) {
                 throw new Error("Failed to connect to MongoDB.");
             }
+            const startMemoryUsage = process.memoryUsage();
+
+            const Relation = mongoConn.models['Relation']
 
             const params = struct.decode(req?.data);
             const allTables = await ObjectBuilder(true, req.project_id);
@@ -6858,17 +6861,125 @@ let objectBuilder = {
             const noGroupValue = "Unassigned";
             const orderBy = hasSubgroup ? subgroupByField : "createdAt";
 
+            const permissionTable = allTables["record_permission"];
+            const permission = await permissionTable.models.findOne({
+                $and: [
+                    {
+                        role_id: params["role_id_from_token"]
+                    },
+                    {
+                        table_slug: req.table_slug
+                    }
+                ]
+            });
+
+            let relations = [];
+            relations = await Relation.find({
+                $or: [{
+                    table_from: req.table_slug,
+                },
+                {
+                    table_to: req.table_slug,
+                },
+                {
+                    "dynamic_tables.table_slug": req.table_slug
+                }
+                ]
+            });
+
+            if (permission?.is_have_condition) {
+                const automaticFilterTable = allTables["automatic_filter"]
+                const automatic_filters = await automaticFilterTable.models.find({
+                    $and: [
+                        {
+                            role_id: params["role_id_from_token"]
+                        },
+                        {
+                            table_slug: req.table_slug
+                        },
+                        {
+                            method: "read"
+                        }
+                    ]
+                })
+                if (automatic_filters.length) {
+                    for (const autoFilter of automatic_filters) {
+                        if (autoFilter.not_use_in_tab && params.from_tab) {
+                            continue
+                        }
+                        let many2manyRelation = false
+                        if (autoFilter?.object_field?.includes('#')) {
+                            let splitedElement = autoFilter.object_field.split('#')
+                            autoFilter.object_field = splitedElement[0]
+                            let obj = relations.find(el => el.id === splitedElement[1])
+                            if (obj) {
+                                if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
+                                    autoFilter.custom_field = obj.field_from
+                                } else if (obj.type === 'Many2Many') {
+                                    many2manyRelation = true
+                                    if (obj.table_from === req.table_slug) {
+                                        autoFilter.custom_field = obj.field_from
+                                    } else if (obj.table_to === req.table_slug) {
+                                        autoFilter.custom_field = obj.field_to
+                                    }
+                                }
+                            }
+                        }
+                        if (autoFilter.custom_field === "user_id") {
+                            if (autoFilter.object_field !== req.table_slug) {
+                                if (!many2manyRelation) {
+                                    params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
+                                } else {
+                                    params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
+                                }
+                            }
+                        } else {
+                            let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+                            let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
+                            if (objFromAuth) {
+                                if (connectionTableSlug !== req.table_slug) {
+                                    if (!many2manyRelation) {
+                                        params[autoFilter.custom_field] = [objFromAuth.object_id]
+                                    } else {
+                                        params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
+                                    }
+                                }
+                            } else {
+                                params[autoFilter.custom_field] = [params["user_id_from_token"]]
+                            }
+                        }
+                    }
+                }
+            } else {
+                let objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
+                if (objFromAuth) {
+                    params["guid"] = objFromAuth.object_id
+                }
+            }
+
             const tableSlugs = [];
             const fieldSlugs = [];
-            const pipeline = [{ $match: { deleted_at: null } }];
+            const matchConditions = { deleted_at: null };
+
+            const filterFields = Object.keys(params).filter(key => 
+                !['fields', 'group_by', 'subgroup_by', 'limit', 'offset', 'tables'].includes(key)
+            );
+            filterFields.forEach(field => {
+                const value = params[field];
+
+                if (Array.isArray(value)) {
+                    matchConditions[field] = { $in: value };
+                }
+            })
 
             for (const field of tableInfo.fields) {
-                if (field.type == "LOOKUP" || field.type == "LOOKUPS") {
+                if ((field.type == "LOOKUP" || field.type == "LOOKUPS") && fields.includes(field.slug)) {
                     tableSlugs.push(field.table_slug);
                     fieldSlugs.push(field.slug);
                 }
             }
 
+            const pipeline = [{ $match: matchConditions }];
             tableSlugs.forEach((slug, index) => {
                 const lookupField = fieldSlugs[index];
                 const dataField = `${fieldSlugs[index]}_data`;
@@ -6938,6 +7049,25 @@ let objectBuilder = {
                 hasSubgroup,
                 noGroupValue
             });
+
+            const endMemoryUsage = process.memoryUsage();
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getBoardData-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by getBoardData: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getBoardData: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
 
             return {
                 table_slug: req.table_slug,

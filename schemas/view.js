@@ -72,6 +72,13 @@ const ViewSchema = mongoose.Schema(
         table_id: {
             type: String,
         },
+        menu_id: {
+            type: String,
+        },
+        is_relation_view: {
+            type: Boolean,
+            default: false,
+        },
     },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

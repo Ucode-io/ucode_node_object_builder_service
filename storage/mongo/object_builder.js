@@ -4007,6 +4007,7 @@ let objectBuilder = {
         const mongoConn = await mongoPool.get(req.project_id)
         let params = struct.decode(req?.data)
         const Field = mongoConn.models['Field']
+        const Table = mongoConn.models['Table']
         const Relation = mongoConn.models['Relation']
         const CustomEvent = mongoConn.models["CustomEvent"];
         const languageSetting = params.language_setting
@@ -4322,11 +4323,26 @@ let objectBuilder = {
             req.project_id
         );
 
+        const table = await Table.findOne(
+            { slug: req.table_slug }
+        )
+        const returnedTable = {
+            id: table.id,
+            slug: table.slug,
+            label: table.label,
+            soft_delete: table.soft_delete,
+            is_cached: table.is_cached,
+            is_login_table: table.is_login_table,
+            order_by: table.order_by,
+            attributes: table.attributes
+        }
+
         const response = struct.encode({
             fields: decodedFields,
             views: views,
             relation_fields: relationsFields,
-            custom_events: customEventWithPermission
+            custom_events: customEventWithPermission,
+            table_info: returnedTable
         });
 
         const endMemoryUsage = process.memoryUsage();

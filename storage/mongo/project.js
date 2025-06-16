@@ -15,6 +15,7 @@ const is_static = require("../../helper/is_static");
 const add_permission_field = require("../../helper/add_record_permission");
 const personTable = require("../../helper/personTableSetups");
 const smsTemplateTable = require("../../helper/smsTemplateSetup");
+const updateView = require("../../helper/updateView");
 
 let NAMESPACE = "storage.project";
 
@@ -144,6 +145,7 @@ let projectStore = {
                         mongoDBConn.model('PivotTemplate', require('../../schemas/report_setting').PivotTemplateSettingSchema)
                         mongoDBConn.model('ReportSetting', require('../../schemas/report_setting').ReportSettingSchema)
                         mongoDBConn.model('Language', require('../../schemas/language'))
+                        await updateView({ project_id: data.project_id })
                         await objectBuilder(false, data.project_id)
                         await initialMenu({ project_id: data.project_id })
                         await defaultPage({ project_id: data.project_id })

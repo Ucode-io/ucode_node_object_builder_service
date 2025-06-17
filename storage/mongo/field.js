@@ -146,7 +146,7 @@ let fieldStore = {
             }
 
             const table = await Table.findOneAndUpdate(
-                { tableReq: data.table_id },
+                { [tableReq]: data.table_id },
                 {
                     $set: {
                         is_changed: true,

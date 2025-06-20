@@ -362,8 +362,12 @@ let prepareFunction = {
 
             if (field.type === "LOOKUPS") {
                 if (data[field.slug]) {
-                    let olderArr = objectBeforeUpdate[field.slug] || []
-                    let newArr = data[field.slug]
+                    let olderArr = Array.isArray(objectBeforeUpdate[field.slug]) 
+                        ? objectBeforeUpdate[field.slug] 
+                        : [];
+                    let newArr = Array.isArray(data[field.slug]) 
+                        ? data[field.slug] 
+                        : [];
                     if (Array.isArray(newArr)) {
                         newIds = newArr.filter(val => !olderArr.includes(val))
                         deletedIds = olderArr.filter(val => !newArr.includes(val) && !newIds.includes(val))

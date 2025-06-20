@@ -6709,10 +6709,10 @@ let objectBuilder = {
             const endMemoryUsage = process.memoryUsage();
             const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
             if (memoryUsed > 300) {
-                logger.info("getListRelationTabInExcel-->Project->" + req.project_id)
+                logger.info("agGridTree-->Project->" + req.project_id)
                 logger.info("Request->" + JSON.stringify(req))
 
-                logger.info(`--> P-M Memory used by getListRelationTabInExcel: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Memory used by agGridTree: ${memoryUsed.toFixed(2)} MB`);
                 logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
                 logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
                 logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
@@ -6722,14 +6722,387 @@ let objectBuilder = {
                 logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
                 logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
             } else {
-                logger.info(`--> P-M Memory used by getListRelationTabInExcel: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+                logger.info(`--> P-M Memory used by agGridTree: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
             }
 
             return { table_slug: req.table_slug, data: struct.encode({ response }) };
         } catch (err) {
             throw err; 
         }
+    }),
+    getBoardStructure: catchWrapDbObjectBuilder(`${NAMESPACE}.getBoardStructure`, async (req) => {
+        try {
+            const mongoConn = await mongoPool.get(req.project_id);
+            if (!mongoConn) {
+                throw new Error("Failed to connect to MongoDB.");
+            }
+
+            const params = struct.decode(req?.data);
+            const allTables = await ObjectBuilder(true, req.project_id);
+            const tableInfo = allTables[req.table_slug];
+
+            const {
+                group_by: groupBy = {},
+                subgroup_by: subgroupBy = {}
+            } = params;
+
+            const groupByField = groupBy.field;
+            const subgroupByField = subgroupBy.field;
+            const hasSubgroup = subgroupByField !== '';
+            const noGroupValue = "Unassigned";
+
+            if (!groupByField) {
+                throw new Error("group_by field is required");
+            }
+
+            const groupPipeline = [
+                { $match: { deleted_at: null } },
+                {
+                    $unwind: {
+                        path: `$${groupByField}`,
+                        preserveNullAndEmptyArrays: true
+                    }
+                },
+                {
+                    $group: {
+                        _id: `$${groupByField}`,
+                        count: { $sum: 1 }
+                    }
+                },
+                {
+                    $project: {
+                        _id: 0,
+                        name: { $ifNull: ["$_id", noGroupValue] },
+                        count: 1
+                    }
+                }
+            ];
+
+            const groupsResult = await tableInfo.models.aggregate(groupPipeline);
+
+            const groups = groupsResult.map(group => ({
+                name: group.name,
+                count: group.count
+            }));
+
+            let subgroups = [];
+
+            if (hasSubgroup) {
+                const subgroupPipeline = [
+                    { $match: { deleted_at: null } },
+                    {
+                        $addFields: {
+                            _subgroupField: {
+                                $cond: {
+                                    if: { $isArray: `$${subgroupByField}` },
+                                    then: `$${subgroupByField}`,
+                                    else: [`$${subgroupByField}`]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        $unwind: {
+                            path: "$_subgroupField",
+                            preserveNullAndEmptyArrays: true
+                        }
+                    },
+                    {
+                        $group: {
+                            _id: { $ifNull: ["$_subgroupField", noGroupValue] },
+                            count: { $sum: 1 }
+                        }
+                    },
+                    {
+                        $project: {
+                            _id: 0,
+                            name: "$_id",
+                            count: 1
+                        }
+                    }
+                ]
+
+                const subgroupsResult = await tableInfo.models.aggregate(subgroupPipeline);
+
+                subgroups = subgroupsResult.map(subgroup => ({
+                    name: subgroup.name,
+                    count: subgroup.count
+                }));
+            }
+
+            return { table_slug: req.table_slug, data: struct.encode({ groups, subgroups }) };
+        } catch (err) {
+            throw err;
+        }
+    }),
+    getBoardData: catchWrapDbObjectBuilder(`${NAMESPACE}.getBoardData`, async (req) => {
+        try {
+            const mongoConn = await mongoPool.get(req.project_id);
+            if (!mongoConn) {
+                throw new Error("Failed to connect to MongoDB.");
+            }
+            const startMemoryUsage = process.memoryUsage();
+
+            const Relation = mongoConn.models['Relation']
+
+            const params = struct.decode(req?.data);
+            const allTables = await ObjectBuilder(true, req.project_id);
+            const tableInfo = allTables[req.table_slug];
+
+            const groupBy = params.group_by || {};
+            const subgroupBy = params.subgroup_by || {};
+            const groupByField = groupBy.field;
+            const subgroupByField = subgroupBy.field;
+            const fields = params.fields || [];
+            const limit = params.limit || 300;
+            const offset = params.offset || 0;
+
+            const hasSubgroup = Boolean(subgroupByField);
+            const noGroupValue = "Unassigned";
+            const orderBy = hasSubgroup ? subgroupByField : "createdAt";
+
+            const permissionTable = allTables["record_permission"];
+            const permission = await permissionTable.models.findOne({
+                $and: [
+                    {
+                        role_id: params["role_id_from_token"]
+                    },
+                    {
+                        table_slug: req.table_slug
+                    }
+                ]
+            });
+
+            let relations = [];
+            relations = await Relation.find({
+                $or: [{
+                    table_from: req.table_slug,
+                },
+                {
+                    table_to: req.table_slug,
+                },
+                {
+                    "dynamic_tables.table_slug": req.table_slug
+                }
+                ]
+            });
+
+            if (permission?.is_have_condition) {
+                const automaticFilterTable = allTables["automatic_filter"]
+                const automatic_filters = await automaticFilterTable.models.find({
+                    $and: [
+                        {
+                            role_id: params["role_id_from_token"]
+                        },
+                        {
+                            table_slug: req.table_slug
+                        },
+                        {
+                            method: "read"
+                        }
+                    ]
+                })
+                if (automatic_filters.length) {
+                    for (const autoFilter of automatic_filters) {
+                        if (autoFilter.not_use_in_tab && params.from_tab) {
+                            continue
+                        }
+                        let many2manyRelation = false
+                        if (autoFilter?.object_field?.includes('#')) {
+                            let splitedElement = autoFilter.object_field.split('#')
+                            autoFilter.object_field = splitedElement[0]
+                            let obj = relations.find(el => el.id === splitedElement[1])
+                            if (obj) {
+                                if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
+                                    autoFilter.custom_field = obj.field_from
+                                } else if (obj.type === 'Many2Many') {
+                                    many2manyRelation = true
+                                    if (obj.table_from === req.table_slug) {
+                                        autoFilter.custom_field = obj.field_from
+                                    } else if (obj.table_to === req.table_slug) {
+                                        autoFilter.custom_field = obj.field_to
+                                    }
+                                }
+                            }
+                        }
+                        if (autoFilter.custom_field === "user_id") {
+                            if (autoFilter.object_field !== req.table_slug) {
+                                if (!many2manyRelation) {
+                                    params[autoFilter.object_field + "_id"] = params["user_id_from_token"]
+                                } else {
+                                    params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] }
+                                }
+                            }
+                        } else {
+                            let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3)
+                            let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field)
+                            if (objFromAuth) {
+                                if (connectionTableSlug !== req.table_slug) {
+                                    if (!many2manyRelation) {
+                                        params[autoFilter.custom_field] = [objFromAuth.object_id]
+                                    } else {
+                                        params[autoFilter.custom_field] = { $in: params["user_id_from_token"] }
+                                    }
+                                }
+                            } else {
+                                params[autoFilter.custom_field] = [params["user_id_from_token"]]
+                            }
+                        }
+                    }
+                }
+            } else {
+                let objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug)
+                if (objFromAuth) {
+                    params["guid"] = objFromAuth.object_id
+                }
+            }
+
+            const tableSlugs = [];
+            const fieldSlugs = [];
+            const matchConditions = { deleted_at: null };
+
+            const filterFields = Object.keys(params).filter(key => 
+                !['fields', 'group_by', 'subgroup_by', 'limit', 'offset', 'tables'].includes(key)
+            );
+            filterFields.forEach(field => {
+                const value = params[field];
+
+                if (Array.isArray(value)) {
+                    matchConditions[field] = { $in: value };
+                }
+            })
+
+            for (const field of tableInfo.fields) {
+                if ((field.type == "LOOKUP" || field.type == "LOOKUPS") && fields.includes(field.slug)) {
+                    tableSlugs.push(field.table_slug);
+                    fieldSlugs.push(field.slug);
+                }
+            }
+
+            const pipeline = [{ $match: matchConditions }];
+            tableSlugs.forEach((slug, index) => {
+                const lookupField = fieldSlugs[index];
+                const dataField = `${fieldSlugs[index]}_data`;
+                
+                pipeline.push({
+                    $lookup: {
+                        from: pluralize(slug),
+                        localField: lookupField,
+                        foreignField: "guid",
+                        as: dataField,
+                        pipeline: [{
+                            $project: {
+                                createdAt: 0,
+                                updatedAt: 0,
+                                __v: 0,
+                                _id: 0
+                            }
+                        }]
+                    }
+                });
+
+                if (tableInfo.fields.find(f => f.slug === fieldSlugs[index])?.type === "LOOKUP") {
+                    pipeline.push({
+                        $addFields: {
+                            [dataField]: { $arrayElemAt: [`$${dataField}`, 0] }
+                        }
+                    });
+                }
+            });
+
+            pipeline.push({
+                $facet: {
+                    data: [
+                        { $sort: { [orderBy]: 1, board_order: 1, updatedAt: -1 } },
+                        { $skip: offset },
+                        { $limit: limit },
+                        {
+                            $project: {
+                                _id: 0,
+                                ...fields.reduce((acc, field) => ({ ...acc, [field]: 1 }), {}),
+                                ...fieldSlugs.reduce((acc, slug) => ({ 
+                                    ...acc, 
+                                    [`${slug}_data`]: 1 
+                                }), {})
+                            }
+                        }
+                    ],
+                    totalCount: [
+                        { $count: "count" }
+                    ]
+                }
+            });
+
+            pipeline.push({
+                $project: {
+                    data: 1,
+                    count: { $arrayElemAt: ["$totalCount.count", 0] }
+                }
+            });
+
+            const [result] = await tableInfo.models.aggregate(pipeline);
+            const { data: rows = [], count = 0 } = result || {};
+
+            const groupedData = groupResults(rows, {
+                groupByField,
+                subgroupByField,
+                hasSubgroup,
+                noGroupValue
+            });
+
+            const endMemoryUsage = process.memoryUsage();
+            const memoryUsed = (endMemoryUsage.heapUsed - startMemoryUsage.heapUsed) / (1024 * 1024);
+            if (memoryUsed > 300) {
+                logger.info("getBoardData-->Project->" + req.project_id)
+                logger.info("Request->" + JSON.stringify(req))
+
+                logger.info(`--> P-M Memory used by getBoardData: ${memoryUsed.toFixed(2)} MB`);
+                logger.info(`--> P-M Heap size limit: ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used start heap size: ${(startMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Used end heap size: ${(endMemoryUsage.heapUsed / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total heap size:  ${(endMemoryUsage.heapTotal / (1024 * 1024)).toFixed(2)} MB`);
+                logger.info(`--> P-M Total physical size: ${(endMemoryUsage.rss / (1024 * 1024)).toFixed(2)} MB`);
+                
+                logger.debug('Start Memory Usage: ' + JSON.stringify(startMemoryUsage));
+                logger.debug('End Memory Usage:' + JSON.stringify(endMemoryUsage));
+            } else {
+                logger.info(`--> P-M Memory used by getBoardData: ${memoryUsed.toFixed(2)} MB Project-> ${req.project_id}`);
+            }
+
+            return {
+                table_slug: req.table_slug,
+                project_id: req.project_id,
+                data: struct.encode({
+                    response: groupedData,
+                    count
+                })
+            };
+        } catch (err) {
+            throw err;
+        }
     })
+}
+
+function groupResults(rows, { groupByField, subgroupByField, hasSubgroup, noGroupValue }) {
+    return rows.reduce((acc, row) => {
+        const groupValue = normalizeValue(row[groupByField], noGroupValue);
+        
+        if (hasSubgroup) {
+            const subgroupValue = normalizeValue(row[subgroupByField], noGroupValue);
+            acc[subgroupValue] = acc[subgroupValue] || {};
+            acc[subgroupValue][groupValue] = (acc[subgroupValue][groupValue] || []).concat(row);
+        } else {
+            acc[groupValue] = (acc[groupValue] || []).concat(row);
+        }
+        
+        return acc;
+    }, {});
+}
+
+function normalizeValue(value, noGroupValue) {
+    if (value === null || value === undefined) return noGroupValue;
+    if (Array.isArray(value)) return value.length ? String(value[0]) : noGroupValue;
+    return String(value);
 }
 
 module.exports = objectBuilder;

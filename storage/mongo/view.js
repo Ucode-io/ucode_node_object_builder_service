@@ -236,12 +236,19 @@ let viewStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const View = mongoConn.models['View']
 
-            let query = {
-                table_slug: data.table_slug,
+            let filterField = "table_slug", filterValue = data.table_slug;
+            if (data.menu_id && data.menu_id != "") {
+                filterField = "menu_id";
+                filterValue = data.menu_id;
             }
+
+            let query = {
+                [filterField]: filterValue,
+            }
+
             const views = await View.find(
                 {
-                    table_slug: data.table_slug,
+                    [filterField]: filterValue,
                 },
                 {
                     created_at: 0,

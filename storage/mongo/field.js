@@ -1,5 +1,5 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
-const { v4 } = require("uuid");
+const { v4: uuidv4, validate: validateUUID } = require("uuid");
 const con = require("../../helper/constants");
 const { struct } = require('pb-util');
 const ObjectBuilder = require("../../models/object_builder");
@@ -138,6 +138,29 @@ let fieldStore = {
                 data.id = v4()
             }
 
+            let tableReq = ""
+            if (!validateUUID(data.table_id)) {
+                tableReq = "slug";
+            } else {
+                tableReq = "id";
+            }
+
+            const table = await Table.findOneAndUpdate(
+                { [tableReq]: data.table_id },
+                {
+                    $set: {
+                        is_changed: true,
+                        is_changed_by_host: {
+                            [os.hostname()]: true
+                        }
+                    }
+                },
+                {
+                    new: true
+                }
+            )
+            data.table_id = table.id;
+
             if (data.type === "PERSON") {
                 const tableResp =  await Table.findOne({ id: data.table_id })
                 const relationResp = await relationStore.create({
@@ -196,20 +219,6 @@ let fieldStore = {
             }
 
             const field = await Field.create(data);
-            const table = await Table.findOneAndUpdate(
-                { id: data.table_id },
-                {
-                    $set: {
-                        is_changed: true,
-                        is_changed_by_host: {
-                            [os.hostname()]: true
-                        }
-                    }
-                },
-                {
-                    new: true
-                }
-            )
             await View.updateMany(
                 { table_slug: table.slug },
                 { $push: { columns: field.id } }

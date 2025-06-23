@@ -18,15 +18,33 @@ let tableStore = {
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
             const Relation = mongoConn.models["Relation"]
+            const Menu = mongoConn.models["object_builder_service.menu"]
+            const MenuPermission = mongoConn.models["menu_permission"]
 
             if (!data.id) {
                 data.id = v4()
             }
+            const menuId = v4();
 
             let permissionRecord = {}
             data.is_changed_by_host = { [os.hostname()]: true }
 
             let table = await Table.create(data);
+
+            if (data.menu_id && data.menu_id != "") {
+                const parentMenuId = data.menu_id;
+
+                const newMenu = {
+                    id: menuId,
+                    label: data.label,
+                    parent_id: parentMenuId,
+                    table_id: data.id,
+                    type: "TABLE",
+                    attributes: data.attributes
+                };
+
+                await Menu.create(newMenu);
+            }
             const recordPermissionTable = (await ObjectBuilder(true, data.project_id))["record_permission"]
             const roleTable = (await ObjectBuilder(true, data.project_id))["role"]
             const roles = await roleTable?.models.find()
@@ -60,6 +78,18 @@ let tableStore = {
                 }
                 const recordPermission = new recordPermissionTable.models(permissionRecord)
                 recordPermission.save()
+
+                if (data.menu_id && data.menu_id != "") {
+                    const menuPermission = {
+                        menu_id: menuId,
+                        role_id: role.guid,
+                        update: true,
+                        read: true,
+                        write: true,
+                        delete: true
+                    }
+                    await MenuPermission.create(menuPermission);
+                }
             }
 
             const default_layout = {

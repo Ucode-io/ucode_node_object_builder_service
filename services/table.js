@@ -4,6 +4,7 @@ const tableStore = require("../storage/mongo/table");
 const fieldStore = require("../storage/mongo/field");
 const viewStore = require("../storage/mongo/view");
 const catchWrapService = require("../helper/catchWrapService");
+const { v4 } = require("uuid");
 
 const NAMESPACE = `services.table`;
 
@@ -25,6 +26,16 @@ const tableService = {
             viewData.id = call.request.view_id
             call.view = viewData
             await viewStore.create(call.view);
+
+            let sectionViewData = {
+                table_slug: call.request.slug,
+                type: "SECTION",
+                app_id: call.request.app_id,
+                project_id: call.request.project_id,
+                env_id: call.env_id,
+                id: v4()
+            };
+            await viewStore.create(sectionViewData);
 
             callback(null, {
                 id: response.id,

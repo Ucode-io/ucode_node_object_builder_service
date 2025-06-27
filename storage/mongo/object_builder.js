@@ -6978,7 +6978,7 @@ let objectBuilder = {
             const matchConditions = { deleted_at: null };
 
             const filterFields = Object.keys(params).filter(key => 
-                !['fields', 'group_by', 'subgroup_by', 'limit', 'offset', 'tables'].includes(key)
+                !['fields', 'group_by', 'subgroup_by', 'limit', 'offset', 'tables', "view_fields", "search"].includes(key)
             );
             filterFields.forEach(field => {
                 const value = params[field];

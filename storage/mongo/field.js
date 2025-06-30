@@ -17,7 +17,6 @@ let fieldStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-            const History = mongoConn.models['object_builder_service.version_history']
 
             data.fields.push({
                 slug: "guid",

@@ -24,6 +24,7 @@ const tableService = {
             viewData.project_id = call.request.project_id
             viewData.env_id = call.env_id
             viewData.id = call.request.view_id
+            viewData.menu_id = call.request.menu_id
             call.view = viewData
             await viewStore.create(call.view);
 
@@ -33,6 +34,7 @@ const tableService = {
                 app_id: call.request.app_id,
                 project_id: call.request.project_id,
                 env_id: call.env_id,
+                menu_id: call.request.menu_id,
                 id: v4()
             };
             await viewStore.create(sectionViewData);

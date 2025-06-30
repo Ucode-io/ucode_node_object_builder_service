@@ -1313,30 +1313,28 @@ let relationStore = {
         try {
             // 
             const mongoConn = await mongoPool.get(data.project_id);
-            const Table = mongoConn.models["Table"];
             const View = mongoConn.models["View"];
             const Relation = mongoConn.models["Relation"];
 
             if (data.table_slug === "") {
-                // let table = await Table.findOne({
-                //     id: data.table_id
-                // });
                 let table = await tableVersion(mongoConn, { id: data.table_id }, data.version_id, true)
                 data.table_slug = table.slug;
             }
+
+            const orConditions = [];
+
+            if (!data.disable_table_to) {
+                orConditions.push({ table_from: data.table_slug });
+            }
+
+            orConditions.push(
+                { table_to: data.table_slug },
+                { "dynamic_tables.table_slug": data.table_slug }
+            );
+
             const relations = await Relation.find(
                 {
-                    $or: [
-                        {
-                            table_from: data.table_slug,
-                        },
-                        {
-                            table_to: data.table_slug,
-                        },
-                        {
-                            "dynamic_tables.table_slug": data.table_slug,
-                        },
-                    ],
+                    $or: orConditions,
                 },
                 null,
                 {
@@ -1350,17 +1348,11 @@ let relationStore = {
 
             let responseRelations = [];
             for (let i = 0; i < relations.length; i++) {
-                // let tableFrom = await Table.findOne({
-                //     slug: relations[i].table_from
-                // })
                 let tableFrom = await tableVersion(mongoConn, { slug: relations[i].table_from }, data.version_id, true)
                 if (relations[i].type === "Many2Dynamic") {
                     let tableTo;
                     for (const dynamic_table of relations[i].dynamic_tables) {
                         if (dynamic_table.table_slug === data.table_slug) {
-                            // tableTo = await Table.findOne({
-                            //     slug: dynamic_table.table_slug
-                            // })
                             tableTo = await tableVersion(mongoConn, { slug: dynamic_table.table_slug }, data.version_id, true)
                         }
                     }
@@ -1390,7 +1382,6 @@ let relationStore = {
                     }
                     let view = await View.findOne({
                         $and: [
-                            // { relation_table_slug: data.table_slug },
                             { relation_id: relations[i].id },
                         ],
                     });
@@ -1424,13 +1415,9 @@ let relationStore = {
                     responseRelations.push(responseRelation);
                     continue;
                 }
-                // let tableTo = await Table.findOne({
-                //     slug: relations[i].table_to
-                // })
                 let tableTo = await tableVersion(mongoConn, { slug: relations[i].table_to }, data.version_id, true)
                 let view = await View.findOne({
                     $and: [
-                        // { relation_table_slug: data.table_slug },
                         { relation_id: relations[i].id },
                     ],
                 });

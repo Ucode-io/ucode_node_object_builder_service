@@ -13,7 +13,7 @@ const numberFormatter = require("../../helper/formatNumber")
 const mongoPool = require('../../pkg/pool');
 var JsBarcode = require('jsbarcode');
 const { DOMImplementation, XMLSerializer } = require('xmldom');
-const { v4 } = require("uuid");
+const { v4, validate: validateUUID } = require("uuid");
 const xmlSerializer = new XMLSerializer();
 const document = new DOMImplementation().createDocument('http://www.w3.org/1999/xhtml', 'html', null);
 const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -33,7 +33,6 @@ let viewStore = {
             const Role = mongoConn.models['role']
             const ViewPermission = mongoConn.models['view_permission']
             const Relation = mongoConn.models['Relation']
-            const History = mongoConn.models['object_builder_service.version_history']
 
             const idsRes = await Table.aggregate([
                 { $match: { slug: data.table_slug } },
@@ -153,11 +152,6 @@ let viewStore = {
             if(data.type == VIEW_TYPES.BOARD) {
                 await BoardOrderChecker(mongoConn, data.table_slug)
             }
-            
-            // const beforeUpdate = await View.findOne({id: data.id})
-            // if(!beforeUpdate) {
-            //     throw new Error("View not found with given id")
-            // }
 
             let view = data;
             if (view.type == VIEW_TYPES.TABLE && view?.attributes?.group_by_columns) {
@@ -236,40 +230,101 @@ let viewStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const View = mongoConn.models['View']
 
-            let filterField = "table_slug", filterValue = data.table_slug;
-            if (data.menu_id && data.menu_id != "") {
+            let filterField = "table_slug", filterValue = data.menu_id;
+            let is = true;
+
+            if (data.menu_id && validateUUID(data.menu_id)) {
                 filterField = "menu_id";
                 filterValue = data.menu_id;
+                is = false;
             }
 
             let query = {
                 [filterField]: filterValue,
             }
 
-            const views = await View.find(
+            const pipeline = [
                 {
-                    [filterField]: filterValue,
+                    $match: {
+                        [filterField]: filterValue
+                    }
                 },
                 {
-                    created_at: 0,
-                    updated_at: 0,
-                    createdAt: 0,
-                    updatedAt: 0,
-                    _id: 0,
-                    __v: 0
+                    $sort: { order: 1 }
                 },
                 {
-                    sort: { order: 1 }
+                    $lookup: {
+                        from: "tables",
+                        localField: "relation_table_slug",
+                        foreignField: "slug",
+                        as: "table_info"
+                    }
+                },
+                {
+                    $lookup: {
+                        from: "view_permissions",
+                        let: { view_id: "$id" },
+                        pipeline: [
+                            {
+                                $match: {
+                                    $expr: {
+                                        $and: [
+                                            { $eq: ["$view_id", "$$view_id"] },
+                                            { $eq: ["$role_id", data.role_id] }
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        as: "view_permissions"
+                    }
+                },
+                {
+                    $addFields: {
+                        table_label: { $arrayElemAt: ["$table_info.label", 0] },
+                        has_permission: { $gt: [{ $size: "$view_permissions" }, 0] }
+                    }
+                },
+                {
+                    $project: {
+                        created_at: 0,
+                        updated_at: 0,
+                        createdAt: 0,
+                        updatedAt: 0,
+                        _id: 0,
+                        __v: 0,
+                        table_info: 0,
+                        view_permissions: 0
+                    }
                 }
-            ).populate({ path: "view_permissions", $match: { role_id: data.role_id } }).lean();
-            views.forEach(el => {
-                if (el.attributes) {
-                    el.attributes["view_permissions"] = el["view_permissions"]
-                    el.attributes = struct.encode(el)
-                }
-            })
+            ]
+
+            const views = await View.aggregate(pipeline)
 
             const count = await View.countDocuments(query);
+
+            const processedViews = views.map(view => {
+                if (!view.attributes) {
+                    view.attributes = {};
+                }
+                view.attributes.view_permissions = view.has_permission;
+                delete view.has_permission;
+                return view;
+            });
+
+            if (is) {
+                const sectionExists = processedViews.some(view => 
+                    view.type === 'SECTION' && view.table_slug === data.menu_id
+                );
+
+                if (!sectionExists) {
+                    processedViews.push({
+                        id: v4(),
+                        table_slug: data.menu_id,
+                        type: 'SECTION',
+                    })
+                }
+            }
 
             const endMemoryUsage = process.memoryUsage();
 
@@ -291,7 +346,7 @@ let viewStore = {
                 logger.info(`--> P-M Memory used by getList view: ${memoryUsed.toFixed(2)} MB Project-> ${data.project_id}`);
             }
 
-            return { views, count };
+            return { views: processedViews, count };
 
         } catch (err) {
             throw err

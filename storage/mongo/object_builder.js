@@ -2814,7 +2814,7 @@ let objectBuilder = {
                 for (const view_field of params.view_fields) {
                     let field = fields.find(val => (val.slug === view_field))
                     let obj = {}; 
-                    if (!constants.NUMBER_TYPES.includes(field.type) && !constants.BOOLEAN_TYPES.includes(field.type)) {
+                    if (!constants.NUMBER_TYPES.includes(field?.type) && !constants.BOOLEAN_TYPES.includes(field?.type)) {
                         const plusRegex = /\+/;
                         const numbersOnlyRegex = /^[\d\s]+$/;
 
@@ -2823,7 +2823,7 @@ let objectBuilder = {
                         }
                         obj[view_field] = { $regex: new RegExp(params.search.toString(), "i") }
                         arrayOfViewFields.push(obj)
-                    } else if (constants.NUMBER_TYPES.includes(field.type) && !isNaN(params.search)) {
+                    } else if (constants.NUMBER_TYPES.includes(field?.type) && !isNaN(params.search)) {
                         obj[view_field] = params.search
                         arrayOfViewFields.push(obj)
                     }

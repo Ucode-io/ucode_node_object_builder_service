@@ -4,7 +4,6 @@ const tableStore = require("../storage/mongo/table");
 const fieldStore = require("../storage/mongo/field");
 const viewStore = require("../storage/mongo/view");
 const catchWrapService = require("../helper/catchWrapService");
-const { v4 } = require("uuid");
 
 const NAMESPACE = `services.table`;
 
@@ -24,6 +23,7 @@ const tableService = {
             viewData.project_id = call.request.project_id
             viewData.env_id = call.env_id
             viewData.id = call.request.view_id
+            viewData.menu_id = call.request.menu_id
             call.view = viewData
             await viewStore.create(call.view);
 
@@ -33,7 +33,7 @@ const tableService = {
                 app_id: call.request.app_id,
                 project_id: call.request.project_id,
                 env_id: call.env_id,
-                id: v4()
+                menu_id: call.request.menu_id
             };
             await viewStore.create(sectionViewData);
 

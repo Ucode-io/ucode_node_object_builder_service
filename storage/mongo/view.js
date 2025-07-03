@@ -13,7 +13,7 @@ const numberFormatter = require("../../helper/formatNumber")
 const mongoPool = require('../../pkg/pool');
 var JsBarcode = require('jsbarcode');
 const { DOMImplementation, XMLSerializer } = require('xmldom');
-const { v4 } = require("uuid");
+const { v4, validate: validateUUID } = require("uuid");
 const xmlSerializer = new XMLSerializer();
 const document = new DOMImplementation().createDocument('http://www.w3.org/1999/xhtml', 'html', null);
 const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -33,7 +33,6 @@ let viewStore = {
             const Role = mongoConn.models['role']
             const ViewPermission = mongoConn.models['view_permission']
             const Relation = mongoConn.models['Relation']
-            const History = mongoConn.models['object_builder_service.version_history']
 
             const idsRes = await Table.aggregate([
                 { $match: { slug: data.table_slug } },
@@ -153,11 +152,6 @@ let viewStore = {
             if(data.type == VIEW_TYPES.BOARD) {
                 await BoardOrderChecker(mongoConn, data.table_slug)
             }
-            
-            // const beforeUpdate = await View.findOne({id: data.id})
-            // if(!beforeUpdate) {
-            //     throw new Error("View not found with given id")
-            // }
 
             let view = data;
             if (view.type == VIEW_TYPES.TABLE && view?.attributes?.group_by_columns) {
@@ -236,9 +230,10 @@ let viewStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const View = mongoConn.models['View']
 
-            let filterField = "relation_table_slug", filterValue = data.menu_id;
+            let filterField = "table_slug", filterValue = data.menu_id;
             let is = true;
-            if (data.menu_id && data.menu_id != "") {
+
+            if (data.menu_id && validateUUID(data.menu_id)) {
                 filterField = "menu_id";
                 filterValue = data.menu_id;
                 is = false;
@@ -327,7 +322,6 @@ let viewStore = {
                         id: v4(),
                         table_slug: data.menu_id,
                         type: 'SECTION',
-                        order: processedViews.length + 1
                     })
                 }
             }

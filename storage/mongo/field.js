@@ -1,5 +1,5 @@
 const catchWrapDb = require("../../helper/catchWrapDb");
-const { v4: uuidv4, validate: validateUUID } = require("uuid");
+const { v4, validate: validateUUID } = require("uuid");
 const con = require("../../helper/constants");
 const { struct } = require('pb-util');
 const ObjectBuilder = require("../../models/object_builder");
@@ -17,7 +17,6 @@ let fieldStore = {
             const mongoConn = await mongoPool.get(data.project_id)
             const Table = mongoConn.models['Table']
             const Field = mongoConn.models['Field']
-            const History = mongoConn.models['object_builder_service.version_history']
 
             data.fields.push({
                 slug: "guid",

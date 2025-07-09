@@ -308,6 +308,7 @@ let viewStore = {
                     view.attributes = {};
                 }
                 view.attributes.view_permissions = view.has_permission;
+                view.attributes = struct.encode(view.attributes);
                 delete view.has_permission;
                 return view;
             });

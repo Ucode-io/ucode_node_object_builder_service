@@ -350,6 +350,7 @@ let tableStore = {
 
                 table = await Table.findOneAndUpdate({ id: data.id }, { $set: data }, { new: true } )
             }
+            data.menu_id = menuId
 
             
             return {

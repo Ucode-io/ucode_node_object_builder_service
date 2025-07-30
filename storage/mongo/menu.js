@@ -23,10 +23,41 @@ let menuStore = {
             const Table = mongoConn.models['Table']
             const View = mongoConn.models['View']
             const ViewPermission = mongoConn.models['view_permission']
+            const Relation = mongoConn.models['Relation']
 
             if(!data.id) {
                 data.id = v4()
             }
+
+            const idsRes = await Table.aggregate([
+                { $match: { slug: data.table_slug } },
+                {
+                    $lookup: {
+                        from: "fields",
+                        localField: "id",
+                        foreignField: "table_id",
+                        as: "fields"
+                    }
+                },
+                {  $unwind: "$fields" },
+                { $match: {"fields.slug": { $nin: ["folder_id", "guid"] } } },
+                {
+                    $group: {
+                        _id: null,
+                        ids: { $addToSet: "$fields.id" }
+                    }
+                },
+                {
+                    $project: {
+                        _id: 0,
+                        ids: 1
+                    }
+                }
+            ]);
+
+            const ids = idsRes.length > 0 ? idsRes[0].ids : [];
+            const documents = await Relation.find({ table_from: data.table_slug }, { id: 1 }).lean().exec();
+            ids.push(...documents.map(doc => doc.id));
 
             let tableViewId, sectionViewId;
             if (data.new_router && data.type == "TABLE") {
@@ -47,6 +78,7 @@ let menuStore = {
                         table_slug: table.slug,
                         type: "TABLE",
                         menu_id: data.id,
+                        columns: ids,
                         created_at: new Date(),
                         updated_at: new Date()
                     },
@@ -55,6 +87,7 @@ let menuStore = {
                         table_slug: table.slug,
                         type: "SECTION",
                         menu_id: data.id,
+                        columns: ids,
                         created_at: new Date(),
                         updated_at: new Date()
                     }

@@ -20,9 +20,80 @@ let menuStore = {
 
             const Menu = mongoConn.models['object_builder_service.menu']
             const menuPermissionTable = mongoConn.models['menu_permission']
+            const Table = mongoConn.models['Table']
+            const View = mongoConn.models['View']
+            const ViewPermission = mongoConn.models['view_permission']
+            const Relation = mongoConn.models['Relation']
 
             if(!data.id) {
                 data.id = v4()
+            }
+
+            const idsRes = await Table.aggregate([
+                { $match: { slug: data.table_slug } },
+                {
+                    $lookup: {
+                        from: "fields",
+                        localField: "id",
+                        foreignField: "table_id",
+                        as: "fields"
+                    }
+                },
+                {  $unwind: "$fields" },
+                { $match: {"fields.slug": { $nin: ["folder_id", "guid"] } } },
+                {
+                    $group: {
+                        _id: null,
+                        ids: { $addToSet: "$fields.id" }
+                    }
+                },
+                {
+                    $project: {
+                        _id: 0,
+                        ids: 1
+                    }
+                }
+            ]);
+
+            const ids = idsRes.length > 0 ? idsRes[0].ids : [];
+            const documents = await Relation.find({ table_from: data.table_slug }, { id: 1 }).lean().exec();
+            ids.push(...documents.map(doc => doc.id));
+
+            let tableViewId, sectionViewId;
+            if (data.new_router && data.type == "TABLE") {
+                const table = await Table.findOne({
+                    id: data.table_id,
+                })
+
+                if (!table) {
+                    throw new Error("Table not found");
+                }
+
+                tableViewId = v4();
+                sectionViewId = v4();
+
+                const views = [
+                    {
+                        id: tableViewId,
+                        table_slug: table.slug,
+                        type: "TABLE",
+                        menu_id: data.id,
+                        columns: ids,
+                        created_at: new Date(),
+                        updated_at: new Date()
+                    },
+                    {
+                        id: sectionViewId,
+                        table_slug: table.slug,
+                        type: "SECTION",
+                        menu_id: data.id,
+                        columns: ids,
+                        created_at: new Date(),
+                        updated_at: new Date()
+                    }
+                ];
+
+                await View.insertMany(views);
             }
 
             if (data.type === "TABLE") {
@@ -62,6 +133,8 @@ let menuStore = {
             const roleTable = mongoConn.models["role"]
             const roles = await roleTable?.find({})
             let permissions = []
+            let viewPermissions = []
+
             for (const role of roles) {
                 let permissionRecord = {
                     guid: v4(),
@@ -74,13 +147,30 @@ let menuStore = {
                 }
                 permissions.push(permissionRecord)
 
-            }
-            if (permissions.length) {
-                try {
-                    await menuPermissionTable.insertMany(permissions)
-                } catch (err) {
-                    logger.error(err)
+                if (data.new_router && data.type == "TABLE") {
+                    viewPermissions.push({
+                        guid: v4(),
+                        view_id: tableViewId,
+                        role_id: role.guid,
+                        view: true,
+                        edit: true,
+                        delete: true
+                    });
+                    viewPermissions.push({
+                        guid: v4(),
+                        view_id: sectionViewId,
+                        role_id: role.guid,
+                        view: true,
+                        edit: true,
+                        delete: true
+                    });
                 }
+            }
+            if (permissions.length > 0) {
+                await menuPermissionTable.insertMany(permissions);
+            }
+            if (viewPermissions.length > 0) {
+                await ViewPermission.insertMany(viewPermissions);
             }
 
             const endMemoryUsage = process.memoryUsage();

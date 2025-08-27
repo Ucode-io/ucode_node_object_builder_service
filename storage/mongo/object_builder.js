@@ -2648,7 +2648,7 @@ let objectBuilder = {
                 order = { createdAt: -1 }
             }
         }
-     
+    
         const permission = await permissionTable.models.findOne({
             $and: [
                 {
@@ -2867,6 +2867,10 @@ let objectBuilder = {
                         formattedNumber += char
                     }
                     params[key] = RegExp(formattedNumber, "i")
+                } else if (field && constants.NUMBER_TYPES.includes(field?.type)) {
+                    if (!isNaN(params[key]) && params[key] !== "") {
+                        params[key] = parseFloat(params[key]);
+                    }
                 } else if (numberPattern.test(params[key]) && field?.type != "SINGLE_LINE" && field?.type != "INCREMENT_ID") {
                     parseNum = parseFloat(params[key])
                     params[key] = parseNum
@@ -3025,20 +3029,20 @@ let objectBuilder = {
                 let query = tableInfo.models.find(
                     { ...params },
                     {
-                      createdAt: 0,
-                      updatedAt: 0,
-                      created_at: 0,
-                      updated_at: 0,
-                      _id: 0,
-                      __v: 0,
-                      ...unusedFieldsSlugs
+                    createdAt: 0,
+                    updatedAt: 0,
+                    created_at: 0,
+                    updated_at: 0,
+                    _id: 0,
+                    __v: 0,
+                    ...unusedFieldsSlugs
                     }
-                  ).sort(order);
-                  
-                  query = query.skip(offset);
-                  
+                ).sort(order);
+                
+                query = query.skip(offset);
+                
                 result = await query.limit(limit).populate(populateArr).lean();
-                  
+                
                 result = result.filter(obj => Object.keys(tableParams).every(key => obj[key]))
             }
         }

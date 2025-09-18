@@ -28,7 +28,7 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         ":" +
         "27017" +
         "/" +
-        Config.mongoDatabase + "?replicaSet=rs0";
+        Config.mongoDatabase;
     }
 
     let options = {

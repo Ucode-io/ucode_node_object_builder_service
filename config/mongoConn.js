@@ -26,7 +26,7 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         "@" +
         Config.mongoHost +
         ":" +
-        Config.mongoPort +
+        "27017" +
         "/" +
         Config.mongoDatabase;
     }

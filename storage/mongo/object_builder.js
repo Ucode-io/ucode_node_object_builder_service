@@ -6761,6 +6761,8 @@ let objectBuilder = {
             const allTables = await ObjectBuilder(true, req.project_id);
             const tableInfo = allTables[req.table_slug];
 
+			const Relation = mongoConn.models['Relation']
+
             const {
                 group_by: groupBy = {},
                 subgroup_by: subgroupBy = {}
@@ -6775,8 +6777,100 @@ let objectBuilder = {
                 throw new Error("group_by field is required");
             }
 
-            const groupPipeline = [
-                { $match: { deleted_at: null } },
+			const permissionTable = allTables["record_permission"];
+			const permission = await permissionTable.models.findOne({
+				$and: [
+					{ role_id: params["role_id_from_token"] },
+					{ table_slug: req.table_slug }
+				]
+			});
+
+			let relations = [];
+			relations = await Relation.find({
+				$or: [
+					{ table_from: req.table_slug },
+					{ table_to: req.table_slug },
+					{ "dynamic_tables.table_slug": req.table_slug }
+				]
+			});
+
+			if (permission?.is_have_condition) {
+				const automaticFilterTable = allTables["automatic_filter"]; 
+				const automatic_filters = await automaticFilterTable.models.find({
+					$and: [
+						{ role_id: params["role_id_from_token"] },
+						{ table_slug: req.table_slug },
+						{ method: "read" }
+					]
+				});
+				if (automatic_filters.length) {
+					for (const autoFilter of automatic_filters) {
+						if (autoFilter.not_use_in_tab && params.from_tab) {
+							continue;
+						}
+						let many2manyRelation = false;
+						if (autoFilter?.object_field?.includes('#')) {
+							let splitedElement = autoFilter.object_field.split('#');
+							autoFilter.object_field = splitedElement[0];
+							let obj = relations.find(el => el.id === splitedElement[1]);
+							if (obj) {
+								if (obj.type === 'Many2One' && obj.table_from === req.table_slug) {
+									autoFilter.custom_field = obj.field_from;
+								} else if (obj.type === 'Many2Many') {
+									many2manyRelation = true;
+									if (obj.table_from === req.table_slug) {
+										autoFilter.custom_field = obj.field_from;
+									} else if (obj.table_to === req.table_slug) {
+										autoFilter.custom_field = obj.field_to;
+									}
+								}
+							}
+						}
+						if (autoFilter.custom_field === "user_id") {
+							if (autoFilter.object_field !== req.table_slug) {
+								if (!many2manyRelation) {
+									params[autoFilter.object_field + "_id"] = params["user_id_from_token"];
+								} else {
+									params[autoFilter.object_field + "ids"] = { $in: params["user_id_from_token"] };
+								}
+							}
+						} else {
+							let connectionTableSlug = autoFilter.custom_field.slice(0, autoFilter.custom_field.length - 3);
+							let objFromAuth = params?.tables?.find(obj => obj.table_slug === autoFilter.object_field);
+							if (objFromAuth) {
+								if (connectionTableSlug !== req.table_slug) {
+									if (!many2manyRelation) {
+										params[autoFilter.custom_field] = [objFromAuth.object_id];
+									} else {
+										params[autoFilter.custom_field] = { $in: params["user_id_from_token"] };
+									}
+								}
+							} else {
+								params[autoFilter.custom_field] = [params["user_id_from_token"]];
+							}
+						}
+					}
+				}
+			} else {
+				let objFromAuth = params?.tables?.find(obj => obj.table_slug === req.table_slug);
+				if (objFromAuth) {
+					params["guid"] = objFromAuth.object_id;
+				}
+			}
+
+			const matchConditions = { deleted_at: null };
+			const filterFields = Object.keys(params).filter(key =>
+				!['fields', 'group_by', 'subgroup_by', 'limit', 'offset', 'tables', 'view_fields', 'search'].includes(key)
+			);
+			filterFields.forEach(field => {
+				const value = params[field];
+				if (Array.isArray(value)) {
+					matchConditions[field] = { $in: value };
+				}
+			});
+
+			const groupPipeline = [
+				{ $match: matchConditions },
                 {
                     $unwind: {
                         path: `$${groupByField}`,
@@ -6807,9 +6901,9 @@ let objectBuilder = {
 
             let subgroups = [];
 
-            if (hasSubgroup) {
+			if (hasSubgroup) {
                 const subgroupPipeline = [
-                    { $match: { deleted_at: null } },
+					{ $match: matchConditions },
                     {
                         $addFields: {
                             _subgroupField: {

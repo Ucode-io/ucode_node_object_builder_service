@@ -5,7 +5,7 @@ include:
 
   - project: 'ucode/ops/ci-cd'
     ref: master
-    file: 'microservices/cd.gitlab-ci.yml'
+    file: 'microservices/cd-node-object-builder.gitlab-ci.yml'
 
 stages:
   - build

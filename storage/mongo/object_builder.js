@@ -5604,6 +5604,8 @@ let objectBuilder = {
             throw new Error("View not found")
         }
 
+        // console.log("params", JSON.stringify(params))
+
         let groupColumnIds = []
         if (view.attributes && view.attributes.group_by_columns && view.attributes.group_by_columns.length) {
             groupColumnIds = view.attributes.group_by_columns
@@ -5795,7 +5797,9 @@ let objectBuilder = {
             "user_id_from_token",
             "language_setting",
             "tables",
-            "search"
+            "search",
+            "lte",
+            "gte"
         ])
         let matchFilters = {}
         for (const [key, value] of Object.entries(params || {})) {
@@ -5884,6 +5888,7 @@ let objectBuilder = {
         }
 
 
+        // console.log("aggregationPipeline", JSON.stringify(aggregationPipeline))
         const response = await tableInfo.models.aggregate(aggregationPipeline)
         res = JSON.parse(JSON.stringify(response))
         const data = struct.encode({ response: res });

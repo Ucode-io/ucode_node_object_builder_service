@@ -5786,20 +5786,21 @@ let objectBuilder = {
         let aggregationPipeline = []
         // add filters from params (e.g., { "Status": ["Новый"] })
         const controlKeys = new Set([
-            "order",
-            "view_type",
-            "builder_service_view_id",
-            "limit",
-            "offset",
-            "with_relations",
-            "role_id_from_token",
             "client_type_id_from_token",
+            "builder_service_view_id",
             "user_id_from_token",
+            "role_id_from_token",
             "language_setting",
+            "with_relations",
+            "row_view_id",
+            "view_type",
             "tables",
+            "offset",
             "search",
+            "order",
+            "limit",
             "lte",
-            "gte"
+            "gte",
         ])
         let matchFilters = {}
         for (const [key, value] of Object.entries(params || {})) {

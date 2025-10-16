@@ -32,6 +32,7 @@ const logger = require("./config/logger");
             } 
         })
 
+        //e7eca43c-ee83-44c7-b20e-34a2892e34cd:mongodb://mbf_ebf657726f964d5fb08c65c915f85e2c_s_obj_build_svcs:s2FvRSOaxR@142.93.164.37:27017/mbf_ebf657726f964d5fb08c65c915f85e2c_s_obj_build_svcs
         //9b9f3c0c-919f-43a1-97f0-7165d0b39c6f:mongodb://calculator_b1927621534e416f8d45e61f9f2d7bde_p_obj_build_svcs:5vv8mjVykg@142.93.164.37:27017/calculator_b1927621534e416f8d45e61f9f2d7bde_p_obj_build_svcs
         //baa6651d-cc6e-4302-977f-843a976ede5f:mongodb://binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs:QGmh717SEf@142.93.164.37:27017/binn_7e2c2c8c522f4a40ae43a43b85ccd32e_p_obj_build_svcs
         //205a1e44-8f96-4b41-9613-55508ee66b80:mongodb://ucode_36aeec31639f41ad890b6aba6464695d_p_obj_build_svcs:0oVJgmwqDQ@142.93.164.37:27017/ucode_36aeec31639f41ad890b6aba6464695d_p_obj_build_svcs          

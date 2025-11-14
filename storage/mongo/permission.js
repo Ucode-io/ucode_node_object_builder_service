@@ -1564,7 +1564,8 @@ let permission = {
             version_button: true,
             gitbook_button: true,
             chatwoot_button: true,
-            gpt_button: true
+            gpt_button: true,
+            billing: true,
         }
         await CustomPermission.findOneAndUpdate({
             role_id: req.role_id,

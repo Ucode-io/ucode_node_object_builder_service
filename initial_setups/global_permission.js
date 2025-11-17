@@ -16,6 +16,7 @@ async function createAppPermission(guid, role_id) {
         "gitbook_button": true,
         "chatwoot_button": true,
         "gpt_button": true,
+        "billing": true,
         "createdAt": new Date(),
         "updatedAt": new Date(),
         "guid": guid,

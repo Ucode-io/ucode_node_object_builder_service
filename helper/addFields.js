@@ -747,6 +747,37 @@ module.exports = async function (data) {
             "updated_at": new Date(),
             "__v": 0,
             "is_system": true
+        },
+        {
+            "id": "e3435f15-e989-4c93-94d6-f0947248aa44",
+            "required": false,
+            "slug": "billing",
+            "label": "Billing",
+            "default": "",
+            "type": "SWITCH",
+            "index": "string",
+            "attributes": {
+                "fields": {
+                    "maxLength": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "placeholder": {
+                        "stringValue": "",
+                        "kind": "stringValue"
+                    },
+                    "showTooltip": {
+                        "boolValue": false,
+                        "kind": "boolValue"
+                    }
+                }
+            },
+            "is_visible": false,
+            "table_id": "1b066143-9aad-4b28-bd34-0032709e463b",
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "__v": 0,
+            "is_system": true
         }
     ]
         let bulkWriteFields = []

@@ -11,14 +11,16 @@ module.exports = async function (data) {
             $or: [
               { gitbook_button: { $exists: false } },
               { chatwoot_button: { $exists: false } },
-              { gpt_button: { $exists: false } }
+              { gpt_button: { $exists: false } },
+              { billing: { $exists: false } }
             ]
           },
           {
             $set: {
               gitbook_button: true,
               chatwoot_button: true,
-              gpt_button: true
+              gpt_button: true,
+              billing: true
             }
           },
           { strict: false }

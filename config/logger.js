@@ -22,16 +22,6 @@ const logger = winston.createLogger({
         }),
         winston.format.prettyPrint()
     ),
-    // transports: [
-    //     new winston.transports.File({
-    //         filename: "logs/debug.log",
-    //         level: "debug"
-    //     }),
-    //     new winston.transports.File({
-    //         filename: "logs/error.log",
-    //         level: "error"
-    //     })
-    // ]//
 });
 
 if (process.env.NODE_ENV !== "production") {

@@ -2,9 +2,6 @@ require('dotenv').config({ path: '/app/.env' });
 require("dotenv").config({ path: "./.env" })
 const projectStorage = require('./storage/mongo/project')
 const config = require('./config/index')
-// const mongooseConnection = require("./config/mongooseConnection");
-// @TODO:: add collection Delete Interval function for resources
-// const collectionDeleteInterval = require("./helper/collectionDeleteInterval"); 
 const grpcConnection = require("./config/grpcConnection");
 const kafka = require("./config/kafka");
 const logger = require("./config/logger");
@@ -25,7 +22,6 @@ const logger = require("./config/logger");
     try {
         logger.info(`autoconnecting to resources`);
         
-        // mongodb://autoservice_autoservice_object_builder_service:q6viL9SDOv@142.93.164.37:27017/autoservice_autoservice_object_builder_service
         await projectStorage.autoConnect(
             {
                 request: {
@@ -46,5 +42,3 @@ const logger = require("./config/logger");
 
 
 })();
-
-////

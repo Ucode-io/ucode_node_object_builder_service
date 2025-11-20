@@ -18,7 +18,6 @@ async function newMongoConn(Config, shouldCompileModels = true) {
         "?tls=true&authSource=admin&replicaSet=db-mongodb-ett-fra1-93798"
     } else {
         mongoDBUrl =
-        //`mongodb://medion_node_object_builder_service:Weipheingo7aeCho@46.101.114.171:27017/medion_node_object_builder_service`
         "mongodb://" +
         Config.mongoUser +
         ":" +
@@ -32,28 +31,21 @@ async function newMongoConn(Config, shouldCompileModels = true) {
     }
 
     let options = {
-        // poolSize: 10,
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        // useCreateIndex: true,
-        // useFindAndModify: false
     };
 
     if (Config.mongoHost == "localhost") {
         mongoDBUrl = `mongodb://${Config.mongoUser}:${Config.mongoPassword}@${Config.mongoHost}:${Config.mongoPort}/${Config.mongoDatabase}`;
         options = {
-            // poolSize: 10,
             authSource: "admin",
             user: Config.mongoUser,
             pass: Config.mongoPassword,
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            // useCreateIndex: true,
-            // useFindAndModify: false
         };
     }
 
-    // mongoDBUrl = `mongodb://localhost:27017/sandbox`;
 
     Logger.debug("connecting to mongodb: " + mongoDBUrl);
 

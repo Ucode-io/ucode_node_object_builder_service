@@ -1,0 +1,192 @@
+const { v4 } = require("uuid");
+
+const appCreate = require("../initial_setups/app");
+const createClientPlatform = require("../initial_setups/clientPlatforms");
+const createClientType = require("../initial_setups/clientType");
+const createRole = require("../initial_setups/role");
+const createUser = require("../initial_setups/user");
+const createTestLogin = require("../initial_setups/testLogin");
+const createField = require("../initial_setups/field");
+const createTable = require("../initial_setups/tables");
+const createRecordPermision = require("../initial_setups/recordPermission");
+const createFieldPermission = require("../initial_setups/fieldPermission");
+const createSection = require("../initial_setups/section");
+const createViewRelationPermissions = require("../initial_setups/viewRelationPermission");
+const createRelation = require("../initial_setups/relation");
+const createSettingLanguage = require("../initial_setups/setting_language");
+const createSettingCurrency = require("../initial_setups/setting_currency");
+const createSettingTimezone = require("../initial_setups/setting_timezone");
+const createLanguage = require("../initial_setups/language");
+const createGlobalPermission = require("../initial_setups/global_permission");
+const guessRole = require("../initial_setups/defaultRole")
+const settingCheker = require("./settingChecker")
+
+async function insertCollections(conn, userId, projectId, clientTypeID, roleID) {
+    const projectID = projectId.toString()
+    const clientPlatformID = v4().toString()
+    if (clientTypeID == "") {
+        clientTypeID = v4().toString()
+    }
+    if (roleID == "") {
+        roleID = v4().toString()
+    }
+    const userID = userId ? userId.toString() : ""
+    const testLoginID = v4().toString()
+
+    collections = await new Promise((resolve, reject) => {
+        let collections = {}
+        conn.db.listCollections()
+            .toArray(function (err, collectionNames) {
+                if (err) {
+                    reject(err)
+                }
+
+                for (let collection of collectionNames) {
+                    collections[collection.name] = collection.name
+                }
+
+                resolve(collections)
+            });
+    })
+
+
+    if (!collections['apps']) {
+        const app = await appCreate()
+        await conn.collection('apps').insertMany(app, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['tables']) {
+        const table = await createTable()
+        conn.collection('tables').insertMany(table, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['fields']) {
+        const fields = await createField()
+        conn.collection('fields').insertMany(fields, function (err, result) {
+            if (err) throw err;
+        })
+
+    }
+
+    if (!collections['sections']) {
+        const section = await createSection()
+        conn.collection('sections').insertMany(section, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+
+    if (!collections['client_platforms']) {
+        const clientPlatform = await createClientPlatform(clientPlatformID, clientTypeID, projectID)
+        conn.collection('client_platforms').insertMany(clientPlatform, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['client_types']) {
+        const clientType = await createClientType(clientPlatformID, clientTypeID, projectID)
+        conn.collection('client_types').insertMany(clientType, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['roles']) {
+        const role = await createRole(roleID, clientPlatformID, clientTypeID, projectID)
+        conn.collection('roles').insertMany(role, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['users']) {
+        const user = await createUser(userID, roleID, clientTypeID, clientPlatformID, projectID)
+        conn.collection('users').insertMany(user, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['test_logins']) {
+        const testLogin = await createTestLogin(testLoginID, clientTypeID)
+        conn.collection('test_logins').insertMany(testLogin, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['global_permissions']) {
+        const permissions = await createGlobalPermission(v4().toString(), roleID)
+        conn.collection('global_permissions').insertMany(permissions, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['relations']) {
+        const relation = await createRelation()
+        conn.collection('relations').insertMany(relation, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['record_permissions']) {
+        let recordPermission = await createRecordPermision(roleID)
+        let guessRecordPermission = await createRecordPermision(guessRole.id)
+        recordPermission.push(...guessRecordPermission)
+        conn.collection('record_permissions').insertMany(recordPermission, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['field_permissions']) {
+        let fieldPermissions = await createFieldPermission(roleID)
+        let guessFieldPermissions = await createFieldPermission(guessRole.id)
+        fieldPermissions.push(...guessFieldPermissions)
+        conn.collection('field_permissions').insertMany(fieldPermissions, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['view_relation_permissions']) {
+
+        const viewRelationPermissions = await createViewRelationPermissions(roleID)
+        conn.collection('view_relation_permissions').insertMany(viewRelationPermissions, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['setting.languages']) {
+        
+        const settingLanguages = await createSettingLanguage()
+        conn.collection('setting.languages').insertMany(settingLanguages, function (err, result) {
+            if (err) throw err;
+        })
+    }
+    
+    if (!collections['setting.currencies']) {
+
+        const settingCurrencies = await createSettingCurrency()
+        conn.collection('setting.currencies').insertMany(settingCurrencies, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['setting.timezones']) {
+
+        const settingTimezones = await createSettingTimezone()
+        conn.collection('setting.timezones').insertMany(settingTimezones, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    if (!collections['languages']) {
+        const languages = await createLanguage()
+        conn.collection('languages').insertMany(languages, function (err, result) {
+            if (err) throw err;
+        })
+    }
+
+    await settingCheker(conn, projectId)
+}
+
+module.exports = insertCollections

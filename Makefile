@@ -1,0 +1,60 @@
+CURRENT_DIR=$(shell pwd)
+
+APP=$(shell basename ${CURRENT_DIR})
+
+APP_CMD_DIR=${CURRENT_DIR}/cmd
+
+REGISTRY=gitlab.udevs.io:5050
+TAG=latest
+ENV_TAG=latest
+PROJECT_NAME=${PROJECT_NAME}
+DOCKERFILE=Dockerfile
+
+build:
+	CGO_ENABLED=0 GOOS=linux go build -mod=vendor -a -installsuffix cgo -o ${CURRENT_DIR}/bin/${APP} ${APP_CMD_DIR}/main.go
+
+proto-gen:
+	./scripts/gen-proto.sh  ${CURRENT_DIR}
+	rm -rf vendor/genproto
+	sudo rm -rf ${GOROOT}/src/genproto
+	sudo cp -R genproto ${GOROOT}/src
+	mv genproto vendor
+
+copy-proto-module: # for node.js services
+	rm -rf ${CURRENT_DIR}/protos
+	mkdir ${CURRENT_DIR}/protos
+	cp -R ucode_protos/*_service* ${CURRENT_DIR}/protos
+
+
+pull-proto-module:
+	git submodule update --init --recursive
+
+update-proto-module:
+	git submodule update --remote --merge
+
+clear:
+	rm -rf ${CURRENT_DIR}/bin/*
+
+network:
+	docker network create --driver=bridge ${NETWORK_NAME}
+
+mark-as-production-image:
+	docker tag ${REGISTRY}/${APP}:${TAG} ${REGISTRY}/${APP}:production
+	docker push ${REGISTRY}/${APP}:production
+
+build-image:
+	docker build --rm -t ${REGISTRY}/${PROJECT_NAME}/${APP}:${TAG} . -f ${DOCKERFILE}
+	docker tag ${REGISTRY}/${PROJECT_NAME}/${APP}:${TAG} ${REGISTRY}/${PROJECT_NAME}/${APP}:${ENV_TAG}
+
+push-image:
+	docker push ${REGISTRY}/${PROJECT_NAME}/${APP}:${TAG}
+	docker push ${REGISTRY}/${PROJECT_NAME}/${APP}:${ENV_TAG}
+
+clear-image:
+	docker rmi ${REGISTRY}/${PROJECT_NAME}/${APP}:${TAG}
+	docker rmi ${REGISTRY}/${PROJECT_NAME}/${APP}:${ENV_TAG}
+
+swag_init:
+	swag init -g api/main.go -o api/docs
+
+.PHONY: proto

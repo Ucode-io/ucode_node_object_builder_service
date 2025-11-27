@@ -1,0 +1,94 @@
+const mongoose = require("mongoose");
+const { v4 } = require("uuid");
+
+const TableSchema = mongoose.Schema(
+    {
+        id: {
+            type: String,
+            default: v4,
+        },
+        label: {
+            type: String,
+            required: [true, "Table must have label"],
+        },
+        slug: {
+            type: String,
+            required: [true, "Table must have slug"],
+        },
+        description: {
+            type: String,
+        },
+        deleted_at: {
+            type: Date,
+            default: "1970-01-01T18:00:00.000+00:00",
+        },
+        show_in_menu: {
+            type: Boolean,
+            default: true,
+        },
+        is_changed: {
+            type: Boolean,
+            default: true,
+        },
+        icon: {
+            type: String,
+        },
+        subtitle_field_slug: {
+            type: String,
+        },
+        folder_id: {
+            type: String
+        },
+        commit_guid: {
+            type: String
+        },
+        is_cached: {
+            type: Boolean,
+            default: false
+        },
+        is_system: {
+            type: Boolean,
+            default: false
+        },
+        soft_delete: {
+            type: Boolean,
+            default: false
+        },
+        is_login_table: {
+            type: Boolean,
+            default: false
+        },
+        attributes: {
+            type: mongoose.Schema.Types.Mixed
+        },
+        is_system: {
+            type: Boolean,
+        },
+        order_by: {
+            type: Boolean,
+            default: false
+        },
+        is_changed_by_host: {
+            type: mongoose.Schema.Types.Object
+        },
+        section_column_count: {
+            type: Number,
+            default: 3
+        }
+    },
+    {
+        timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
+        toObject: { virtuals: true },
+        toJSON: { virtuals: true },
+    }
+);
+
+TableSchema.virtual("record_permissions", {
+    ref: "record_permission",
+    localField: "slug",
+    foreignField: "table_slug",
+    justOne: true,
+})
+
+TableSchema.index({ 'slug': 1, 'deleted_at': 1, }, { unique: true });
+module.exports = TableSchema

@@ -1,0 +1,69 @@
+const mongoose = require("mongoose");
+const { v4 } = require("uuid");
+
+const LayoutSchema = mongoose.Schema(
+    {
+        id: {
+            type: String,
+            default: v4,
+            unique: true
+        },
+        table_id: {
+            type: String,
+            required: [true, "Layout must have table_id"],
+            sparse: true
+        },
+        order: {
+            type: Number,
+            required: [true, "Layout must have order"],
+        },
+        label: {
+            type: String,
+            sparse: true
+        },
+        icon: {
+            type: String
+        },
+        type: {
+            type: String,
+            enum: ['SimpleLayout', 'PopupLayout']
+        },
+        is_default: {
+            type: Boolean
+        },
+        summary_fields: {
+            type: mongoose.Schema.Types.Mixed
+        },
+        is_default: {
+            type: Boolean,
+        },
+        attributes: {
+            type: mongoose.Schema.Types.Mixed
+        },
+        is_visible_section: {
+            type: Boolean,
+        },
+        is_modal: {
+            type: Boolean,
+        },
+        menu_id: {
+            type: String
+        }
+    },
+    {
+        timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
+        toObject: { virtuals: true },
+        toJSON: { virtuals: true },
+    }
+);
+
+LayoutSchema.virtual("tabs", {
+    ref: "Tab",
+    localField: "id",
+    foreignField: 'layout_id',
+    justOne: false
+})
+
+LayoutSchema.index({ 'table_id': 1 }, { unique: true });
+
+module.exports = LayoutSchema;

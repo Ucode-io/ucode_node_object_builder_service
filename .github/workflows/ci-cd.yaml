@@ -1,0 +1,35 @@
+name: CI/CD
+
+on:
+  workflow_dispatch:
+    inputs:
+      NODE_OBJECT_BUILDER_TYPE:
+        type: choice
+        required: true
+        description: Which object builder's type to deploy?
+        options:
+        - high
+        - low
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  ci-cd-prod:
+    if: github.ref_name == 'master'
+    uses: Ucode-io/ci-cd/.github/workflows/node_obj_builder_ci_cd.yml@main
+    with:
+      ENVIRONMENT: production
+      ENV_TAG: latest
+      NODE_OBJECT_BUILDER_TYPE: ${{ inputs.NODE_OBJECT_BUILDER_TYPE }}
+    secrets: inherit
+
+  ci-cd-staging:
+    if: github.ref_name == 'staging'
+    uses: Ucode-io/ci-cd/.github/workflows/node_obj_builder_ci_cd.yml@main
+    with:
+      ENVIRONMENT: staging
+      ENV_TAG: test
+      NODE_OBJECT_BUILDER_TYPE: ${{ inputs.NODE_OBJECT_BUILDER_TYPE }}
+    secrets: inherit

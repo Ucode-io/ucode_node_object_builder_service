@@ -1,0 +1,301 @@
+const mongoPool = require('../pkg/pool');
+const bucket = require("./addMinioBucket");
+const folderMinio = require("./addMinioBucket");
+
+module.exports = async function (data) {
+    try {
+        const mongoConn = await mongoPool.get(data.project_id)
+        const Menu = mongoConn.models['object_builder_service.menu']
+        const MenuSettings = mongoConn.models['object_builder_service.menu.settings']
+        const Field = mongoConn.models['Field']
+
+        let rootMenu = await Menu.findOne({
+            id: "c57eedc3-a954-4262-a0af-376c65b5a284",
+        })
+
+        if (!rootMenu) {
+            rootMenu = await Menu.create({
+                id: "c57eedc3-a954-4262-a0af-376c65b5a284",
+                title: "Default folder",
+                parent_id: "",
+                label: "ROOT",
+                icon: "user-shield.svg",
+                table_id: "",
+                layout_id: "",
+                type: "FOLDER",
+                menu_settings_id: "adea69cd-9968-4ad0-8e43-327f6600abfd",
+                created_at: new Date(),
+                updated_at: new Date(),
+            })
+        }
+
+        let menu_settings = await MenuSettings.findOne({ id: "adea69cd-9968-4ad0-8e43-327f6600abfd" })
+        if (!menu_settings) {
+            menu_settings = await MenuSettings.create({
+                id: "adea69cd-9968-4ad0-8e43-327f6600abfd",
+                icon_style: "SIMPLE",
+                icon_size: "MEDIUM",
+            })
+            await Menu.findOneAndUpdate({ id: "c57eedc3-a954-4262-a0af-376c65b5a284" }, { $set: { menu_settings_id: menu_settings.id } }, { new: true })
+        }
+
+        let favourite = await Menu.findOne( { id: "c57eedc3-a954-4262-a0af-376c65b5a282" } )
+
+        if (!favourite) {
+            await Menu.create({
+                "label": "Content",
+                "icon": "folder.svg",
+                "id": "c57eedc3-a954-4262-a0af-376c65b5a282",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER",
+            })
+        } else {
+            await Menu.findOneAndUpdate({ id: "c57eedc3-a954-4262-a0af-376c65b5a282" }, { $set: { label: "Content" } }, { new: true })
+        }
+        
+        let adminMenu = await Menu.findOne( {id: "c57eedc3-a954-4262-a0af-376c65b5a280" } )
+        if (!adminMenu) {
+            await Menu.create({
+                "label": "Settings", // Admin ~> changed to Settings
+                "icon": "folder.svg",
+                "id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER",
+            })
+        } else {
+            if (adminMenu.label != "Settings") {
+                await Menu.findOneAndUpdate({id: "c57eedc3-a954-4262-a0af-376c65b5a280"}, {$set: {label: "Settings"}})
+            }
+        }
+
+        let analyticsMenu = await Menu.findOne( { id: "c57eedc3-a954-4262-a0af-376c65b5a278" } )
+        if (analyticsMenu) {
+            await Menu.findOneAndDelete({"id": "c57eedc3-a954-4262-a0af-376c65b5a278"})
+        }
+
+        let pivotMenu = await Menu.findOne( { id: "c57eedc3-a954-4262-a0af-376c65b5a276" } )
+        if (pivotMenu) {
+            await Menu.findOneAndDelete({"id": "c57eedc3-a954-4262-a0af-376c65b5a276"})
+        }
+
+        let reportSettingsMenu = await Menu.findOne( { id: "c57eedc3-a954-4262-a0af-376c65b5a274" } )
+        if (reportSettingsMenu) {
+            await Menu.findOneAndDelete({"id": "c57eedc3-a954-4262-a0af-376c65b5a274"})
+        }
+
+        let resourceMenu = await Menu.findOne( { id: "f313614f-f018-4ddc-a0ce-10a1f5716401" } )
+        if (resourceMenu) {
+            await Menu.findOneAndDelete({"id": "f313614f-f018-4ddc-a0ce-10a1f5716401"})
+        }
+
+        let constructorMenu = await Menu.findOne( { id: "c19594a8-9b5e-4c12-a0a1-f97c2357070c" } )
+        if (constructorMenu) {
+            await Menu.findOneAndDelete({"id": "c19594a8-9b5e-4c12-a0a1-f97c2357070c"})
+        }
+        
+
+        let files = await Menu.findOne( { id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9" } )
+        if (files) {
+            try {
+                await bucket.createMinioBucket(data.project_id)
+            } catch (err) {
+                logger.error(err)
+            }
+        }
+        if (!files) {
+            try {
+                await bucket.createMinioBucket(data.project_id)
+            } catch (err) {
+                logger.error(err)
+            }
+            await Menu.create({
+                "label": "Files",
+                "icon": "file-pdf.svg",
+                "id": "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "", 
+                "type": "FOLDER",
+                "bucket_path": data.project_id,
+            })
+        }
+        const file_types = ["PHOTO", "FILE", "VIDEO", "CUSTOM_IMAGE"]
+        let attributes = {
+            "fields": {
+              "label_aa": {
+                "stringValue": "Media",
+                "kind": "stringValue"
+              },
+              "label_ak": {
+                "stringValue": "Media",
+                "kind": "stringValue"
+              },
+              "path": {
+                "stringValue": "Media",
+                "kind": "stringValue"
+              }
+            }
+          };
+          
+        let default_minio_menu = await Menu.find( { parent_id: "8a6f913a-e3d4-4b73-9fc0-c942f343d0b9" } )
+        if (default_minio_menu.length == 1 && default_minio_menu[0].label == "Media") {
+            await Field.updateMany( { type: { $in: file_types } }, 
+                { $set: { 'attributes.fields.path.stringValue': 'Media' } }
+            )
+
+            await Menu.updateOne({id: "f4089a64-4f6f-4604-a57a-b1c99f4d16a8"}, {$set: {attributes: attributes}})
+        }
+        if (!default_minio_menu.length) {
+            await folderMinio.createFolderToBucket(data.project_id, "Media")
+            await Menu.create({
+                "id":"f4089a64-4f6f-4604-a57a-b1c99f4d16a8",
+                "icon":"",
+                "attributes": {
+                    "fields": {
+                      "label_aa": {
+                        "stringValue": "Media",
+                        "kind": "stringValue"
+                      },
+                      "label_ak": {
+                        "stringValue": "Media",
+                        "kind": "stringValue"
+                      },
+                      "path": {
+                        "stringValue": "Media",
+                        "kind": "stringValue"
+                      }
+                    }
+                  },
+                "parent_id":"8a6f913a-e3d4-4b73-9fc0-c942f343d0b9",
+                "type":"MINIO_FOLDER",
+                "label":"Media",
+             })
+            await Field.updateMany( { type: { $in: file_types } }, 
+                { $set: { 'attributes.fields.path.stringValue': 'Media' } } 
+            )
+
+         }
+
+        const UserAndPermissinMenu = await Menu.findOne( { id: "a8de4296-c8c3-48d6-bef0-ee17057733d6" } )
+        if(UserAndPermissinMenu) {
+            await Menu.findOneAndDelete({id: "a8de4296-c8c3-48d6-bef0-ee17057733d6"})
+        }
+
+        const userMenu = await Menu.findOne( { id: "9e988322-cffd-484c-9ed6-460d8701551b" } )
+        if(!userMenu) {
+            await Menu.create({
+                "label": "Users",
+                "icon": "folder.svg",
+                "id": "9e988322-cffd-484c-9ed6-460d8701551b",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER",
+            })
+        }
+
+        const documentsMenu = await Menu.findOne({id:"31a91a86-7ad3-47a6-a172-d33ceaebb35f"})
+        if (documentsMenu) {
+            await Menu.findOneAndDelete({id:"31a91a86-7ad3-47a6-a172-d33ceaebb35f"})
+        }
+
+        const wikiMenu = await Menu.findOne( { id: "744d63e6-0ab7-4f16-a588-d9129cf959d1" } )
+        if(!wikiMenu) {
+            await Menu.create({
+                "label": "Wiki",
+                "icon": "folder.svg",
+                "id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+                "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a284",
+                "table_id": "",
+                "layout_id": "",
+                "type": "FOLDER",
+            })
+        }
+
+        const wikiDocsMenu = await Menu.findOne( { id: "cd5f1ab0-432c-459d-824a-e64c139038ea" } )
+        if (!wikiDocsMenu) {
+            await Menu.create({
+                "label": "Wiki docs",
+                "parent_id": "744d63e6-0ab7-4f16-a588-d9129cf959d1",
+                "layout_id": "",
+                "table_id": "",
+                "type": "WIKI_FOLDER",
+                "icon": "folder.svg",
+                "is_visible": true,
+                "id": "cd5f1ab0-432c-459d-824a-e64c139038ea",
+                "created_at": new Date(),
+                "updated_at": new Date(),
+                "__v": 0,
+            })
+        }
+        let staticMenus = [
+        {
+            "label": "Data",
+            "icon": "database.svg",
+            "id": "d1b3b349-4200-4ba9-8d06-70299795d5e6",
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "__v": 0,
+            "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+            "table_id": "",
+            "layout_id": "",
+            "type": "FOLDER",
+        }, {
+            "label": "Code",
+            "icon": "code.svg",
+            "id": "f7d1fa7d-b857-4a24-a18c-402345f65df8",
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "__v": 0,
+            "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+            "table_id": "",
+            "layout_id": "",
+            "type": "FOLDER",
+        },  {
+            "label": "API",
+            "icon": "code.svg",
+            "id": "db4ffda3-7696-4f56-9f1f-be128d82ae68",
+            "created_at": new Date(),
+            "updated_at": new Date(),
+            "__v": 0,
+            "parent_id": "c57eedc3-a954-4262-a0af-376c65b5a280",
+            "table_id": "",
+            "layout_id": "",
+            "type": "FOLDER",
+        }
+    ]
+        let bulkWriteMenus = []
+        for (const menu of staticMenus) {
+            bulkWriteMenus.push({
+                updateOne: {
+                    filter: { id: menu.id },
+                    update: menu,
+                    upsert: true
+                },
+            })
+        }
+        await Menu.bulkWrite(bulkWriteMenus)
+
+
+    } catch (error) {
+    }
+}

@@ -28,6 +28,47 @@ const MenuStorage = require('./menu');
 const {OrderUpdate} = require('../../helper/board_order')
 const updateISODateFunction = require('../../helper/updateISODate');
 const personSync = require('../../helper/personSync');
+const {log} = require("winston");
+const {json} = require("mocha/lib/reporters");
+
+function decodeProtoValue(value) {
+    if (value === null || value === undefined) return value;
+
+    if (typeof value !== 'object') return value;
+
+    if ('stringValue' in value) return value.stringValue;
+    if ('numberValue' in value) return value.numberValue;
+    if ('boolValue' in value) return value.boolValue;
+    if ('nullValue' in value) return null;
+
+    if ('structValue' in value && value.structValue) {
+        return decodeProtoStruct(value.structValue);
+    }
+
+    if ('listValue' in value && value.listValue && Array.isArray(value.listValue.values)) {
+        return value.listValue.values.map(decodeProtoValue);
+    }
+
+    if ('fields' in value && typeof value.fields === 'object') {
+        return decodeProtoStruct(value);
+    }
+
+    return value;
+}
+
+function decodeProtoStruct(struct) {
+    if (!struct || typeof struct !== 'object') return {};
+
+    const fields = struct.fields || struct.structValue && struct.structValue.fields;
+    if (!fields) return {};
+
+    const out = {};
+    for (const key of Object.keys(fields)) {
+        out[key] = decodeProtoValue(fields[key]);
+    }
+    return out;
+}
+
 
 let NAMESPACE = "storage.object_builder";
 
@@ -143,7 +184,14 @@ let objectBuilder = {
             }
 
             if (tableData && tableData.is_login_table && !data.from_auth_service && !req.blocked_login_table) {
-                const tableAttributes = struct.decode(tableData.attributes)
+                const raw = struct.decode(tableData.attributes);
+
+                let tableAttributes;
+                if (raw && typeof raw === 'object' && ('fields' in raw || 'structValue' in raw)) {
+                    tableAttributes = decodeProtoStruct(raw);
+                } else {
+                    tableAttributes = raw || {};
+                }
 
                 if (tableAttributes && tableAttributes.auth_info) {
                     let authInfo = tableAttributes.auth_info
@@ -3247,14 +3295,29 @@ let objectBuilder = {
             let data = struct.decode(req.data)
             let field_ids = data.field_ids
             let language = data.language
-            delete req.data.fields.field_ids
-            req.data.fields.limit = {kind: 'intValue', value: 100}
-            req.data.fields.with_relations = {kind: 'boolValue', boolValue: true}
+
+            let timeZone = data.time_zone || ""
+
+            if (req.data && req.data.fields) {
+                delete req.data.fields.field_ids
+                req.data.fields.limit = {kind: 'intValue', value: 100}
+                req.data.fields.with_relations = {kind: 'boolValue', boolValue: true}
+            } else {
+                req.data = req.data || {}
+                req.data.fields = req.data.fields || {}
+                req.data.fields.limit = {kind: 'intValue', value: 100}
+                req.data.fields.with_relations = {kind: 'boolValue', boolValue: true}
+            }
+
             const res = await objectBuilder.getList(req)
-            delete req.data.fields.limit
+
+            if (req.data && req.data.fields) {
+                delete req.data.fields.limit
+            }
+
             const response = struct.decode(res.data)
-            const result = response.response
-            const decodedFields = response.fields
+            const result = response.response || []
+            const decodedFields = response.fields || []
 
             const selectedFields = [];
             if (Array.isArray(field_ids)) {
@@ -3266,38 +3329,72 @@ let objectBuilder = {
                     }
                 }
             }
+
+            if (typeof timeZone !== 'string' || timeZone.trim().length === 0) {
+                timeZone = "Asia/Tashkent"
+            }
+
             excelArr = []
             for (const obj of result) {
                 excelObj = {}
                 for (const field of selectedFields) {
-                    field.label = field.attributes[`label_${language}`]
+                    // guard: field.attributes может быть undefined
+                    try {
+                        field.label = field.attributes ? field.attributes[`label_${language}`] : (field.label || field.slug || '')
+                    } catch (e) {
+                        field.label = field.label || field.slug || ''
+                    }
 
-                    if (obj[field.slug]) {
+                    const value = obj ? obj[field.slug] : undefined
+                    const hasValue = value !== undefined && value !== null && value !== ''
+
+                    if (hasValue) {
                         if (field.type === "MULTI_LINE") {
-                            obj[field.slug] = obj[field.slug].replace(/<[^>]+>/g, '')
+                            if (typeof obj[field.slug] === 'string') {
+                                obj[field.slug] = obj[field.slug].replace(/<[^>]+>/g, '')
+                            }
                         }
 
                         if (field.type === "DATE") {
-                            toDate = new Date(obj[field.slug])
                             try {
-                                toDate.setHours(toDate.getHours() + 5)
-                                obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy')
+                                const raw = obj[field.slug];
+                                if (!raw) {
+                                    obj[field.slug] = "";
+                                } else {
+                                    const d = new Date(raw);
+                                    const p = formatInTimeZone(d, timeZone, {
+                                        year: 'numeric',
+                                        month: '2-digit',
+                                        day: '2-digit'
+                                    });
+                                    obj[field.slug] = `${p.day}.${p.month}.${p.year}`;
+                                }
                             } catch (error) {
+                                // ничего не делаем — оставим оригинал или пустую строку
                             }
                         }
 
                         if (field.type === "DATE_TIME") {
-                            toDate = new Date(obj[field.slug])
                             try {
-                                toDate.setHours(toDate.getHours() + 5);
-                                obj[field.slug] = fns_format(toDate, 'dd.MM.yyyy HH:mm')
+                                const raw = obj[field.slug];
+                                if (!raw) {
+                                    obj[field.slug] = "";
+                                } else {
+                                    const d = new Date(raw);
+                                    const p = formatInTimeZone(d, timeZone, {
+                                        year: 'numeric', month: '2-digit', day: '2-digit',
+                                        hour: '2-digit', minute: '2-digit', hour12: false
+                                    });
+                                    obj[field.slug] = `${p.day}.${p.month}.${p.year} ${p.hour}:${p.minute}`;
+                                }
                             } catch (error) {
+                                // ignore
                             }
                         }
 
                         if (field.type === "LOOKUP") {
                             let overall = ""
-                            if (typeof field.view_fields === "object" && field.view_fields.length) {
+                            if (Array.isArray(field.view_fields) && field.view_fields.length) {
                                 for (const view of field.view_fields) {
                                     if (obj[field.slug + "_data"] && obj[field.slug + "_data"][view.slug]) {
                                         if (view.enable_multilanguage) {
@@ -3315,14 +3412,15 @@ let objectBuilder = {
                             }
                             obj[field.slug] = overall
                         }
+
                         if (field.type === "MULTISELECT") {
                             let options = []
                             let multiselectValue = "";
-                            if (field.attributes) {
+                            if (field.attributes && Array.isArray(field.attributes.options)) {
                                 options = field.attributes.options
                             }
 
-                            if (obj[field.slug].length && options.length && Array.isArray(obj[field.slug])) {
+                            if (Array.isArray(obj[field.slug]) && obj[field.slug].length && Array.isArray(options) && options.length) {
                                 obj[field.slug].forEach(element => {
                                     let getLabelOfMultiSelect = options.find(val => (val.value === element))
                                     if (getLabelOfMultiSelect) {
@@ -3342,16 +3440,21 @@ let objectBuilder = {
 
                         excelObj[field.label] = obj[field.slug]
                     } else {
+                        // value отсутствует - используем default для MULTISELECT или пустую строку
                         if (field.type === "MULTISELECT") {
                             let options = []
                             let defaultValue = []
                             let multiselectValue = "";
                             if (field.attributes) {
-                                options = field.attributes.options
-                                defaultValue = field.attributes.defaultValue
+                                if (Array.isArray(field.attributes.options)) {
+                                    options = field.attributes.options
+                                }
+                                if (Array.isArray(field.attributes.defaultValue)) {
+                                    defaultValue = field.attributes.defaultValue
+                                }
                             }
 
-                            if (options.length && defaultValue.length) {
+                            if (Array.isArray(options) && options.length && Array.isArray(defaultValue) && defaultValue.length) {
                                 defaultValue.forEach(element => {
                                     let getLabelOfMultiSelect = options.find(val => (val.value === element))
                                     if (getLabelOfMultiSelect) {
@@ -3368,15 +3471,14 @@ let objectBuilder = {
                             }
                             obj[field.slug] = multiselectValue
                             excelObj[field.label] = obj[field.slug]
-
                         } else {
                             excelObj[field.label] = ""
-
                         }
                     }
                 }
                 excelArr.push(excelObj)
             }
+
             workSheet = XLSX.utils.json_to_sheet(excelArr);
             const workBook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(workBook, workSheet, "Sheet 1");
@@ -6486,6 +6588,20 @@ function normalizeValue(value, noGroupValue) {
     if (value === null || value === undefined) return noGroupValue;
     if (Array.isArray(value)) return value.length ? String(value[0]) : noGroupValue;
     return String(value);
+}
+
+function formatInTimeZone(date, tz, opts) {
+    const dtf = new Intl.DateTimeFormat('en-GB', {
+        timeZone: tz,
+        ...opts,
+    });
+
+    const parts = dtf.formatToParts(date).reduce((acc, p) => {
+        if (p.type !== 'literal') acc[p.type] = p.value;
+        return acc;
+    }, {});
+
+    return parts;
 }
 
 module.exports = objectBuilder;
